@@ -91,25 +91,23 @@ def word_score(word_value):
 
 def end_menu():
     """
-    Sets the specific wordlist to be used for the purpose of word validation.
+    Allows the user to either check another word or end the program.
     """
     while True:
         print('Options:')
         print('1 - Restart')
         print('2 - Close Program\n')
 
-        wordlist_value = input('Please indicate which wordlist you require: ')
+        option_value = input('Please indicate which option you require: ')
 
-        if wordlist_value == '1':
-            print('Loading EU/World (SWOPODS) wordlist...\n')
-            wordlist_txt = open('wl-eu-sowpods.txt', 'r')
+        if option_value == '1':
+            main()
             break
-        elif wordlist_value == '2':
-            print('Loading USA/Canada (TWL06) wordlist...\n')
-            wordlist_txt = open('wl-us-twl.txt', 'r')
+        elif option_value == '2':
+            print('Many thanks for using Scrabble Scorepad!\n')
             break
         else:
-            print(f'Sorry, {wordlist_value} is not a valid option.\n')
+            print(f'Sorry, {option_value} is not a valid option.\n')
 
 
 def main():
