@@ -33,7 +33,7 @@ LETTER_VALUES = {
 }
 
 
-# Main Functions
+# Functions
 
 def welcome_message():
     """
@@ -51,8 +51,7 @@ def wordlist_selector():
     Sets the specific wordlist to be used for the purpose of word validation.
     """
     while True:
-        print('Available Wordlists')
-        print('-------------------')
+        print('Available Wordlists:')
         print('1 - EU/World (SWOPODS)')
         print('2 - USA/Canada (TWL06)\n')
 
@@ -85,9 +84,9 @@ def word_validator(wordlist_txt):
     word_value = input('Please enter the word to be checked and scored: ') 
 
     if word_value in wordlist_txt.read():
-        print(f'{word_value} is a valid word on this list.\n')
+        print(f"'{word_value.capitalize()}' is a valid word on this list.\n")
     else:
-        print(f'Sorry, {word_value} is not a valid word on this list.\n')
+        print(f"Sorry, '{word_value}' is not a valid word on this list.\n")
         user_options()
 
 
@@ -100,13 +99,13 @@ def user_options():
         print('1 - Check another word')
         print('2 - Change wordlist\n')
 
-        option_value = input('Please select an option: ')
+        option_value = input('Please select an option: \n')
 
         if option_value == '1':
             word_validator()
             break
         elif option_value == '2':
-            wordlist_selector()
+            main()
             break
         else:
             print(f'Sorry, {option_value} is not a valid option.\n')
@@ -114,11 +113,11 @@ def user_options():
 
 def main():
     """
-    Run all functions within the program.
-    """
-    welcome_message()
-    
+    Run all main functions within the program.
+    """       
     wordlist = wordlist_selector()
     word = word_validator(wordlist)
 
+
+welcome_message() 
 main()
