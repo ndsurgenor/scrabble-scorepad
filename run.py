@@ -44,7 +44,7 @@ def wordlist_selector():
         print('1 - EU/World (SWOPODS)')
         print('2 - USA/Canada (TWL06)\n')
 
-        wordlist_value = input('Please indicate which wordlist you require: ')
+        wordlist_value = input('Please indicate which wordlist you require:\n')
 
         if wordlist_value == '1':
             print('Loading EU/World (SWOPODS) wordlist...\n')
@@ -70,7 +70,7 @@ def word_validator(wordlist_txt):
     print('should be placed AFTER their respective letters. For example, entering ')
     print("'wo*rd3s' indicates a blank tile for 'o' and triple letter score on 'd'.\n")
 
-    word_value = input('Please enter the word to be checked and scored: ') 
+    word_value = input('Please enter the word to be checked and scored:\n') 
 
     if word_value in wordlist_txt.read():
         print(f"The word '{word_value}' is valid!\n")        
@@ -99,7 +99,7 @@ def end_menu():
         print('1 - Restart')
         print('2 - Close Program\n')
 
-        option_value = input('Please indicate which option you require: ')
+        option_value = input('Please indicate which option you require:\n')
 
         if option_value == '1':
             main()
