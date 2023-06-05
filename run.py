@@ -1,8 +1,7 @@
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+# Wordlist and Letter Value constants
 
 """
-Dictionary containing the values for
-each letter in a game of Scrabble.
+Dictionary containing the values for each letter in a game of Scrabble.
 """
 LETTER_VALUES = {
     'a': 1,
@@ -33,6 +32,9 @@ LETTER_VALUES = {
     'z': 10,
 }
 
+
+# Main Functions
+
 def welcome_message():
     """
     Presents the user with an introductory message.
@@ -40,16 +42,17 @@ def welcome_message():
     print('------------------------------')
     print(' WELCOME TO SCRABBLE SCOREPAD')
     print('------------------------------')
-    print('When presented with options simply type the number of your choice and hit Enter.\n')    
+    print('When presented with options simply type the number of your choice and hit Enter.')
+    print('Loading wordlists...\n')     
 
 
 def wordlist_selector():
     """
-    Sets the specific wordlist to be used
-    for the purpose of word validation.
+    Sets the specific wordlist to be used for the purpose of word validation.
     """
     while True:
-        print('WORDLISTS')
+        print('Available Wordlists')
+        print('-------------------')
         print('1 - EU/World (SWOPODS)')
         print('2 - USA/Canada (TWL06)\n')
 
@@ -71,10 +74,22 @@ def wordlist_selector():
 
 def word_validator(wordlist_txt):
     """
-    Validates that the word is contained
-    within the selected wordlist.
+    Validates that the word is contained within the selected wordlist.
     """
-    print(wordlist_txt.read())
+    print('Word Validation and Scoring')
+    print('----------------------------')
+    print('Any modifiers for blank tiles (*), or double (2)/triple (3) letter scores ')
+    print('should be placed AFTER their respective letters. For example, entering ')
+    print('"wo*rd3s" indicates a blank tile for "o" and triple letter score on "d".\n')
+
+    while True:
+        word_value = input('Please enter the word to be checked and scored: ') 
+
+        if word_value in wordlist_txt.read():
+            print(f'{word_value} is a valid word on this list.\n')
+            break      
+        else:
+            print(f'{word_value} is not a valid word on this list.\n')
 
 
 def main():
