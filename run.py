@@ -1,4 +1,4 @@
-# Wordlist and Letter Value constants
+# WORDLIST AND LETTER VALUE CONSTANTS
 
 """
 Dictionary containing the values for each letter in a game of Scrabble.
@@ -33,18 +33,7 @@ LETTER_VALUES = {
 }
 
 
-# Functions
-
-def welcome_message():
-    """
-    Presents the user with an introductory message.
-    """
-    print('------------------------------')
-    print(' WELCOME TO SCRABBLE SCOREPAD')
-    print('------------------------------')
-    print('When presented with options simply type the number of your choice and hit Enter.')
-    print('Loading wordlists...\n')     
-
+# FUNCTIONS
 
 def wordlist_selector():
     """
@@ -84,40 +73,60 @@ def word_validator(wordlist_txt):
     word_value = input('Please enter the word to be checked and scored: ') 
 
     if word_value in wordlist_txt.read():
-        print(f"'{word_value.capitalize()}' is a valid word on this list.\n")
+        print(f'The word {word_value} is a valid word on this list.\n')        
     else:
         print(f"Sorry, '{word_value}' is not a valid word on this list.\n")
-        user_options()
+        word_value = 0  # 0 is used to indicate that the word is invalid
+    
+    wordlist_txt.close()
+    return word_value
 
 
-def user_options():
+def word_score(word_value):
     """
-    Provides the option to check another word in the same wordlist or start over completely.
+    Evaluates the score of the entered word.
+    """
+    if word_valid == 0:
+
+
+def end_menu():
+    """
+    Sets the specific wordlist to be used for the purpose of word validation.
     """
     while True:
-        print('-------------------')
-        print('1 - Check another word')
-        print('2 - Change wordlist\n')
+        print('Options:')
+        print('1 - Restart')
+        print('2 - Close Program\n')
 
-        option_value = input('Please select an option: \n')
+        wordlist_value = input('Please indicate which wordlist you require: ')
 
-        if option_value == '1':
-            word_validator()
+        if wordlist_value == '1':
+            print('Loading EU/World (SWOPODS) wordlist...\n')
+            wordlist_txt = open('wl-eu-sowpods.txt', 'r')
             break
-        elif option_value == '2':
-            main()
+        elif wordlist_value == '2':
+            print('Loading USA/Canada (TWL06) wordlist...\n')
+            wordlist_txt = open('wl-us-twl.txt', 'r')
             break
         else:
-            print(f'Sorry, {option_value} is not a valid option.\n')
+            print(f'Sorry, {wordlist_value} is not a valid option.\n')
 
 
 def main():
     """
-    Run all main functions within the program.
-    """       
+    Run all top level functions within the program.
+    """
     wordlist = wordlist_selector()
-    word = word_validator(wordlist)
+    validity = word_validator(wordlist)
+    value = word_score(value)
+    end_menu()
+    
 
+# PROGRAM EXECUTION
 
-welcome_message() 
+print('------------------------------')
+print(' WELCOME TO SCRABBLE SCOREPAD')
+print('------------------------------')
+print('When presented with options simply type the number of your choice and hit Enter.\n')
+
 main()
