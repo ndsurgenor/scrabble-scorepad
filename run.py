@@ -69,12 +69,22 @@ def wordlist_selector():
     return wordlist_txt
         
 
+def word_validator(wordlist_txt):
+    """
+    Validates that the word is contained
+    within the selected wordlist.
+    """
+    print(wordlist_txt.read())
+
+
 def main():
     """
-    Run all functions within the program
+    Run all functions within the program.
     """
     welcome_message()
-    wordlist_selector()
+    
+    wordlist = wordlist_selector()
+    word = word_validator(wordlist)
 
 
 main()
