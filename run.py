@@ -80,16 +80,36 @@ def word_validator(wordlist_txt):
     print('----------------------------')
     print('Any modifiers for blank tiles (*), or double (2)/triple (3) letter scores ')
     print('should be placed AFTER their respective letters. For example, entering ')
-    print('"wo*rd3s" indicates a blank tile for "o" and triple letter score on "d".\n')
+    print("'wo*rd3s' indicates a blank tile for 'o' and triple letter score on 'd'.\n")
 
+    word_value = input('Please enter the word to be checked and scored: ') 
+
+    if word_value in wordlist_txt.read():
+        print(f'{word_value} is a valid word on this list.\n')
+    else:
+        print(f'Sorry, {word_value} is not a valid word on this list.\n')
+        user_options()
+
+
+def user_options():
+    """
+    Provides the option to check another word in the same wordlist or start over completely.
+    """
     while True:
-        word_value = input('Please enter the word to be checked and scored: ') 
+        print('-------------------')
+        print('1 - Check another word')
+        print('2 - Change wordlist\n')
 
-        if word_value in wordlist_txt.read():
-            print(f'{word_value} is a valid word on this list.\n')
-            break      
+        option_value = input('Please select an option: ')
+
+        if option_value == '1':
+            word_validator()
+            break
+        elif option_value == '2':
+            wordlist_selector()
+            break
         else:
-            print(f'{word_value} is not a valid word on this list.\n')
+            print(f'Sorry, {option_value} is not a valid option.\n')
 
 
 def main():
@@ -100,6 +120,5 @@ def main():
     
     wordlist = wordlist_selector()
     word = word_validator(wordlist)
-
 
 main()
