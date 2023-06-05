@@ -73,7 +73,7 @@ def word_validator(wordlist_txt):
     word_value = input('Please enter the word to be checked and scored: ') 
 
     if word_value in wordlist_txt.read():
-        print(f'The word {word_value} is a valid word on this list.\n')        
+        print(f"The word '{word_value}' is valid!\n")        
     else:
         print(f"Sorry, '{word_value}' is not a valid word on this list.\n")
         word_value = 0  # 0 is used to indicate that the word is invalid
@@ -86,7 +86,8 @@ def word_score(word_value):
     """
     Evaluates the score of the entered word.
     """
-    if word_valid == 0:
+    if word_value != 0:
+        print(word_value)
 
 
 def end_menu():
@@ -104,7 +105,10 @@ def end_menu():
             main()
             break
         elif option_value == '2':
-            print('Many thanks for using Scrabble Scorepad!\n')
+            print('Closing program... \n')
+            print('----------------------------------------')
+            print('Many thanks for using Scrabble Scorepad!')
+            print('----------------------------------------\n')
             break
         else:
             print(f'Sorry, {option_value} is not a valid option.\n')
@@ -115,16 +119,16 @@ def main():
     Run all top level functions within the program.
     """
     wordlist = wordlist_selector()
-    validity = word_validator(wordlist)
-    value = word_score(value)
+    value = word_validator(wordlist)
+    score = word_score(value)
     end_menu()
     
 
 # PROGRAM EXECUTION
 
-print('------------------------------')
-print(' WELCOME TO SCRABBLE SCOREPAD')
-print('------------------------------')
+print('----------------------------')
+print('WELCOME TO SCRABBLE SCOREPAD')
+print('----------------------------')
 print('When presented with options simply type the number of your choice and hit Enter.\n')
 
 main()
