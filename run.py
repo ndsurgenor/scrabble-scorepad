@@ -70,24 +70,71 @@ def word_validator(wordlist_txt):
     print('should be placed AFTER their respective letters. For example, entering ')
     print("'wo*rd3s' indicates a blank tile for 'o' and triple letter score on 'd'.\n")
 
-    word_value = input('Please enter the word to be checked and scored:\n') 
+    specified_word = input('Please enter the word to be checked and scored:\n') 
 
-    if word_value in wordlist_txt.read():
-        print(f"The word '{word_value}' is valid!\n")        
+    if specified_word in wordlist_txt.read():
+        print(f"The word '{specified_word}' is valid!\n")        
     else:
-        print(f"Sorry, '{word_value}' is not a valid word on this list.\n")
-        word_value = 0  # 0 is used to indicate that the word is invalid
+        print(f"Sorry, '{specified_word}' is not a valid word on this list.\n")
+        specified_word = 0  # 0 is used to indicate that the word is invalid
     
     wordlist_txt.close()
-    return word_value
+    return specified_word
 
 
-def word_score(word_value):
+def evaluate_word(specified_word):
     """
-    Evaluates the score of the entered word.
+    Returns the score of the specified word.
     """
-    if word_value != 0:
-        print(word_value)
+    if specified_word != 0:
+        evaluate_letters()
+        evaluate_multiplier()
+        evaluate_bonus()
+
+
+def evaluate_letters(specified_word)
+    """
+    Calculates the letter score including specifed modifiers.
+    """
+
+    return word_score
+
+
+def evaluate_multiplier(word_score)
+    """
+    Multiplies the letter score, if appropriate.
+    """
+    while True:
+        print('Double or Triple word score?')
+        print('1 - No multiplier')
+        print('2 - Double word score')
+        print('3 - Triple word score\n')
+
+        multiplier = input('Please select an option:\n')
+
+        if multiplier == '1':
+            print('No multiplier to be applied\n')
+            break
+        elif multiplier == '2':
+            print('Doubling word score...\n')
+            word_score = word_score*2
+            break
+        elif multiplier == '3':
+            print('Tripling word score...\n')
+            word_score = word_score*3
+            break
+        else:
+            print(f'Sorry, {multiplier} is not a valid option.\n')
+
+        return word_score
+
+
+def evaluate_bonus(word_score)
+    """
+    Adds a bonus to the final score, if appropriate.
+    """
+    
+    return word_score
 
 
 def end_menu():
@@ -96,8 +143,8 @@ def end_menu():
     """
     while True:
         print('Options:')
-        print('1 - Restart')
-        print('2 - Close Program\n')
+        print('1 - Check another word')
+        print('2 - Close program\n')
 
         option_value = input('Please indicate which option you require:\n')
 
@@ -119,8 +166,8 @@ def main():
     Run all top level functions within the program.
     """
     wordlist = wordlist_selector()
-    value = word_validator(wordlist)
-    score = word_score(value)
+    word = word_validator(wordlist)
+    score = evaluate_word(word)
     end_menu()
     
 
