@@ -117,23 +117,39 @@ def evaluate_multiplier(word_score)
             break
         elif multiplier == '2':
             print('Doubling word score...\n')
-            word_score = word_score*2
+            word_score = word_score * 2
             break
         elif multiplier == '3':
             print('Tripling word score...\n')
-            word_score = word_score*3
+            word_score = word_score * 3
             break
         else:
             print(f'Sorry, {multiplier} is not a valid option.\n')
 
-        return word_score
+    return word_score
 
 
 def evaluate_bonus(word_score)
     """
     Adds a bonus to the final score, if appropriate.
     """
-    
+    while True:
+        print('All tiles played on this turn?')
+        print('Y - Yes')
+        print('N - No\n')
+
+        bonus = input('Please select an option:\n')
+
+        if bonus == 'y' or 'yes':
+            print('Bonus added for playing all seven tiles\n')
+            word_score = word_score + 50
+            break
+        elif bonus == 'n' or 'no':
+            print('No bonus to be applied\n')
+            break
+        else:
+            print(f'Sorry, {bonus} is not a valid option.\n')
+
     return word_score
 
 
