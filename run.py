@@ -70,7 +70,7 @@ def word_validator(wordlist_txt):
     print('should be placed AFTER their respective letters. For example, entering ')
     print("'wo*rd3s' indicates a blank tile for 'o' and triple letter score on 'd'.\n")
 
-    specified_word = input('Please enter the word to be checked and scored:\n') 
+    specified_word = (input('Please enter the word to be checked and scored:\n')).lower()
 
     if specified_word in wordlist_txt.read():
         print(f"The word '{specified_word}' is valid!\n")        
@@ -84,23 +84,30 @@ def word_validator(wordlist_txt):
 
 def evaluate_word(specified_word):
     """
-    Returns the score of the specified word.
+    Returns the score of the specified word. If the word is not valid,
+    the program will continue to the end_menu() function.
     """
     if specified_word != 0:
-        evaluate_letters()
-        evaluate_multiplier()
-        evaluate_bonus()
+        evaluate_letters(specified_word)
+        # evaluate_multiplier(word_score)
+        # evaluate_bonus(word_score)
 
 
-def evaluate_letters(specified_word)
+def evaluate_letters(specified_word):
     """
-    Calculates the letter score including specifed modifiers.
+    Calculates the letter score including specified modifiers.
     """
+    word_score = 0
 
+    for letter in specified_word:
+        individual_value = LETTER_VALUES.get(letter)
+        word_score = word_score + individual_value
+
+    print(f"The basic score of '{specified_word}' is {word_score}")
     return word_score
 
 
-def evaluate_multiplier(word_score)
+def evaluate_multiplier(word_score):
     """
     Multiplies the letter score, if appropriate.
     """
@@ -129,7 +136,7 @@ def evaluate_multiplier(word_score)
     return word_score
 
 
-def evaluate_bonus(word_score)
+def evaluate_bonus(word_score):
     """
     Adds a bonus to the final score, if appropriate.
     """
