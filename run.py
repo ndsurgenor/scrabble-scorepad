@@ -47,15 +47,15 @@ def wordlist_selector():
         wordlist_value = input('Please indicate which wordlist you require:\n')
 
         if wordlist_value == '1':
-            print('Loading EU/World (SWOPODS) wordlist...\n')
+            print('Loading EU/WORLD (SWOPODS) wordlist...\n')
             wordlist_txt = open('wl-eu-sowpods.txt', 'r')
             break
         elif wordlist_value == '2':
-            print('Loading USA/Canada (TWL06) wordlist...\n')
+            print('Loading USA/CANADA (TWL06) wordlist...\n')
             wordlist_txt = open('wl-us-twl.txt', 'r')
             break
         else:
-            print(f'Sorry, {wordlist_value} is not a valid option.\n')
+            print(f'Sorry, {wordlist_value.upper()} is not a valid option.\n')
     
     return wordlist_txt
         
@@ -66,17 +66,17 @@ def word_validator(wordlist_txt):
     """
     print('Word Validation and Scoring')
     print('----------------------------')
-    print('Any modifiers for blank tiles (*), or double (2)/triple (3) letter scores ')
-    print('should be placed AFTER their respective letters. For example, entering ')
-    print("'wo*rd3s' indicates a blank tile for 'o' and triple letter score on 'd'.\n")
+    print('Required modifiers for blank tiles (*), or double (2)/triple (3) letter ')
+    print('scores should be placed AFTER their respective letters. For example, entering ')
+    print("'w*ord3s' would indicate a blank tile for W and triple letter score on D.\n")
 
     specified_word = (input('Please enter the word to be checked and scored:\n')).lower()
 
     if specified_word in wordlist_txt.read():
-        print(f"The word '{specified_word}' is valid!\n")        
+        print(f'The word {specified_word.upper()} is valid!\n')        
     else:
-        print(f"Sorry, '{specified_word}' is not a valid word on this list.\n")
-        specified_word = 0  # 0 is used to indicate that the word is invalid
+        print(f'Sorry, {specified_word.upper()} is not a valid word on this list.\n')
+        specified_word = 0  #tells the next function that no score is to be evaluted
     
     wordlist_txt.close()
     return specified_word
@@ -88,9 +88,11 @@ def evaluate_word(specified_word):
     the program will continue to the end_menu() function.
     """
     if specified_word != 0:
-        evaluate_letters(specified_word)
-        # evaluate_multiplier(word_score)
-        # evaluate_bonus(word_score)
+        basic_score = evaluate_letters(specified_word)
+        multiplied_score = evaluate_multiplier(basic_score)
+        final_score = evaluate_bonus(multiplied_score)
+
+        print(f'Final score for {specified_word.upper()} is {final_score}')
 
 
 def evaluate_letters(specified_word):
@@ -103,7 +105,7 @@ def evaluate_letters(specified_word):
         individual_value = LETTER_VALUES.get(letter)
         word_score = word_score + individual_value
 
-    print(f"The basic score of '{specified_word}' is {word_score}")
+    print(f'The basic score of {specified_word.upper()} is {word_score}')
     return word_score
 
 
@@ -113,25 +115,25 @@ def evaluate_multiplier(word_score):
     """
     while True:
         print('Double or Triple word score?')
-        print('1 - No multiplier')
+        print('1 - None')
         print('2 - Double word score')
         print('3 - Triple word score\n')
 
-        multiplier = input('Please select an option:\n')
+        multiplier = input('Please select an option:\n').lower()
 
-        if multiplier == '1':
+        if multiplier == '1' or multiplier == 'none' or multiplier == 'n':
             print('No multiplier to be applied\n')
             break
-        elif multiplier == '2':
+        elif multiplier == '2' or multiplier == 'double' or multiplier == 'd':
             print('Doubling word score...\n')
             word_score = word_score * 2
             break
-        elif multiplier == '3':
+        elif multiplier == '3' or multiplier == 'triple' or multiplier == 't':
             print('Tripling word score...\n')
             word_score = word_score * 3
             break
         else:
-            print(f'Sorry, {multiplier} is not a valid option.\n')
+            print(f'Sorry, {multiplier.upper()} is not a valid option.\n')
 
     return word_score
 
@@ -142,20 +144,20 @@ def evaluate_bonus(word_score):
     """
     while True:
         print('All tiles played on this turn?')
-        print('Y - Yes')
-        print('N - No\n')
+        print('1 - Yes')
+        print('2 - No\n')
 
-        bonus = input('Please select an option:\n')
+        bonus = input('Please select an option:\n').lower()
 
-        if bonus == 'y' or 'yes':
+        if bonus == '1' or bonus == 'yes' or bonus == 'y':
             print('Bonus added for playing all seven tiles\n')
             word_score = word_score + 50
             break
-        elif bonus == 'n' or 'no':
+        elif bonus == '2' or bonus == 'no' or bonus == 'n':
             print('No bonus to be applied\n')
             break
         else:
-            print(f'Sorry, {bonus} is not a valid option.\n')
+            print(f'Sorry, {bonus.upper()} is not a valid option.\n')
 
     return word_score
 
@@ -176,17 +178,17 @@ def end_menu():
             break
         elif option_value == '2':
             print('Closing program... \n')
-            print('----------------------------------------')
-            print('Many thanks for using Scrabble Scorepad!')
-            print('----------------------------------------\n')
+            print('--------------------------------------')
+            print('Thank you for using Scrabble ScorePad!')
+            print('--------------------------------------\n')
             break
         else:
-            print(f'Sorry, {option_value} is not a valid option.\n')
+            print(f'Sorry, {option_value.upper()} is not a valid option.\n')
 
 
 def main():
     """
-    Run all top level functions within the program.
+    Runs all top level functions within the program.
     """
     wordlist = wordlist_selector()
     word = word_validator(wordlist)
@@ -196,9 +198,9 @@ def main():
 
 # PROGRAM EXECUTION
 
-print('----------------------------')
-print('WELCOME TO SCRABBLE SCOREPAD')
-print('----------------------------')
+print('-----------------------------')
+print('Welcome To Scrabble ScorePAD!')
+print('-----------------------------')
 print('When presented with options simply type the number of your choice and hit Enter.\n')
 
 main()
