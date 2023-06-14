@@ -37,6 +37,16 @@ LETTER_VALUES = {
     'z': 10,
 }
 
+# CLASSES
+
+class Player:
+    """
+    Creates an instance of Player
+    """
+    def __init__(self, name, total):
+        self.name = name
+        self.total = total
+
 
 # FUNCTIONS
 
