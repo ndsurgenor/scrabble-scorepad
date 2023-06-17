@@ -48,11 +48,11 @@ class CheckedWord:
         self.final = final
 
     def score_breakdown(self):
-        print(f'The score breakdown for {self.name} is as follows:')
-        print(f'Basic score =  {self.basic}')
-        print(f'Multiplied score =  {self.multiplied}')
-        print(f'Bonus applied =  {self.bonus}')
-        print(f'FINAL WORD SCORE =  {self.final}')
+        print(f'The score breakdown for {self.name.upper()} is as follows:')
+        print(f'Basic score = {self.basic}')
+        print(f'Multiplied score = {self.multiplied}')
+        print(f'Bonus (+50) applied = {self.bonus}')
+        print(f'FINAL WORD SCORE = {self.final}\n')
 
 # FUNCTIONS
 
@@ -110,14 +110,14 @@ def evaluate_word(specified_word):
     if specified_word != 0:
         this_word = CheckedWord(specified_word,0,0,'No',0) #creates an instance of the CheckedWord class
 
-        this_word.basic = basic_score = evaluate_letters(specified_word)
-        this_word.multiplied = multiplied_score = evaluate_multiplier(basic_score)
+        this_word.basic = evaluate_letters(specified_word)
+        this_word.multiplied = evaluate_multiplier(this_word.basic)
         if len(specified_word) < 7:
             this_word.bonus = 'No'
-            this_word.final = final_score = multiplied_score
+            this_word.final = this_word.multiplied
         else:
             this_word.bonus = 'Yes'
-            this_word.final = final_score = evaluate_bonus(multiplied_score)
+            this_word.final = evaluate_bonus(this_word.multiplied)
             
         this_word.score_breakdown()
 
