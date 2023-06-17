@@ -140,10 +140,10 @@ def evaluate_multiplier(word_score):
     Multiplies the letter score, if appropriate.
     """
     while True:
-        print(Fore.YELLOW + 'Double or Triple word score?')
+        print(Fore.YELLOW + 'Any Double or Triple word score?')
         print(Fore.YELLOW + '1 - None')
-        print(Fore.YELLOW + '2 - Double word score')
-        print(Fore.YELLOW + '3 - Triple word score\n')
+        print(Fore.YELLOW + '2 - Double')
+        print(Fore.YELLOW + '3 - Triple\n')
 
         multiplier = input(Fore.GREEN +'Please select an option:\n').lower()
 
@@ -170,14 +170,14 @@ def evaluate_bonus(word_score):
     """
     while True:
         print(Fore.YELLOW + 'All tiles played on this turn?')
-        print(Fore.YELLOW + "(Only select 'Yes' once if scoring multiple words per turn)")
+        print(Fore.YELLOW + "NB: Only select 'Yes' once if scoring multiple words per turn")
         print(Fore.YELLOW + '1 - Yes')
         print(Fore.YELLOW + '2 - No\n')
 
         bonus = input(Fore.GREEN +'Please select an option:\n').lower()
 
         if bonus == '1' or bonus == 'yes' or bonus == 'y':
-            print(Fore.WHITE + 'Bonus added for playing all seven tiles\n')
+            print(Fore.WHITE + 'Adding bonus...\n')
             word_score = word_score + 50
             break
         elif bonus == '2' or bonus == 'no' or bonus == 'n':
@@ -225,9 +225,9 @@ def main():
 
 # PROGRAM EXECUTION
 
-print(Fore.CYAN + '-----------------------------')
-print(Fore.CYAN + 'Welcome To Scrabble ScorePAD!')
-print(Fore.CYAN + '-----------------------------')
+print(Fore.BLUE + '-----------------------------')
+print(Fore.BLUE + 'Welcome To Scrabble ScorePAD!')
+print(Fore.BLUE + '-----------------------------')
 print('When presented with options simply type the number of your choice and hit Enter.\n')
 
 main()
