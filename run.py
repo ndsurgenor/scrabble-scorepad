@@ -61,11 +61,11 @@ def wordlist_selector():
     Sets the specific wordlist to be used for the purpose of word validation.
     """
     while True:
-        print(Fore.YELLOW + 'Available Wordlists')
-        print(Fore.YELLOW + '1 - EU/World (SWOPODS)')
-        print(Fore.YELLOW + '2 - USA/Canada (TWL06)\n')
+        print(Fore.YELLOW + Style.BRIGHT + 'Available Wordlists')
+        print(Fore.YELLOW + Style.BRIGHT + '1 - EU/World (SWOPODS)')
+        print(Fore.YELLOW + Style.BRIGHT + '2 - USA/Canada (TWL06)\n')
 
-        wordlist_value = input(Fore.GREEN +'Please indicate which wordlist you require:\n')
+        wordlist_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which wordlist you require:\n')
 
         if wordlist_value == '1':
             print(Fore.WHITE + 'Loading EU/WORLD (SWOPODS) wordlist...\n')
@@ -85,7 +85,7 @@ def word_validator(wordlist_txt):
     """
     Validates that the word is contained within the selected wordlist.
     """
-    print(Fore.YELLOW + 'Word Validation and Scoring')
+    print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
     print('Required modifiers for blank tiles (*), or double (2)/triple (3) letter ')
     print('scores should be placed AFTER their respective letters. For example, entering ')
     print("'w*ord3s' would indicate a blank tile for W and triple letter score on D.\n")
@@ -140,10 +140,10 @@ def evaluate_multiplier(word_score):
     Multiplies the letter score, if appropriate.
     """
     while True:
-        print(Fore.YELLOW + 'Any Double or Triple word score?')
-        print(Fore.YELLOW + '1 - None')
-        print(Fore.YELLOW + '2 - Double')
-        print(Fore.YELLOW + '3 - Triple\n')
+        print(Fore.YELLOW + Style.BRIGHT + 'Any Double or Triple word score?')
+        print(Fore.YELLOW + Style.BRIGHT + '1 - None')
+        print(Fore.YELLOW + Style.BRIGHT + '2 - Double')
+        print(Fore.YELLOW + Style.BRIGHT + '3 - Triple\n')
 
         multiplier = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n').lower()
 
@@ -169,12 +169,12 @@ def evaluate_bonus(word_score):
     Adds a bonus to the final score, if appropriate.
     """
     while True:
-        print(Fore.YELLOW + 'All tiles played on this turn?')
-        print(Fore.YELLOW + "NB: Only select 'Yes' once if scoring multiple words per turn")
-        print(Fore.YELLOW + '1 - Yes')
-        print(Fore.YELLOW + '2 - No\n')
+        print(Fore.YELLOW + Style.BRIGHT + 'All tiles played on this turn?')
+        print(Fore.YELLOW + Style.BRIGHT + "NB: Only select 'Yes' once if scoring multiple words per turn")
+        print(Fore.YELLOW + Style.BRIGHT + '1 - Yes')
+        print(Fore.YELLOW + Style.BRIGHT + '2 - No\n')
 
-        bonus = input(Fore.GREEN +'Please select an option:\n').lower()
+        bonus = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n').lower()
 
         if bonus == '1' or bonus == 'yes' or bonus == 'y':
             print(Fore.WHITE + 'Adding bonus...\n')
@@ -194,9 +194,9 @@ def end_menu():
     Allows the user to either check another word or end the program.
     """
     while True:
-        print(Fore.YELLOW + 'Options:')
-        print(Fore.YELLOW + '1 - Score another word')
-        print(Fore.YELLOW + '2 - Close program\n')
+        print(Fore.YELLOW + Style.BRIGHT + 'Options:')
+        print(Fore.YELLOW + Style.BRIGHT + '1 - Score another word')
+        print(Fore.YELLOW + Style.BRIGHT + '2 - Close program\n')
 
         option_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which option you require:\n')
 
