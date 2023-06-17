@@ -1,6 +1,6 @@
 # IMPORTED LIBRARIES
 
-from colorama import init, Fore, Back, Style
+from colorama import init, Fore, Style
 init(autoreset = True)
 
 # WORDLIST AND LETTER VALUE CONSTANTS
@@ -40,6 +40,9 @@ LETTER_VALUES = {
 # CLASSES
 
 class CheckedWord:
+    """
+    Records various score attributes of the specified word.
+    """
     def __init__(self, name, basic, multiplied, bonus, final):
         self.name = name
         self.basic = basic
@@ -48,11 +51,11 @@ class CheckedWord:
         self.final = final
 
     def score_breakdown(self):
-        print(Fore.BLACK + Back.WHITE + f'The score breakdown for {self.name.upper()} is as follows:')
-        print(Fore.BLACK + Back.WHITE + f'Basic score = {self.basic}')
-        print(Fore.BLACK + Back.WHITE + f'Multiplied score = {self.multiplied}')
-        print(Fore.BLACK + Back.WHITE + f'Bonus (+50) applied = {self.bonus}')
-        print(Fore.BLACK + Back.WHITE + f'FINAL WORD SCORE = {self.final}\n')
+        print(Style.BRIGHT + f'The score breakdown for {self.name.upper()} is as follows:')
+        print(Style.BRIGHT + f'Basic score = {self.basic}')
+        print(Style.BRIGHT + f'Multiplied score = {self.multiplied}')
+        print(Style.BRIGHT + f'Bonus (+50) applied = {self.bonus}')
+        print(Style.BRIGHT + f'FINAL WORD SCORE = {self.final}\n')
 
 # FUNCTIONS
 
