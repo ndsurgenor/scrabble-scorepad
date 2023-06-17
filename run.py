@@ -39,15 +39,6 @@ LETTER_VALUES = {
 
 # CLASSES
 
-class Player:
-    """
-    Creates an instance of Player
-    """
-    def __init__(self, name, total):
-        self.name = name
-        self.total = total
-
-
 # FUNCTIONS
 
 def wordlist_selector():
@@ -104,9 +95,12 @@ def evaluate_word(specified_word):
     if specified_word != 0:
         basic_score = evaluate_letters(specified_word)
         multiplied_score = evaluate_multiplier(basic_score)
-        final_score = evaluate_bonus(multiplied_score)
+        if len(specified_word) < 7:
+            final_score = multiplied_score
+        else:
+            final_score = evaluate_bonus(multiplied_score)
 
-        print(f'Final score for {specified_word.upper()} is {final_score}')
+    print(f'Final score for {specified_word.upper()} is {final_score}')
 
 
 def evaluate_letters(specified_word):
@@ -182,7 +176,7 @@ def end_menu():
     """
     while True:
         print(Fore.YELLOW + 'Options:')
-        print(Fore.YELLOW + '1 - Check another word')
+        print(Fore.YELLOW + '1 - Score another word')
         print(Fore.YELLOW + '2 - Close program\n')
 
         option_value = input(Fore.GREEN +'Please indicate which option you require:\n')
