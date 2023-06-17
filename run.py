@@ -1,6 +1,6 @@
 # IMPORTED LIBRARIES
 
-from colorama import init, Fore
+from colorama import init, Fore, Style
 init(autoreset = True)
 
 # WORDLIST AND LETTER VALUE CONSTANTS
@@ -76,7 +76,7 @@ def wordlist_selector():
             wordlist_txt = open('wl-us-twl.txt', 'r')
             break
         else:
-            print(Fore.RED + f'Sorry, {wordlist_value.upper()} is not a valid option.\n')
+            print(Fore.RED + Style.BRIGHT + f'Sorry, {wordlist_value.upper()} is not a valid option.\n')
     
     return wordlist_txt
         
@@ -90,12 +90,12 @@ def word_validator(wordlist_txt):
     print('scores should be placed AFTER their respective letters. For example, entering ')
     print("'w*ord3s' would indicate a blank tile for W and triple letter score on D.\n")
 
-    specified_word = (input(Fore.GREEN +'Please enter the word to be checked and scored:\n')).lower()
+    specified_word = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word to be checked and scored:\n')).lower()
 
     if specified_word in wordlist_txt.read():
-        print(f'The word {specified_word.upper()} is valid!\n')
+        print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
     else:
-        print(Fore.RED + f'Sorry, {specified_word.upper()} is not a valid word on this list.\n')
+        print(Fore.RED + Style.BRIGHT + f'Sorry, {specified_word.upper()} is not a valid word on this list.\n')
         specified_word = 0  #tells the next function that no score is to be evaluted
     
     wordlist_txt.close()
@@ -145,7 +145,7 @@ def evaluate_multiplier(word_score):
         print(Fore.YELLOW + '2 - Double')
         print(Fore.YELLOW + '3 - Triple\n')
 
-        multiplier = input(Fore.GREEN +'Please select an option:\n').lower()
+        multiplier = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n').lower()
 
         if multiplier == '1' or multiplier == 'none' or multiplier == 'n':
             print(Fore.WHITE + 'No multiplier to be applied\n')
@@ -159,7 +159,7 @@ def evaluate_multiplier(word_score):
             word_score = word_score * 3
             break
         else:
-            print(Fore.RED + f'Sorry, {multiplier.upper()} is not a valid option.\n')
+            print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n')
 
     return word_score
 
@@ -184,7 +184,7 @@ def evaluate_bonus(word_score):
             print(Fore.WHITE + 'No bonus to be applied\n')
             break
         else:
-            print(Fore.RED + f'Sorry, {bonus.upper()} is not a valid option.\n')
+            print(Fore.RED + Style.BRIGHT + f'Sorry, {bonus.upper()} is not a valid option.\n')
 
     return word_score
 
@@ -198,19 +198,19 @@ def end_menu():
         print(Fore.YELLOW + '1 - Score another word')
         print(Fore.YELLOW + '2 - Close program\n')
 
-        option_value = input(Fore.GREEN +'Please indicate which option you require:\n')
+        option_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which option you require:\n')
 
         if option_value == '1':
             main()
             break
         elif option_value == '2':
             print('Closing program... \n')
-            print(Fore.CYAN + '--------------------------------------')
-            print(Fore.CYAN + 'Thank you for using Scrabble ScorePad!')
-            print(Fore.CYAN + '--------------------------------------\n')
+            print(Fore.CYAN + Style.BRIGHT + '--------------------------------------')
+            print(Fore.CYAN + Style.BRIGHT + 'Thank you for using Scrabble ScorePad!')
+            print(Fore.CYAN + Style.BRIGHT + '--------------------------------------\n')
             break
         else:
-            print(Fore.RED + f'Sorry, {option_value.upper()} is not a valid option.\n')
+            print(Fore.RED + Style.BRIGHT + f'Sorry, {option_value.upper()} is not a valid option.\n')
 
 
 def main():
@@ -225,9 +225,9 @@ def main():
 
 # PROGRAM EXECUTION
 
-print(Fore.BLUE + '-----------------------------')
-print(Fore.BLUE + 'Welcome To Scrabble ScorePAD!')
-print(Fore.BLUE + '-----------------------------')
+print(Fore.CYAN + Style.BRIGHT + '-----------------------------')
+print(Fore.CYAN + Style.BRIGHT + 'Welcome To Scrabble ScorePAD!')
+print(Fore.CYAN + Style.BRIGHT + '-----------------------------')
 print('When presented with options simply type the number of your choice and hit Enter.\n')
 
 main()
