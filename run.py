@@ -39,6 +39,21 @@ LETTER_VALUES = {
 
 # CLASSES
 
+class CheckedWord:
+    def __init__(self, name, basic, multiplied, bonus, final):
+        self.name = name
+        self.basic = basic
+        self.multiplied = multiplied
+        self.bonus = bonus
+        self.final = final
+
+    def score_breakdown(self):
+        print(f'The score breakdown for {self.name} is as follows:')
+        print(f'Basic score =  {self.basic}')
+        print(f'Multiplied score =  {self.multiplied}')
+        print(f'Bonus applied =  {self.bonus}')
+        print(f'FINAL WORD SCORE =  {self.final}')
+
 # FUNCTIONS
 
 def wordlist_selector():
@@ -78,7 +93,7 @@ def word_validator(wordlist_txt):
     specified_word = (input(Fore.GREEN +'Please enter the word to be checked and scored:\n')).lower()
 
     if specified_word in wordlist_txt.read():
-        print(f'The word {specified_word.upper()} is valid!\n')        
+        print(f'The word {specified_word.upper()} is valid!\n')
     else:
         print(Fore.RED + f'Sorry, {specified_word.upper()} is not a valid word on this list.\n')
         specified_word = 0  #tells the next function that no score is to be evaluted
@@ -89,18 +104,22 @@ def word_validator(wordlist_txt):
 
 def evaluate_word(specified_word):
     """
-    Returns the score of the specified word. If the word is not valid,
-    the program will continue to the end_menu() function.
+    Returns the score breakdown and final score of the specified word.
+    If the word is not valid, the program will continue to the end_menu() function.
     """
     if specified_word != 0:
-        basic_score = evaluate_letters(specified_word)
-        multiplied_score = evaluate_multiplier(basic_score)
-        if len(specified_word) < 7:
-            final_score = multiplied_score
-        else:
-            final_score = evaluate_bonus(multiplied_score)
+        this_word = CheckedWord(specified_word,0,0,'No',0) #creates an instance of the CheckedWord class
 
-    print(f'Final score for {specified_word.upper()} is {final_score}')
+        this_word.basic = basic_score = evaluate_letters(specified_word)
+        this_word.multiplied = multiplied_score = evaluate_multiplier(basic_score)
+        if len(specified_word) < 7:
+            this_word.bonus = 'No'
+            this_word.final = final_score = multiplied_score
+        else:
+            this_word.bonus = 'Yes'
+            this_word.final = final_score = evaluate_bonus(multiplied_score)
+            
+        this_word.score_breakdown()
 
 
 def evaluate_letters(specified_word):
@@ -113,7 +132,6 @@ def evaluate_letters(specified_word):
         individual_value = LETTER_VALUES.get(letter)
         word_score = word_score + individual_value
 
-    print(f'The basic score of {specified_word.upper()} is {word_score}')
     return word_score
 
 
@@ -152,6 +170,7 @@ def evaluate_bonus(word_score):
     """
     while True:
         print(Fore.YELLOW + 'All tiles played on this turn?')
+        print(Fore.YELLOW + "(Only select 'Yes' once if scoring multiple words per turn)")
         print(Fore.YELLOW + '1 - Yes')
         print(Fore.YELLOW + '2 - No\n')
 
