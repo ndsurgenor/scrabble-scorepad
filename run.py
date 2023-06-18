@@ -4,6 +4,7 @@ from letters import LETTER_VALUES
 from colorama import init, Fore, Style
 init(autoreset = True)
 
+
 # CLASSES
 
 class CheckedWord:
@@ -23,6 +24,7 @@ class CheckedWord:
         print(Style.BRIGHT + f'Multiplied score = {self.multiplied}')
         print(Style.BRIGHT + f'Bonus (+50) applied = {self.bonus}')
         print(Style.BRIGHT + f'FINAL WORD SCORE = {self.final}\n')
+
 
 # FUNCTIONS
 
@@ -53,40 +55,50 @@ def wordlist_selector():
 
 def string_validator(wordlist_txt):
     """
-    Checks that the string entered does not contain invalid characters.
+    Checks that the string entered is at least two characters long,
+    does not contain invalid characters, and only one modifier per letter has been indicated.
     """
     print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
-    print('Please include modifiers for blank tiles (*), or double (2)/triple (3) ')
-    print('letters AFTER their respective letters. For example, entering W*ORD3S ')
-    print('would indicate a blank tile for W and triple letter score on D.\n')
+    print('Please include modifiers for blank tiles (*), double letter (2) or triple ')
+    print('letter (3) scores AFTER their respective letters (max ONE modifier per letter; ')
+    print('use * over 2 or 3 if both apply). For example, entering W*ORD3S would indicate ')
+    print('a blank tile for W and triple letter score on D.\n')
 
     while True:
-        specified_string = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word to be checked and scored:\n')).lower()
+        specified_string = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word (including modifiers) to be checked and scored:\n')).lower()
 
-        for character in specified_string:
-            try:
-                LETTER_VALUES[character]
-            except:
-                print(Fore.RED + f'Input contains invalid character: {character}')
-                print('Only letters and the characters *, 2, or 3 are allowed.\n')
-                string_valid = False
+        if len(specified_string) > 1:
+                     
+            for character, next_character in zip(specified_string, specified_string[1:]):
+                try:
+                    LETTER_VALUES[character] and LETTER_VALUES[next_character]
+                except:
+                    print(Fore.RED + f'Input contains invalid character(s)')
+                    print('Only letters and the characters *, 2, or 3 are allowed.\n')
+                    string_valid = False
+                    break
+                else:
+                    if LETTER_VALUES[character] + LETTER_VALUES[next_character] < -1:
+                        print(Fore.RED + 'Max ONE modifier per letter allowed.\n')
+                        string_valid = False
+                        break
+                    else:
+                        string_valid = True
+                        continue
+
+            if string_valid == True:
                 break
-            else:
-                string_valid = True
-                continue
-        
-        if string_valid == True:
-            break
+        else:
+            print(Fore.RED + f'Input must be at least 2 characters long.\n')
     
     return specified_string
 
 
-
-def word_validator(wordlist_txt):
+def word_validator(specified_string):
     """
     Checks that the word is contained within the selected wordlist.
     """
-    specified_word = word_extractor(specified_str)
+    specified_word = word_extractor(specified_string)
 
     if specified_word in wordlist_txt.read():
         print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
@@ -98,11 +110,11 @@ def word_validator(wordlist_txt):
     return specified_word
 
 
-def word_extractor(specified_str):
+def word_extractor(specified_string):
     """
     Removes any modifiers from the input string.
     """
-    for character in specified_str:
+    for character in specified_string:
 
         specified_word = specified_word + character
 
