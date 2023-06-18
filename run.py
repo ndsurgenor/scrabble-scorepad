@@ -49,18 +49,44 @@ def wordlist_selector():
             print(Fore.RED + Style.BRIGHT + f'Sorry, {wordlist_value.upper()} is not a valid option.\n')
     
     return wordlist_txt
+
+
+def string_validator(wordlist_txt):
+    """
+    Checks that the string entered does not contain invalid characters.
+    """
+    print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
+    print('Please include modifiers for blank tiles (*), or double (2)/triple (3) ')
+    print('letters AFTER their respective letters. For example, entering W*ORD3S ')
+    print('would indicate a blank tile for W and triple letter score on D.\n')
+
+    while True:
+        specified_string = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word to be checked and scored:\n')).lower()
+
+        for character in specified_string:
+            try:
+                LETTER_VALUES[character]
+            except:
+                print(Fore.RED + f'Input contains invalid character: {character}')
+                print('Only letters and the characters *, 2, or 3 are allowed.\n')
+                string_valid = False
+                break
+            else:
+                string_valid = True
+                continue
         
+        if string_valid == True:
+            break
+    
+    return specified_string
+
+
 
 def word_validator(wordlist_txt):
     """
-    Validates that the word is contained within the selected wordlist.
+    Checks that the word is contained within the selected wordlist.
     """
-    print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
-    print('Required modifiers for blank tiles (*), or double (2)/triple (3) letter ')
-    print('scores should be placed AFTER their respective letters. For example, entering ')
-    print("'w*ord3s' would indicate a blank tile for W and triple letter score on D.\n")
-
-    specified_word = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word to be checked and scored:\n')).lower()
+    specified_word = word_extractor(specified_str)
 
     if specified_word in wordlist_txt.read():
         print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
@@ -69,6 +95,17 @@ def word_validator(wordlist_txt):
         specified_word = 0  #tells the next function that no score is to be evaluted
     
     wordlist_txt.close()
+    return specified_word
+
+
+def word_extractor(specified_str):
+    """
+    Removes any modifiers from the input string.
+    """
+    for character in specified_str:
+
+        specified_word = specified_word + character
+
     return specified_word
 
 
@@ -174,7 +211,7 @@ def end_menu():
             main()
             break
         elif option_value == '2':
-            print('Closing program... \n')
+            print(Fore.WHITE + 'Closing program... \n')
             print(Fore.CYAN + Style.BRIGHT + '--------------------------------------')
             print(Fore.CYAN + Style.BRIGHT + 'Thank you for using Scrabble ScorePad!')
             print(Fore.CYAN + Style.BRIGHT + '--------------------------------------\n')
@@ -188,9 +225,10 @@ def main():
     Runs all top level functions within the program.
     """
     wordlist = wordlist_selector()
-    word = word_validator(wordlist)
-    score = evaluate_word(word)
-    end_menu()
+    string = string_validator(wordlist)
+    # word = word_validator(string)
+    # score = evaluate_word(word)
+    # end_menu()
     
 
 # PROGRAM EXECUTION

@@ -1,5 +1,6 @@
 """
 Dictionary containing the values for each letter in a game of Scrabble.
+Also contains modifier characters (*,2,3) for purposes of string validation.
 """
 LETTER_VALUES = {
     'a': 1,
@@ -28,4 +29,8 @@ LETTER_VALUES = {
     'x': 8,
     'y': 4,
     'z': 10,
+    #Modifiers
+    '*': -1,
+    '2': -1,
+    '3': -1,
 }
