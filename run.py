@@ -1,6 +1,6 @@
 # IMPORTS
 
-from letters import LETTER_VALUES
+from dictionaries import LETTER_VALUES
 from colorama import init, Fore, Style
 init(autoreset = True)
 
@@ -20,7 +20,7 @@ class CheckedWord:
 
     def score_breakdown(self):
         print(Style.BRIGHT + f'The score breakdown for {self.name.upper()} is as follows:')
-        print(Style.BRIGHT + f'Basic score = {self.basic}')
+        print(Style.BRIGHT + f'Letter score = {self.basic}')
         print(Style.BRIGHT + f'Multiplied score = {self.multiplied}')
         print(Style.BRIGHT + f'Bonus (+50) applied = {self.bonus}')
         print(Style.BRIGHT + f'FINAL WORD SCORE = {self.final}\n')
