@@ -144,14 +144,21 @@ def evaluate_word(specified_string, specified_word):
 
 def evaluate_letters(specified_string):
     """
-    Calculates the letter score including specified modifiers.
+    Calculates the letter score taking modifiers into account.
     """
+    specified_string = specified_string + '!' #Ensures the final character of the original string is evaluated.
     word_score = 0
 
-    for character in specified_string:
-        individual_value = LETTER_VALUES[character]
-        word_score = word_score + individual_value
+    for character, next_character in zip(specified_string, specified_string[1:]):
+        if next_character == '*':
+            individual_value = 0
+        elif next_character == '2' or next_character == '3':
+            individual_value = LETTER_VALUES[character] * int(next_character)
+        else:
+            individual_value = LETTER_VALUES[character]
 
+        word_score = word_score + individual_value
+            
     return word_score
 
 
