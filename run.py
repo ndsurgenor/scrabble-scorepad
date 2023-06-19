@@ -9,7 +9,7 @@ init(autoreset = True)
 
 class CheckedWord:
     """
-    Records various score attributes of the specified word.
+    Records various score attributes of a specified word.
     """
     def __init__(self, name, basic, multiplied, bonus, final):
         self.name = name
@@ -92,14 +92,25 @@ def string_validator(wordlist_txt):
             print(Fore.RED + f'Input must be at least 2 characters long.\n')
     
     return specified_string
+   
+
+def word_extractor(specified_string):
+    """
+    Removes modifiers from the input string in order to read the specified word.
+    """
+    specified_word = ''
+    
+    for character in specified_string:
+        if LETTER_VALUES[character] > -1:
+            specified_word = specified_word + character
+
+    return specified_word
 
 
-def word_validator(specified_string):
+def word_validator(specified_word, wordlist_txt):
     """
     Checks that the word is contained within the selected wordlist.
     """
-    specified_word = word_extractor(specified_string)
-
     if specified_word in wordlist_txt.read():
         print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
     else:
@@ -110,24 +121,13 @@ def word_validator(specified_string):
     return specified_word
 
 
-def word_extractor(specified_string):
-    """
-    Removes any modifiers from the input string.
-    """
-    for character in specified_string:
-
-        specified_word = specified_word + character
-
-    return specified_word
-
-
 def evaluate_word(specified_word):
     """
     Returns the score breakdown and final score of the specified word.
     If the word is not valid, the program will continue to the end_menu() function.
     """
     if specified_word != 0:
-        this_word = CheckedWord(specified_word,0,0,'No',0) #creates an instance of the CheckedWord class
+        this_word = CheckedWord(specified_word,0,0,'No',0)
 
         this_word.basic = evaluate_letters(specified_word)
         this_word.multiplied = evaluate_multiplier(this_word.basic)
@@ -135,8 +135,9 @@ def evaluate_word(specified_word):
             this_word.bonus = 'No'
             this_word.final = this_word.multiplied
         else:
-            this_word.bonus = 'Yes'
             this_word.final = evaluate_bonus(this_word.multiplied)
+            if this_word.final > this_word.multiplied:
+                this_word.bonus = 'Yes'
             
         this_word.score_breakdown()
 
@@ -197,7 +198,7 @@ def evaluate_bonus(word_score):
 
         if bonus == '1' or bonus == 'yes' or bonus == 'y':
             print(Fore.WHITE + 'Adding bonus...\n')
-            word_score = word_score + 50
+            word_score = word_score + 50         
             break
         elif bonus == '2' or bonus == 'no' or bonus == 'n':
             print(Fore.WHITE + 'No bonus to be applied\n')
@@ -238,9 +239,10 @@ def main():
     """
     wordlist = wordlist_selector()
     string = string_validator(wordlist)
-    # word = word_validator(string)
-    # score = evaluate_word(word)
-    # end_menu()
+    word = word_extractor(string)
+    valid_word = word_validator(word, wordlist)
+    score = evaluate_word(valid_word)
+    end_menu()
     
 
 # PROGRAM EXECUTION
