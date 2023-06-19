@@ -29,8 +29,8 @@ LETTER_VALUES = {
     'x': 8,
     'y': 4,
     'z': 10,
-    # Modifier values must be set at -1 for string_validator to work correctly
-    '*': -1,
-    '2': -1,
-    '3': -1,
+    # Modifier values must be set at 0!
+    '*': 0,
+    '2': 0,
+    '3': 0,
 }

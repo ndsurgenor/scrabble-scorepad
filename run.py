@@ -1,4 +1,4 @@
-# IMPORTED LIBRARIES
+# IMPORTS
 
 from letters import LETTER_VALUES
 from colorama import init, Fore, Style
@@ -78,7 +78,7 @@ def string_validator(wordlist_txt):
                     string_valid = False
                     break
                 else:
-                    if LETTER_VALUES[character] + LETTER_VALUES[next_character] < -1:
+                    if LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1:
                         print(Fore.RED + 'Max ONE modifier per letter allowed.\n')
                         string_valid = False
                         break
@@ -101,7 +101,7 @@ def word_extractor(specified_string):
     specified_word = ''
     
     for character in specified_string:
-        if LETTER_VALUES[character] > -1:
+        if LETTER_VALUES[character] > 0:
             specified_word = specified_word + character
 
     return specified_word
@@ -121,7 +121,7 @@ def word_validator(specified_word, wordlist_txt):
     return specified_word
 
 
-def evaluate_word(specified_word):
+def evaluate_word(specified_string, specified_word):
     """
     Returns the score breakdown and final score of the specified word.
     If the word is not valid, the program will continue to the end_menu() function.
@@ -129,7 +129,7 @@ def evaluate_word(specified_word):
     if specified_word != 0:
         this_word = CheckedWord(specified_word,0,0,'No',0)
 
-        this_word.basic = evaluate_letters(specified_word)
+        this_word.basic = evaluate_letters(specified_string)
         this_word.multiplied = evaluate_multiplier(this_word.basic)
         if len(specified_word) < 7:
             this_word.bonus = 'No'
@@ -142,14 +142,14 @@ def evaluate_word(specified_word):
         this_word.score_breakdown()
 
 
-def evaluate_letters(specified_word):
+def evaluate_letters(specified_string):
     """
     Calculates the letter score including specified modifiers.
     """
     word_score = 0
 
-    for letter in specified_word:
-        individual_value = LETTER_VALUES.get(letter)
+    for character in specified_string:
+        individual_value = LETTER_VALUES[character]
         word_score = word_score + individual_value
 
     return word_score
@@ -241,7 +241,7 @@ def main():
     string = string_validator(wordlist)
     word = word_extractor(string)
     valid_word = word_validator(word, wordlist)
-    score = evaluate_word(valid_word)
+    score = evaluate_word(string, valid_word)
     end_menu()
     
 
