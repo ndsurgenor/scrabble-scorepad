@@ -224,7 +224,8 @@ def end_menu():
     while True:
         print(Fore.YELLOW + Style.BRIGHT + 'Options:')
         print(Fore.YELLOW + Style.BRIGHT + '1 - Score another word')
-        print(Fore.YELLOW + Style.BRIGHT + '2 - Close program\n')
+        print(Fore.YELLOW + Style.BRIGHT + '2 - Display total score statistics')
+        print(Fore.YELLOW + Style.BRIGHT + '3 - Close program\n')
 
         option_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which option you require:\n')
 
@@ -232,6 +233,8 @@ def end_menu():
             main()
             break
         elif option_value == '2':
+            break
+        elif option_value == '3':
             print(Fore.WHITE + 'Closing program... \n')
             print(Fore.CYAN + Style.BRIGHT + '--------------------------------------')
             print(Fore.CYAN + Style.BRIGHT + 'Thank you for using Scrabble ScorePad!')
