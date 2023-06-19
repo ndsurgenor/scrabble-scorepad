@@ -4,22 +4,24 @@ from dictionaries import LETTER_VALUES
 from colorama import init, Fore, Style
 init(autoreset = True)
 
-
+1
 # CLASSES
 
-class CheckedWord:
+class CheckedString:
     """
-    Records various score attributes of a specified word.
+    Records various score attributes of the user's input.
     """
-    def __init__(self, name, basic, multiplied, bonus, final):
-        self.name = name
+    def __init__(self, string, word, basic, multiplied, bonus, final):
+        self.string = string
+        self.word = word
         self.basic = basic
         self.multiplied = multiplied
         self.bonus = bonus
         self.final = final
 
     def score_breakdown(self):
-        print(Style.BRIGHT + f'The score breakdown for {self.name.upper()} is as follows:')
+        print(Fore.CYAN + Style.BRIGHT + f'The final score for {self.word.upper()} is as follows:')
+        print(Style.BRIGHT + f'--- {self.string.upper()} ---')
         print(Style.BRIGHT + f'Letter score = {self.basic}')
         print(Style.BRIGHT + f'Multiplied score = {self.multiplied}')
         print(Style.BRIGHT + f'Bonus (+50) applied = {self.bonus}')
@@ -123,16 +125,15 @@ def word_validator(specified_word, wordlist_txt):
 
 def evaluate_word(specified_string, specified_word):
     """
-    Returns the score breakdown and final score of the specified word.
+    Returns the score breakdown and final score of the specified string.
     If the word is not valid, the program will continue to the end_menu() function.
     """
     if specified_word != 0:
-        this_word = CheckedWord(specified_word,0,0,'No',0)
+        this_word = CheckedString(specified_string,specified_word,0,0,'No',0)
 
         this_word.basic = evaluate_letters(specified_string)
         this_word.multiplied = evaluate_multiplier(this_word.basic)
         if len(specified_word) < 7:
-            this_word.bonus = 'No'
             this_word.final = this_word.multiplied
         else:
             this_word.final = evaluate_bonus(this_word.multiplied)
