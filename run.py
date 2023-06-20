@@ -43,19 +43,20 @@ def wordlist_selector():
 
         if wordlist_value == '1':
             print(Fore.WHITE + 'Loading EU/WORLD (SWOPODS) wordlist...\n')
-            wordlist_txt = open('wl-eu-sowpods.txt', 'r')
+            wordlist_file = 'wl-eu-sowpods.txt'
             break
         elif wordlist_value == '2':
             print(Fore.WHITE + 'Loading USA/CANADA (TWL06) wordlist...\n')
-            wordlist_txt = open('wl-us-twl.txt', 'r')
+            wordlist_file = 'wl-us-twl.txt'
             break
         else:
             print(Fore.RED + Style.BRIGHT + f'Sorry, {wordlist_value.upper()} is not a valid option.\n')
     
+    wordlist_txt = open(wordlist_file, 'r')
     return wordlist_txt
 
 
-def string_validator(wordlist_txt):
+def string_validator():
     """
     Checks that the string entered is at least two characters long,
     does not contain invalid characters, and only one modifier per letter has been indicated.
@@ -249,7 +250,7 @@ def main():
     Runs all top level functions within the program.
     """
     wordlist = wordlist_selector()
-    string = string_validator(wordlist)
+    string = string_validator()
     word = word_extractor(string)
     valid_word = word_validator(word, wordlist)
     score = evaluate_word(string, valid_word)
