@@ -52,8 +52,7 @@ def wordlist_selector():
         else:
             print(Fore.RED + Style.BRIGHT + f'Sorry, {wordlist_value.upper()} is not a valid option.\n')
     
-    wordlist_txt = open(wordlist_file, 'r')
-    return wordlist_txt
+    return wordlist_file
 
 
 def string_validator():
@@ -110,10 +109,12 @@ def word_extractor(specified_string):
     return specified_word
 
 
-def word_validator(specified_word, wordlist_txt):
+def word_validator(specified_word, wordlist_file):
     """
     Checks that the word is contained within the selected wordlist.
     """
+    wordlist_txt = open(wordlist_file, 'r')
+
     if specified_word in wordlist_txt.read():
         print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
     else:
@@ -218,22 +219,24 @@ def evaluate_bonus(word_score):
     return word_score
 
 
-def end_menu():
+def end_menu(wordlist_file):
     """
     Allows the user to either check another word or end the program.
     """
     while True:
         print(Fore.YELLOW + Style.BRIGHT + 'Options:')
         print(Fore.YELLOW + Style.BRIGHT + '1 - Score another word')
-        print(Fore.YELLOW + Style.BRIGHT + '2 - Display total score statistics')
+        print(Fore.YELLOW + Style.BRIGHT + '2 - Change wordlist')
         print(Fore.YELLOW + Style.BRIGHT + '3 - Close program\n')
 
         option_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which option you require:\n')
 
         if option_value == '1':
-            main()
+            main(wordlist_file)
             break
         elif option_value == '2':
+            wordlist_file = 'notset'
+            main(wordlist_file)
             break
         elif option_value == '3':
             print(Fore.WHITE + 'Closing program... \n')
@@ -245,16 +248,18 @@ def end_menu():
             print(Fore.RED + Style.BRIGHT + f'Sorry, {option_value.upper()} is not a valid option.\n')
 
 
-def main():
+def main(wordlist):
     """
     Runs all top level functions within the program.
     """
-    wordlist = wordlist_selector()
+    if wordlist == 'notset':
+        wordlist = wordlist_selector()
+
     string = string_validator()
     word = word_extractor(string)
     valid_word = word_validator(word, wordlist)
     score = evaluate_word(string, valid_word)
-    end_menu()
+    end_menu(wordlist)
     
 
 # PROGRAM EXECUTION
@@ -264,4 +269,5 @@ print(Fore.CYAN + Style.BRIGHT + 'Welcome To Scrabble ScorePAD!')
 print(Fore.CYAN + Style.BRIGHT + '-----------------------------')
 print('When presented with options simply type the number of your choice and hit Enter.\n')
 
-main()
+wordlist_file = 'notset'
+main(wordlist_file)
