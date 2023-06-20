@@ -1,15 +1,15 @@
 # IMPORTS
 
-from dictionaries import LETTER_VALUES
+from dictionaries import LETTER_VALUES, scored_words
 from colorama import init, Fore, Style
 init(autoreset = True)
 
-1
+
 # CLASSES
 
 class CheckedString:
     """
-    Records various score attributes of the user's input.
+    Records various score attributes of the input string.
     """
     def __init__(self, string, word, basic, multiplied, bonus, final):
         self.string = string
@@ -109,7 +109,7 @@ def word_extractor(specified_string):
     return specified_word
 
 
-def word_validator(specified_word, wordlist_file):
+def word_validator(wordlist_file, specified_word):
     """
     Checks that the word is contained within the selected wordlist.
     """
@@ -227,7 +227,8 @@ def end_menu(wordlist_file):
         print(Fore.YELLOW + Style.BRIGHT + 'Options:')
         print(Fore.YELLOW + Style.BRIGHT + '1 - Score another word')
         print(Fore.YELLOW + Style.BRIGHT + '2 - Change wordlist')
-        print(Fore.YELLOW + Style.BRIGHT + '3 - Close program\n')
+        print(Fore.YELLOW + Style.BRIGHT + '3 - Total score statistics')
+        print(Fore.YELLOW + Style.BRIGHT + '4 - Close program\n')
 
         option_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which option you require:\n')
 
@@ -239,6 +240,8 @@ def end_menu(wordlist_file):
             main(wordlist_file)
             break
         elif option_value == '3':
+            score_stats()
+        elif option_value == '4':
             print(Fore.WHITE + 'Closing program... \n')
             print(Fore.CYAN + Style.BRIGHT + '--------------------------------------')
             print(Fore.CYAN + Style.BRIGHT + 'Thank you for using Scrabble ScorePad!')
@@ -246,6 +249,21 @@ def end_menu(wordlist_file):
             break
         else:
             print(Fore.RED + Style.BRIGHT + f'Sorry, {option_value.upper()} is not a valid option.\n')
+
+
+def score_stats():
+    """
+    Displays the individual total score of all valid words input by the user.
+    """
+    print(Fore.CYAN + Style.BRIGHT + '--- SCORED WORDS ---')
+    
+    num = 0    
+    for key in scored_words:
+        num = num + 1
+        print (Fore.WHITE + f'{num}. {key} - {scored_words[key]}')
+
+    print('')
+    print(Style.BRIGHT + 'TOTAL SCORE = \n')
 
 
 def main(wordlist):
@@ -257,7 +275,7 @@ def main(wordlist):
 
     string = string_validator()
     word = word_extractor(string)
-    valid_word = word_validator(word, wordlist)
+    valid_word = word_validator(wordlist, word)
     score = evaluate_word(string, valid_word)
     end_menu(wordlist)
     

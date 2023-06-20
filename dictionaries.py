@@ -34,3 +34,12 @@ LETTER_VALUES = {
     '2': 0,
     '3': 0,
 }
+
+"""
+Placeholder dicitionary ready for valid words input by the user.
+"""
+scored_words = {
+    'X': 1,
+    'Y': 2,
+    'Z': 3,
+}
