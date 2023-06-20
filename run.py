@@ -233,13 +233,16 @@ def end_menu(wordlist_file):
         option_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which option you require:\n')
 
         if option_value == '1':
+            print(Fore.WHITE + 'Loading validator... \n')
             main(wordlist_file)
             break
         elif option_value == '2':
+            print(Fore.WHITE + 'Loading wordlists... \n')
             wordlist_file = 'notset'
             main(wordlist_file)
             break
         elif option_value == '3':
+            print(Fore.WHITE + 'Loading scores... \n')
             score_stats()
         elif option_value == '4':
             print(Fore.WHITE + 'Closing program... \n')
