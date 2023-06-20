@@ -11,13 +11,13 @@ class CheckedString:
     """
     Records various score attributes of the input string.
     """
-    def __init__(self, string, word, basic, multiplied, bonus, final):
+    def __init__(self, string, word):
         self.string = string
         self.word = word
-        self.basic = basic
-        self.multiplied = multiplied
-        self.bonus = bonus
-        self.final = final
+        self.basic = 0
+        self.multiplied = 0
+        self.bonus = 'No'
+        self.final = 0
 
     def score_breakdown(self):
         print(Fore.CYAN + Style.BRIGHT + f'The final score for {self.word.upper()} is as follows:')
@@ -131,7 +131,7 @@ def evaluate_word(specified_string, specified_word):
     If the word is not valid, the program will continue to the end_menu() function.
     """
     if specified_word != 0:
-        this_word = CheckedString(specified_string,specified_word,0,0,'No',0)
+        this_word = CheckedString(specified_string, specified_word)
 
         this_word.basic = evaluate_letters(specified_string)
         this_word.multiplied = evaluate_multiplier(this_word.basic)
