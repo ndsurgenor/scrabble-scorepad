@@ -10,7 +10,7 @@ The main aims of the application are as follows:
 - to provide a game which becomes more difficult as it progresses so as to engage the user
 - to present a game where the graphic design provides clear feedback and complements the gameplay -->
 
-![Overview](assets/readme_images/overview.png)
+![Overview](assets/images/overview.png)
 
 ## Initial Development
 
@@ -19,7 +19,9 @@ The main aims of the application are as follows:
 - User B: as someone who plays only mobile games, I want a bright and colourful game that plays quickly so I can play it mobile in short bursts.
 - User C: as someone who enjoys strategic games, I want something easy to learn with depth so I can continue to engage with the game more as I get to know it better.-->
 
-The initial logic and program ideas were developed using chart design site [Lucid](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1533%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444) and can be viewed by following the link.
+The initial logic and program ideas were developed using chart design site [Lucid](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1533%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444).
+
+![Flowchart](assets/images/flowchart.png)
 
 <!--Originally the idea revolved around using a 5x5 grid with a aim to creating rows/columns of 5 but this was too complex/long in its gameplay (failing users A & B) while, somewhat paradoxically, also being too simple in its objective (failing user C); as such, the grid was reduced to 4x4 and introduced the objective of continuing for as long as possible. -->
 
@@ -203,6 +205,7 @@ A live link to the site can be found here: https://dashboard.heroku.com/apps/scr
 
 ## Credits 
 
-- Flowchart designed using [Lucid Charts](https://lucid.app/)
+- Overview image created using [Am I Responsive?](https://ui.dev/amiresponsive?url=https://scrabble-scorepad.herokuapp.com/)
+- Flowchart designed using [Lucid Charts](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1660%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
 - Favicon created with [favicon.io](https://favicon.io/)
 - README.md file adapted from the [Code Institute 'ULTIMATE Battleships'](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/2?activate_block_id=block-v1%3ACodeInstitute%2BPE_PAGPPF%2B2021_Q2%2Btype%40vertical%2Bblock%403db2c53014c24243a11d471769df21e7) example
