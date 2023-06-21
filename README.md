@@ -5,10 +5,7 @@ Scrabble ScorePAD an application designed to help validate and score words durin
 [LIVE LINK TO SITE](https://scrabble-scorepad.herokuapp.com/)
 
 The main aims of the application are as follows:
-<!-- - to provide an challenging game which runs in an internet browser
-- to provide a game incorporates basic logic so the user feels in control of their decisions 
-- to provide a game which becomes more difficult as it progresses so as to engage the user
-- to present a game where the graphic design provides clear feedback and complements the gameplay -->
+- to provide a helpful and intuitive app for scoring Scrabble which runs in a basic python terminal inside a browser window 
 
 ![Overview](assets/images/overview.png)
 
@@ -208,4 +205,4 @@ A live link to the site can be found here: https://dashboard.heroku.com/apps/scr
 - Overview image created using [Am I Responsive?](https://ui.dev/amiresponsive?url=https://scrabble-scorepad.herokuapp.com/)
 - Flowchart designed using [Lucid Charts](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1660%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
 - Favicon created with [favicon.io](https://favicon.io/)
-- README.md file adapted from the [Code Institute 'ULTIMATE Battleships'](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/2?activate_block_id=block-v1%3ACodeInstitute%2BPE_PAGPPF%2B2021_Q2%2Btype%40vertical%2Bblock%403db2c53014c24243a11d471769df21e7) example
+- README.md file adapted from the [Code Institute 'ULTIMATE Battleships'](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware) example
