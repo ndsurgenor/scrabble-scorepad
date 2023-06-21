@@ -113,7 +113,7 @@ def word_validator(wordlist_file, specified_word):
     """
     Checks that the word is contained within the selected wordlist.
     """
-    wordlist_txt = open(wordlist_file, 'r')
+    wordlist_txt = open('assets/wordlists/' + wordlist_file, 'r')
 
     if specified_word in wordlist_txt.read():
         print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
