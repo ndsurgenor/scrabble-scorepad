@@ -35,11 +35,9 @@ LETTER_VALUES = {
     '3': 0,
 }
 
+
 """
-Placeholder dicitionary ready for valid words input by the user.
+Lists used to store valid words input by the user and their respective scores .
 """
-scored_words = {
-    'X': 1,
-    'Y': 2,
-    'Z': 3,
-}
+scored_words = []
+scores_only = []

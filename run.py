@@ -1,6 +1,6 @@
 # IMPORTS
 
-from dictionaries import LETTER_VALUES, scored_words
+from data import LETTER_VALUES, scored_words, scores_only
 from colorama import init, Fore, Style
 init(autoreset = True)
 
@@ -26,6 +26,10 @@ class CheckedString:
         print(Style.BRIGHT + f'Multiplied score = {self.multiplied}')
         print(Style.BRIGHT + f'Bonus (+50) applied = {self.bonus}')
         print(Style.BRIGHT + f'FINAL WORD SCORE = {self.final}\n')
+
+    def list_append(self):
+        scored_words.append(f'{self.word.upper()} ({self.string.upper()}) - {self.final}')
+        scores_only.append(self.final)
 
 
 # FUNCTIONS
@@ -127,7 +131,7 @@ def word_validator(wordlist_file, specified_word):
 
 def evaluate_word(specified_string, specified_word):
     """
-    Returns the score breakdown and final score of the specified string.
+    Returns the final score breakdown of the specified string and adds it to the scored_words[] list.
     If the word is not valid, the program will continue to the end_menu() function.
     """
     if specified_word != 0:
@@ -143,6 +147,7 @@ def evaluate_word(specified_string, specified_word):
                 this_word.bonus = 'Yes'
             
         this_word.score_breakdown()
+        this_word.list_append()
 
 
 def evaluate_letters(specified_string):
@@ -259,14 +264,19 @@ def score_stats():
     Displays the individual total score of all valid words input by the user.
     """
     print(Fore.CYAN + Style.BRIGHT + '--- SCORED WORDS ---')
+    print (Fore.WHITE + 'D/T = Double/Triple word score, B = Bonus (+50)')
     
     num = 0    
-    for key in scored_words:
+    for item in scored_words:
         num = num + 1
-        print (Fore.WHITE + f'{num}. {key} - {scored_words[key]}')
+        print (f'{num}. {item}')
 
-    print('')
-    print(Style.BRIGHT + 'TOTAL SCORE = \n')
+    total = 0    
+    for item in scores_only:
+        total = total + item
+
+    print('')    
+    print(Style.BRIGHT + f'TOTAL SCORE = {total}\n')
 
 
 def main(wordlist):
