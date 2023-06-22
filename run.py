@@ -1,35 +1,9 @@
 # IMPORTS
 
 from data import LETTER_VALUES, scored_words, scores_only
+from classes import CheckedString
 from colorama import init, Fore, Style
 init(autoreset = True)
-
-
-# CLASSES
-
-class CheckedString:
-    """
-    Records various score attributes of the input string.
-    """
-    def __init__(self, string, word):
-        self.string = string
-        self.word = word
-        self.basic = 0
-        self.multiplied = 0
-        self.bonus = 'No'
-        self.final = 0
-
-    def score_breakdown(self):
-        print(Fore.CYAN + Style.BRIGHT + f'The final score for {self.word.upper()} is as follows:')
-        print(Style.BRIGHT + f'--- {self.string.upper()} ---')
-        print(Style.BRIGHT + f'Letter score = {self.basic}')
-        print(Style.BRIGHT + f'Multiplied score = {self.multiplied}')
-        print(Style.BRIGHT + f'Bonus (+50) applied = {self.bonus}')
-        print(Style.BRIGHT + f'FINAL WORD SCORE = {self.final}\n')
-
-    def list_append(self):
-        scored_words.append(f'{self.word.upper()} ({self.string.upper()}) - {self.final}')
-        scores_only.append(self.final)
 
 
 # FUNCTIONS
@@ -261,10 +235,10 @@ def end_menu(wordlist_file):
 
 def score_stats():
     """
-    Displays the individual total score of all valid words input by the user.
+    Displays the individual and total score of all valid words input by the user.
     """
     print(Fore.CYAN + Style.BRIGHT + '--- SCORED WORDS ---')
-    print (Fore.WHITE + 'D/T = Double/Triple word score, B = Bonus (+50)')
+    print (Fore.WHITE + 'D/T = Double/Triple score, B = Bonus\n')
     
     num = 0    
     for item in scored_words:
