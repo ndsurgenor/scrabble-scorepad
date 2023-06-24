@@ -20,7 +20,8 @@ class CheckedString:
         self.bonus = 'No'
         self.b_indicator = ''
         self.final = 0       
-              
+
+
     def score_breakdown(self):
         """
         Gives the score breakdown for a particular string.
@@ -34,6 +35,7 @@ class CheckedString:
         print(Style.BRIGHT + f'Multiplied score ({self.factor}) = {self.multiplied}')
         print(Style.BRIGHT + f'Bonus (+50) = {self.bonus}')
         print(Style.BRIGHT + f'FINAL WORD SCORE = {self.final}\n')
+
 
     def list_append(self):        
         """

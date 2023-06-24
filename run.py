@@ -35,7 +35,7 @@ def wordlist_selector():
 
 def string_validator():
     """
-    Checks that the string entered is at least two characters long,
+    Checks that the string entered is at least two characters long, does not start with a modifier,
     does not contain invalid characters, and only one modifier per letter has been indicated.
     """
     print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
@@ -46,6 +46,11 @@ def string_validator():
 
     while True:
         specified_string = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word (including modifiers) to be checked and scored:\n')).lower()
+
+        check_length(specified_string)
+        check_opener(specified_string)
+        check_characters(specified_string)
+        check_modifiers(specified_string)
 
         if len(specified_string) > 1:
                      
@@ -72,6 +77,30 @@ def string_validator():
             print(Fore.RED + f'Input must be at least 2 characters long.\n')
     
     return specified_string
+
+
+def check_length(specified_string):
+    """
+    Checks that the string is at least two characters long.
+    """
+
+
+def check_opener(specified_string):
+    """
+    Checks that the string starts with a letter.
+    """
+
+
+def check_characters(specified_string):
+    """
+    Checks that the string only contains letters and valid modifiers.
+    """
+
+
+def check_modifiers(specified_string):
+    """
+    Checks that the string contains max one modifier after each letter.
+    """
    
 
 def word_extractor(specified_string):
