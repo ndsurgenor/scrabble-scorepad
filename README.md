@@ -5,22 +5,21 @@ Scrabble ScorePAD an application designed to help validate and score words durin
 [LIVE LINK TO SITE](https://scrabble-scorepad.herokuapp.com/)
 
 The main aims of the application are as follows:
-- to provide a helpful and intuitive app for scoring Scrabble which runs in a basic python terminal inside a browser window 
+- To provide a helpful and intuitive app for scoring Scrabble which runs in a basic python terminal inside a browser window
+- To allow the user to ensure that a word played is valid for the particular Scrabble wordlist they are using
+- To allow the user to easily indicate blank tiles, double/triple letter/word scores and 'bingo' bonuses as score each word
+- To keep track of all words played and providing a running total of their scores
 
 ![Overview](assets/images/overview.png)
 
 ## Initial Development
 
-<!-- Three user stories were created at the outset of this project to guide its initial design and provide goals for the finished project:
-- User A: as someone who enjoys casual gaming, I want to play a simple logic puzzle so I can enjoy a light to medium challenge.
-- User B: as someone who plays only mobile games, I want a bright and colourful game that plays quickly so I can play it mobile in short bursts.
-- User C: as someone who enjoys strategic games, I want something easy to learn with depth so I can continue to engage with the game more as I get to know it better.-->
-
-The initial logic and program ideas were developed using chart design site [Lucid](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1533%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444).
+- With these aims in mind, the following was drawn up as blueprint for writing the program, breaking down the various stages of input, decision, logic and function
+- The diagram was created using the chart design site [Lucid](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1533%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
 
 ![Flowchart](assets/images/flowchart.png)
 
-<!--Originally the idea revolved around using a 5x5 grid with a aim to creating rows/columns of 5 but this was too complex/long in its gameplay (failing users A & B) while, somewhat paradoxically, also being too simple in its objective (failing user C); as such, the grid was reduced to 4x4 and introduced the objective of continuing for as long as possible. -->
+As development of the program progressed various new checks and functions were added into what is shown above, but this diagram provided a good starting point for the initial writing of the code.
 
 ## Features 
 
