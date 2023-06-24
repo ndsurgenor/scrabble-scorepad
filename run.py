@@ -295,7 +295,7 @@ def score_stats():
         total = total + item
 
     print('')    
-    print(Fore.WHITE + Style.BRIGHT + f'TOTAL SCORE = {total}\n')
+    print(Fore.CYAN + Style.BRIGHT + f'TOTAL SCORE = {total}\n')
 
 
 def main(wordlist):
