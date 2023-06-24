@@ -51,30 +51,6 @@ def string_validator():
         check_opener(specified_string)
         check_characters(specified_string)
         check_modifiers(specified_string)
-
-        if len(specified_string) > 1:
-                     
-            for character, next_character in zip(specified_string, specified_string[1:]):
-                try:
-                    LETTER_VALUES[character] and LETTER_VALUES[next_character]
-                except:
-                    print(Fore.RED + f'Input contains invalid character(s)')
-                    print('Only letters and the characters *, 2, or 3 are allowed.\n')
-                    string_valid = False
-                    break
-                else:
-                    if LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1:
-                        print(Fore.RED + 'Max ONE modifier per letter allowed.\n')
-                        string_valid = False
-                        break
-                    else:
-                        string_valid = True
-                        continue
-
-            if string_valid == True:
-                break
-        else:
-            print(Fore.RED + f'Input must be at least 2 characters long.\n')
     
     return specified_string
 
@@ -83,24 +59,49 @@ def check_length(specified_string):
     """
     Checks that the string is at least two characters long.
     """
+    if len(specified_string) < 2:
+        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long.')     
+    else:
+        pass
 
 
 def check_opener(specified_string):
     """
     Checks that the string starts with a letter.
     """
+    if LETTER_VALUES[specified_string[0]] < 1:                  
+        print(Fore.RED + Style.BRIGHT + f'Input must begin with a letter.')
+    else:
+        pass
 
 
 def check_characters(specified_string):
     """
     Checks that the string only contains letters and valid modifiers.
     """
+    for character, next_character in zip(specified_string, specified_string[1:]):
+        try:
+            LETTER_VALUES[character] and LETTER_VALUES[next_character]
+        except:
+            print(Fore.RED + Style.BRIGHT + f'Input contains invalid character(s)')
+            print('Only letters and the characters *, 2, or 3 are allowed.')
+            break
+        else:
+            continue
 
 
 def check_modifiers(specified_string):
     """
     Checks that the string contains max one modifier after each letter.
     """
+    for character, next_character in zip(specified_string, specified_string[1:]):
+        try:
+            LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1
+        except:
+            print(Fore.RED + Style.BRIGHT + 'Max ONE modifier per letter allowed.')
+            break
+        else:
+            continue
    
 
 def word_extractor(specified_string):
