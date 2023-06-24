@@ -63,7 +63,7 @@ def check_length(specified_string):
     Checks that the string is at least two characters long.
     """
     if len(specified_string) < 2:
-        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long.\n')
+        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long\n')
         string_valid = False     
     else:
         string_valid = True
@@ -75,9 +75,9 @@ def check_characters(specified_string):
     """
     Checks that the string only contains letters and valid modifiers.
     """
-    for character, next_character in zip(specified_string, specified_string[1:]):
+    for character in specified_string:
         try:
-            LETTER_VALUES[character] and LETTER_VALUES[next_character]
+            LETTER_VALUES[character]
         except:
             print(Fore.RED + Style.BRIGHT + f'Input contains invalid character(s)')
             print('Only letters and the characters *, 2, or 3 are allowed.\n')
@@ -95,12 +95,13 @@ def check_start(specified_string):
     Checks that the string starts with a letter.
     """
     if LETTER_VALUES[specified_string[0]] < 1:                  
-        print(Fore.RED + Style.BRIGHT + f'Input must begin with a letter.')
-        start_valid = False 
+        print(Fore.RED + Style.BRIGHT + f'Input must begin with a letter')
+        print('Modifiers are to be placed AFTER the letter they refer to.')
+        string_valid = False 
     else:
-        start_valid = True
+        string_valid = True
     
-    return start_valid
+    return string_valid
 
 
 def check_mods(specified_string):
@@ -109,13 +110,13 @@ def check_mods(specified_string):
     """
     for character, next_character in zip(specified_string, specified_string[1:]):
         if LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1:
-            print(Fore.RED + Style.BRIGHT + 'Max ONE modifier per letter allowed.')
-            mods_valid = False
+            print(Fore.RED + Style.BRIGHT + 'Max ONE modifier per letter allowed')
+            string_valid = False
             break
         else:
-            mods_valid = True
+            string_valid = True
     
-    return mods_valid
+    return string_valid
    
 
 def word_extractor(specified_string):
