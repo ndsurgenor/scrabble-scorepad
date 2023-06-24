@@ -35,8 +35,9 @@ def wordlist_selector():
 
 def string_validator():
     """
-    Checks that the string entered is at least two characters long, does not start with a modifier,
-    does not contain invalid characters, and only one modifier per letter has been indicated.
+    Checks firstly that the string entered contains valid characters. If this is confirmed,
+    other checks will run to ensure that the string is at least two characters long,
+    that it does not start with a modifier, and that only one modifier per letter has been indicated.
     """
     print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
     print('Please include modifiers for blank tiles (*), double letter (2) or triple ')
@@ -47,12 +48,32 @@ def string_validator():
     while True:
         specified_string = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word (including modifiers) to be checked and scored:\n')).lower()
 
-        check_length(specified_string)
-        check_opener(specified_string)
-        check_characters(specified_string)
-        check_modifiers(specified_string)
+        character_check = check_characters(specified_string)
+        if character_check == True:
+            check_length(specified_string)
+            check_opener(specified_string)        
+            check_modifiers(specified_string)
     
     return specified_string
+
+
+def check_characters(specified_string):
+    """
+    Checks that the string only contains letters and valid modifiers.
+    """
+    for character, next_character in zip(specified_string, specified_string[1:]):
+        try:
+            LETTER_VALUES[character] and LETTER_VALUES[next_character]
+        except:
+            print(Fore.RED + Style.BRIGHT + f'Input contains invalid character(s)')
+            print('Only letters and the characters *, 2, or 3 are allowed.\n')
+            string_valid = False
+            break
+        else:
+            string_valid = True
+            continue
+    
+    return string_valid
 
 
 def check_length(specified_string):
@@ -73,21 +94,6 @@ def check_opener(specified_string):
         print(Fore.RED + Style.BRIGHT + f'Input must begin with a letter.')
     else:
         pass
-
-
-def check_characters(specified_string):
-    """
-    Checks that the string only contains letters and valid modifiers.
-    """
-    for character, next_character in zip(specified_string, specified_string[1:]):
-        try:
-            LETTER_VALUES[character] and LETTER_VALUES[next_character]
-        except:
-            print(Fore.RED + Style.BRIGHT + f'Input contains invalid character(s)')
-            print('Only letters and the characters *, 2, or 3 are allowed.')
-            break
-        else:
-            continue
 
 
 def check_modifiers(specified_string):
