@@ -127,7 +127,7 @@ def word_extractor(specified_string):
     
     for character in specified_string:
         if LETTER_VALUES[character] > 0:
-            specified_word = specified_word + character
+            specified_word = str(specified_word + character)
 
     return specified_word
 
@@ -137,8 +137,9 @@ def word_validator(wordlist_file, specified_word):
     Checks that the word is contained within the selected wordlist.
     """
     wordlist_txt = open('assets/wordlists/' + wordlist_file, 'r')
+    wordlist_txtlist = (wordlist_txt.read()).split('\n')
 
-    if specified_word in wordlist_txt.read():
+    if specified_word in wordlist_txtlist:
         print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
     else:
         print(Fore.RED + Style.BRIGHT + f'Sorry, {specified_word.upper()} is not a valid word on this list.\n')
@@ -282,21 +283,21 @@ def score_stats():
     """
     Displays the individual and total score of all valid words input by the user.
     """
+    print ('D/T = double/triple')
+    print ('B = bonus\n')
     print(Fore.CYAN + Style.BRIGHT + '--- SCORED WORDS ---')
-    print (Fore.WHITE + 'D/T = double/triple')
-    print (Fore.WHITE + 'B = bonus\n')
     
     num = 0    
     for item in scored_words:
         num = num + 1
-        print (Fore.WHITE + Style.BRIGHT + f'{num}. {item}')
+        print (Fore.WHITE + f'{num}. {item}')
 
     total = 0    
     for item in scores_only:
         total = total + item
 
     print('')    
-    print(Fore.CYAN + Style.BRIGHT + f'TOTAL SCORE = {total}\n')
+    print(Fore.WHITE + Style.BRIGHT + f'TOTAL SCORE = {total}\n')
 
 
 def main(wordlist):
