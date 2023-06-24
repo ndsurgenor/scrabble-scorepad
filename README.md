@@ -21,6 +21,21 @@ The main aims of the application are as follows:
 
 As development of the program progressed various new checks and functions were added into what is shown above, but this diagram provided a good starting point for the initial writing of the code.
 
+## How To Use The Program
+
+- When presented with a list of options simply type the relevant number and hint 'Enter' on the keyboard
+- Firstly, one of two initial offical Scrabble lists must be selected, then the user can enter the first word for scoring
+- The word to be checked should be entered along with any indication of blank tiles used and/or double/triple letter scores
+  - Use * after a letter to indicate the tile is blank
+  - Use 2 after a letter to indicate a double letter score
+  - Use 3 after a letter to indicate a double letter score
+  - If a blank tile and double/triple letter score appear togrther simply use *
+- The input will be checked to ensure it is valid and that the word appears on the previously selected wordlist
+- The user will then be offered the oppurtunity to indicate a double/triple word score and 'bingo' (all tiles used) bonus, if applicable
+- Once all scoring types have been indicated, the final score and breakdown is presented to the user
+- The user is then presented with the option of scoring another word, changing the wordlist, showing a full list of words scored or closing the program
+- The program will run and continue to score words/keep score until the user chooses to close the program 
+
 ## Features 
 
 ### Existing Features
