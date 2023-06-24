@@ -273,7 +273,7 @@ def end_menu(wordlist_file):
         elif option_value == '4':
             print(Fore.WHITE + 'Closing program... \n')
             print(Fore.CYAN + Style.BRIGHT + '--------------------------------------')
-            print(Fore.CYAN + Style.BRIGHT + 'Thank you for using Scrabble ScorePad!')
+            print(Fore.CYAN + Style.BRIGHT + 'Thank you for using Scrabble ScorePAD!')
             print(Fore.CYAN + Style.BRIGHT + '--------------------------------------\n')
             break
         else:

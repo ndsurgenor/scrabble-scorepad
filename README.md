@@ -125,16 +125,9 @@ As development of the program progressed various new checks and functions were a
 ![Game Over Message](assets/images/readme_file/game_over.png)
 ![New High Score](assets/images/readme_file/new_high_score.png)
 
-- __Footer__
-
-  - The footer provides a visitor to the site with copyright info for the design and coding of the game.
-
-![Footer](assets/images/readme_file/footer.png)
-
 - __404 Page__
 
   - A stylised 404 page is presented to the user if they enter an incorrect web address
-  - The error page is styled to match the elements and text of the game.
   - A link allows the user to immediately navigate to the correct page and play the game.
   - If the user does not use the link, the page will automatically redirect to the main page after a short number of seconds.
 
@@ -147,13 +140,6 @@ The following are ideas which can be implemented into the site at a later time (
 - Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar.
 
 ## Testing
-
-### General Testing
-
-- This site has been tested for responsiveness across different screen sizes by utilizing Google Chrome's developer tools. The following link provides a [Responsive Preview](https://ui.dev/amiresponsive?url=https://ndsurgenor.github.io/quadulo/) of various screen sizes.
-- This site has been tested for responsiveness in 'real-world' contexts by viewing the site on widescreen desktop and laptop setups, medium-screen tablets, and smaller-screen smartphone devices.
-- This site has also been tested for responsiveness on various browsers including Chrome, Firefox, Edge and Safari.
-- Text, graphics and grid/dialog boxes have been tested to ensure that they resize correctly on smaller screens.
 
 ### Gameplay & Banner Testing
 
