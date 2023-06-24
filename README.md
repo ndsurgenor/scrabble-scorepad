@@ -42,15 +42,14 @@ As development of the program progressed various new checks and functions were a
 
 - __Favicon & Title__
 
-  - A favicon is included as part of the tab styling, taking the form of the stylised 'Q' found in the game's title.
-  - The title is placed at the top of the page and centrally located to emphasise the name and branding of the game.
-  - Clicking the logo will not refresh/redirect the page as this would interrupt the game experience.
-  - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of a clickable grid/buttons.
-  - A text banner under the title provides useful feedback to the user as to the current state of the game.
+  - A favicon is included as part of the tab styling, taking the form of an 'S' tile found in Scrabble.
+  - The title is placed at the top of the page above the terminal to clearly indicate the program in use.
+  - Clicking the title will not refresh/redirect the page as this would interrupt the program.
+  - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of the terminal.
 
 ![Title & Info](assets/images/readme_file/title_and_info.png)
 
-- __Info Banner__
+<!-- - __Info Banner__
 
   - Messages displayed within the banner are restricted to 30 characters so as to avoid formatting issues and ensure the info provide is succinct.
   - At the outset of the game, the banner instructs the user saying 'Click any 1 to begin' [Fig A].
@@ -66,64 +65,7 @@ As development of the program progressed various new checks and functions were a
 ![Info Banner C](assets/images/readme_file/info_banner_c.png)
 ![Info Banner D](assets/images/readme_file/info_banner_d.png)
 ![Info Banner E](assets/images/readme_file/info_banner_e.png)
-![Info Banner F](assets/images/readme_file/info_banner_f.png)
-
-- __Game Area__
-
-  - Blocks within the grid feature high contrast background colours for ease of readability.
-  - Blocks are also coloured in order to convey important gameplay info to the user:
-    - 1, 2, 3, and 4 are consistently styled with specific colours - crimson, darkorange, forestgreen and royalblue, respectively - as they are the main focus of gameplay.
-    - 5 to 9 are consistently styled with the background colour rebeccapurple as they cannot be selected by the user.
-    - Empty cells have a background colour identical to that of the grid (lightblue).
-    - Unavailable cells use a background colour (gainsboro) to show they are greyed-out.
-  - When using a mouse, hovering over a particular block will provide feedback to the user by highlighting its border.
-  - Cursor styles are also used provide feedback: a 'pointer/hand' for available blocks and a 'not allowed' style for those which are unavailable.
-  - The game is coded to setup the grid with a minimum of seven number 1s in order to prevent an immediate 'end of game' state.
-
-![Game Area](assets/images/readme_file/game_area.png)
-![Game Setup](assets/images/readme_file/game_setup.png)
-
-- __Level & Block Counters__
-
-  - Feedback regarding progress is given via the 'Level' and 'Blocks cleared' counters located under the grid.
-  - For every 16 blocks cleared the Level counter increases by one giving the user a short term goal and keeping them engaged.
-  - This level increase also corresponds to the increase of the limit displayed in the info banner (up to a maximum of 9).
-
-![Level & Block Counters](assets/images/readme_file/counters.png)
-
-- __New Game & Rules Buttons__
-
-  - These buttons (indeed all within the game) are formatted so as to change their visual style when hovered over.
-  - Icons used in conjunction with the button text provide a visual metaphor for the user as to their function.
-  - The 'New Game' button allows the user to abandon their current game and start afresh.
-  - When 'New Game' is selected, a confirmation dialog will appear so that the current game is not interrupted accidentally.
-  - This dialog does not appear when 'New Game' is clicked alongside the 'GAME OVER' message allowing the user to start a new game immediately.
-  - The 'Rules' button displays the rules text over the main game area.  
-
-![New Game & Rules Buttons](assets/images/readme_file/buttons.png)
-![Confirmation Dialog](assets/images/readme_file/confirmation.png)
-
-- __Rules__ 
-
-  - Various headers and paragraphs help to organise and divide up what is a substantial amount of text for the user.
-  - The main aim of the game is clearly stated at the top of the rules text so the user knows immediately what they are trying to achieve.
-  - The rest of the text is split into two sections to make it more readable and easier to internalise.
-  - References to blocks within the text are formatted in the same way as they appear in the game itself giving a visual consistency.
-  - A button with text and accompanying icon appears at the bottom of the text as a means of closing the dialog.
-
-![Rules](assets/images/readme_file/rules.png)
-
-- __Game Over Message__
-
-  - When no more moves are available, the user is alerted via an animated 'GAME OVER' window.
-  - The main game area utilises a fade animation (in reverse) at the same time to further highlight that the game is over.
-  - The 'GAME OVER' window either informs the user of the current high score or that they have achieved a new high score.
-  - A short paragraph informs the user that their high scores are only tracked while the browser remains unrefreshed.
-  - A 'View Grid' button allows the user to see the final grid state before starting a new game.
-  - The 'New Game' button within the dialog functions in the same manner as to that below the grid.
-
-![Game Over Message](assets/images/readme_file/game_over.png)
-![New High Score](assets/images/readme_file/new_high_score.png)
+![Info Banner F](assets/images/readme_file/info_banner_f.png) -->
 
 - __404 Page__
 
@@ -133,11 +75,11 @@ As development of the program progressed various new checks and functions were a
 
 ![404 Page](assets/images/readme_file/404.png)
 
-### Features to Implement
+<!-- ### Features to Implement
 
 The following are ideas which can be implemented into the site at a later time (when skillset allows):
 - Add the ability to save high-scores and usernames to a back-end server allowing users to compare their scores with all visitors to the site.
-- Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar.
+- Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar. -->
 
 ## Testing
 
@@ -179,7 +121,7 @@ The following are ideas which can be implemented into the site at a later time (
 
 ### Unfixed Bugs
 
-- No bugs regarding graphic display and/or gameplay are known at this time.
+- No operational/exceptional bugs are known at this time.
 
 ## Deployment
 
@@ -198,11 +140,12 @@ A live link to the site can be found here: https://dashboard.heroku.com/apps/scr
 - Forking the repository allows for a copy to be made without affecting the original. Steps for forking are as follows:
   - Log in to GitHub (requires an account) and locate the [GitHub Repository for Scrabble ScorePAD](https://github.com/ndsurgenor/scrabble-scorepad)
   - Locate and click the 'Fork' button near the very top right of the repository page.
-  - This will create a copy of the original Quadulo repository in your own GitHub account.
+  - This will create a copy of the original Scrabble ScorePAD repository in your own GitHub account.
 
 ## Credits 
 
 - Overview image created using [Am I Responsive?](https://ui.dev/amiresponsive?url=https://scrabble-scorepad.herokuapp.com/)
 - Flowchart designed using [Lucid Charts](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1660%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
 - Favicon created with [favicon.io](https://favicon.io/)
+- Background image attributed to 'Barrow Boy' used under Creative Commons licence via [Wikipedia Commons](https://upload.wikimedia.org/wikipedia/commons/5/5d/Scrabble_game_in_progress.jpg)
 - README.md file adapted from the [Code Institute 'ULTIMATE Battleships'](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware) example
