@@ -35,9 +35,9 @@ def wordlist_selector():
 
 def string_validator():
     """
-    Checks firstly that the string entered contains valid characters. If this is confirmed,
-    other checks will run to ensure that the string is at least two characters long,
-    that it does not start with a modifier, and that only one modifier per letter has been indicated.
+    Checks firstly that the string is at least two characters long, then than the input contains only valid characters.
+    If both are true, further checks ensure that the input starts with a letter and only one modifier per letter has been indicated.
+    <! NB The specific order of these checks is crucial in allowing the function to run without exceptions bring raised !>
     """
     print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
     print('Please include modifiers for blank tiles (*), double letter (2) or triple ')
@@ -48,13 +48,27 @@ def string_validator():
     while True:
         specified_string = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word (including modifiers) to be checked and scored:\n')).lower()
 
-        character_check = check_characters(specified_string)
-        if character_check == True:
-            check_length(specified_string)
-            check_opener(specified_string)        
-            check_modifiers(specified_string)
+        if check_length(specified_string) == True:
+            if check_characters(specified_string) == True:
+                if check_start(specified_string) == check_mods(specified_string) == True: 
+                    break
+                else:
+                    print('')
     
     return specified_string
+
+
+def check_length(specified_string):
+    """
+    Checks that the string is at least two characters long.
+    """
+    if len(specified_string) < 2:
+        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long.\n')
+        string_valid = False     
+    else:
+        string_valid = True
+    
+    return string_valid
 
 
 def check_characters(specified_string):
@@ -76,38 +90,32 @@ def check_characters(specified_string):
     return string_valid
 
 
-def check_length(specified_string):
-    """
-    Checks that the string is at least two characters long.
-    """
-    if len(specified_string) < 2:
-        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long.')     
-    else:
-        pass
-
-
-def check_opener(specified_string):
+def check_start(specified_string):
     """
     Checks that the string starts with a letter.
     """
     if LETTER_VALUES[specified_string[0]] < 1:                  
         print(Fore.RED + Style.BRIGHT + f'Input must begin with a letter.')
+        start_valid = False 
     else:
-        pass
+        start_valid = True
+    
+    return start_valid
 
 
-def check_modifiers(specified_string):
+def check_mods(specified_string):
     """
     Checks that the string contains max one modifier after each letter.
     """
     for character, next_character in zip(specified_string, specified_string[1:]):
-        try:
-            LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1
-        except:
+        if LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1:
             print(Fore.RED + Style.BRIGHT + 'Max ONE modifier per letter allowed.')
+            mods_valid = False
             break
         else:
-            continue
+            mods_valid = True
+    
+    return mods_valid
    
 
 def word_extractor(specified_string):
@@ -274,19 +282,20 @@ def score_stats():
     Displays the individual and total score of all valid words input by the user.
     """
     print(Fore.CYAN + Style.BRIGHT + '--- SCORED WORDS ---')
-    print (Fore.WHITE + 'D/T = Double/Triple score, B = Bonus\n')
+    print (Fore.WHITE + 'D/T = double/triple')
+    print (Fore.WHITE + 'B = bonus\n')
     
     num = 0    
     for item in scored_words:
         num = num + 1
-        print (f'{num}. {item}')
+        print (Fore.WHITE + f'{num}. {item}')
 
     total = 0    
     for item in scores_only:
         total = total + item
 
     print('')    
-    print(Style.BRIGHT + f'TOTAL SCORE = {total}\n')
+    print(Fore.WHITE + Style.BRIGHT + f'TOTAL SCORE = {total}\n')
 
 
 def main(wordlist):

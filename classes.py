@@ -44,7 +44,7 @@ class CheckedString:
         scores_only.append(self.final)
 
         if self.multiplied/self.basic == 1 and self.bonus == 'No':
-            scored_words.append(f'{self.word.upper()} [{self.string.lower()}] - {self.final}')
+            scored_words.append(f'{self.word.upper()} [{self.string.lower()}] = {self.final}')
         else:
             if self.multiplied/self.basic == 2:
                 self.m_indicator = 'D'
@@ -54,4 +54,4 @@ class CheckedString:
             if self.bonus == 'Yes':
                 self.b_indicator = 'B'
 
-            scored_words.append(f'{self.word.upper()} [{self.string.lower()} {self.m_indicator}{self.b_indicator}] - {self.final}')     
+            scored_words.append(f'{self.word.upper()} [{self.string.lower()} {self.m_indicator}{self.b_indicator}] = {self.final}')     
