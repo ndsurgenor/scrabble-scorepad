@@ -111,6 +111,7 @@ def check_mods(specified_string):
     for character, next_character in zip(specified_string, specified_string[1:]):
         if LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1:
             print(Fore.RED + Style.BRIGHT + 'Max ONE modifier per letter allowed')
+            print('If * and 2/3 are applicable, simply enter *.')
             string_valid = False
             break
         else:
