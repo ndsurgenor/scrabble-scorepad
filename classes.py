@@ -30,7 +30,7 @@ class CheckedString:
             self.factor = f'x{int(self.multiplied/self.basic)}'
 
         print(Fore.CYAN + Style.BRIGHT + f'The final score for {self.word.upper()} is as follows:')
-        print(Style.BRIGHT + f'--- {self.string.upper()} ---')
+        print(Style.BRIGHT + f'--- {self.string.lower()} ---')
         print(Style.BRIGHT + f'Letter score = {self.basic}')
         print(Style.BRIGHT + f'Multiplied score ({self.factor}) = {self.multiplied}')
         print(Style.BRIGHT + f'Bonus (+50) = {self.bonus}')

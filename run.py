@@ -288,7 +288,7 @@ def score_stats():
     num = 0    
     for item in scored_words:
         num = num + 1
-        print (Fore.WHITE + f'{num}. {item}')
+        print (Fore.WHITE + Style.BRIGHT + f'{num}. {item}')
 
     total = 0    
     for item in scores_only:
