@@ -195,6 +195,8 @@ def evaluate_multiplier(specified_word, word_score):
     """
     Multiplies the word score, if appropriate.
     """
+    upper_limit = 4
+    
     while True:
         print(Fore.YELLOW + Style.BRIGHT + 'Any Double or Triple word score?')
         print(Fore.YELLOW + Style.BRIGHT + '1 - None')
