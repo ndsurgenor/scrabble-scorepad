@@ -42,14 +42,15 @@ class CheckedString:
         Adds the score, string, and word values to their respective lists for recall.
         """
         scores_only.append(self.final)
+        word_multiplier = self.multiplied/self.basic
 
-        if self.multiplied/self.basic == 1 and self.bonus == 'No':
+        if word_multiplier == 1 and self.bonus == 'No':
             scored_words.append(f'{self.word.upper()} [{self.string.lower()}] = {self.final}')
         else:
-            if self.multiplied/self.basic == 2:
-                self.m_indicator = 'D'
-            elif self.multiplied/self.basic == 3:
-                self.m_indicator = 'T'
+            if word_multiplier == 2 or word_multiplier == 4:
+                self.m_indicator = 'D' * int(word_multiplier / 2)
+            elif word_multiplier % 3 == 0:
+                self.m_indicator = 'T' * int(word_multiplier / 3)
 
             if self.bonus == 'Yes':
                 self.b_indicator = 'B'
