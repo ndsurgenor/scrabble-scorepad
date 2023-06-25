@@ -159,7 +159,7 @@ def evaluate_word(specified_string, specified_word):
         this_word = CheckedString(specified_string, specified_word)
 
         this_word.basic = evaluate_letters(specified_string)
-        this_word.multiplied = evaluate_multiplier(this_word.basic)
+        this_word.multiplied = evaluate_multiplier(specified_word, this_word.basic)
         if len(specified_word) < 7:
             this_word.final = this_word.multiplied
         else:
@@ -191,7 +191,7 @@ def evaluate_letters(specified_string):
     return word_score
 
 
-def evaluate_multiplier(word_score):
+def evaluate_multiplier(specified_word, word_score):
     """
     Multiplies the word score, if appropriate.
     """
@@ -200,9 +200,16 @@ def evaluate_multiplier(word_score):
         print(Fore.YELLOW + Style.BRIGHT + '1 - None')
         print(Fore.YELLOW + Style.BRIGHT + '2 - Double')
         print(Fore.YELLOW + Style.BRIGHT + '3 - Triple')
-        print(Fore.YELLOW + Style.BRIGHT + '4 - Double x2')
-        print(Fore.YELLOW + Style.BRIGHT + '5 - Triple x2')
-        print(Fore.YELLOW + Style.BRIGHT + '6 - Triple x3\n')
+        if len(specified_word) > 6:
+            print(Fore.YELLOW + Style.BRIGHT + '4 - Double x2')
+            upper_limit = 5
+        if len(specified_word) > 7:
+            print(Fore.YELLOW + Style.BRIGHT + '5 - Triple x2')
+            upper_limit = 6
+        if len(specified_word) == 15:
+            print(Fore.YELLOW + Style.BRIGHT + '6 - Triple x3')
+            upper_limit = 7
+        print('')
 
         multiplier = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n')
 
@@ -211,16 +218,18 @@ def evaluate_multiplier(word_score):
         except:
             print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n')
         else:
-            if int(multiplier) in range (1,7):
+            if int(multiplier) in range (1, upper_limit):
                 break
             else:
-               print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n') 
+                print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n') 
 
     if int(multiplier) == 1:
         print(Fore.WHITE + 'No multiplier to be applied\n')
     else:
-        if int(multiplier) > 4:
-            multiplier = (3 * int(multiplier)) - 9 # Converts input 5 or 6 to 6/9 respectively
+        if int(multiplier) == 5:
+            multiplier = 6
+        elif int(multiplier) == 6:
+            multiplier = 9
 
         print(Fore.WHITE + f'Multiplying word score by {multiplier}...\n')
         word_score = word_score * int(multiplier)
