@@ -204,19 +204,26 @@ def evaluate_multiplier(word_score):
         print(Fore.YELLOW + Style.BRIGHT + '5 - Triple x2')
         print(Fore.YELLOW + Style.BRIGHT + '6 - Triple x3\n')
 
-        multiplier = int(input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n'))
+        multiplier = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n')
 
-        if multiplier == 1:
-            print(Fore.WHITE + 'No multiplier to be applied\n')
-            break
-        elif multiplier in range (2,7):
-            if multiplier > 4:
-                multiplier = (3 * multiplier) - 9 # Converts input 5 or 6 to 6/9 respectively
-            print(Fore.WHITE + f'Multiplying word score by {multiplier}...\n')
-            word_score = word_score * multiplier
-            break
-        else:
+        try:
+            int(multiplier)
+        except:
             print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n')
+        else:
+            if int(multiplier) in range (1,7):
+                break
+            else:
+               print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n') 
+
+    if int(multiplier) == 1:
+        print(Fore.WHITE + 'No multiplier to be applied\n')
+    else:
+        if int(multiplier) > 4:
+            multiplier = (3 * int(multiplier)) - 9 # Converts input 5 or 6 to 6/9 respectively
+
+        print(Fore.WHITE + f'Multiplying word score by {multiplier}...\n')
+        word_score = word_score * int(multiplier)
 
     return word_score
 
