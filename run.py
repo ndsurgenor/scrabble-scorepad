@@ -193,26 +193,27 @@ def evaluate_letters(specified_string):
 
 def evaluate_multiplier(word_score):
     """
-    Multiplies the letter score, if appropriate.
+    Multiplies the word score, if appropriate.
     """
     while True:
         print(Fore.YELLOW + Style.BRIGHT + 'Any Double or Triple word score?')
         print(Fore.YELLOW + Style.BRIGHT + '1 - None')
         print(Fore.YELLOW + Style.BRIGHT + '2 - Double')
-        print(Fore.YELLOW + Style.BRIGHT + '3 - Triple\n')
+        print(Fore.YELLOW + Style.BRIGHT + '3 - Triple')
+        print(Fore.YELLOW + Style.BRIGHT + '4 - Double x2')
+        print(Fore.YELLOW + Style.BRIGHT + '5 - Triple x2')
+        print(Fore.YELLOW + Style.BRIGHT + '6 - Triple x3\n')
 
-        multiplier = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n').lower()
+        multiplier = int(input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n'))
 
-        if multiplier == '1' or multiplier == 'none' or multiplier == 'n':
+        if multiplier == 1:
             print(Fore.WHITE + 'No multiplier to be applied\n')
             break
-        elif multiplier == '2' or multiplier == 'double' or multiplier == 'd':
-            print(Fore.WHITE + 'Doubling word score...\n')
-            word_score = word_score * 2
-            break
-        elif multiplier == '3' or multiplier == 'triple' or multiplier == 't':
-            print(Fore.WHITE + 'Tripling word score...\n')
-            word_score = word_score * 3
+        elif multiplier in range (2,7):
+            if multiplier > 4:
+                multiplier = (3 * multiplier) - 9 # Converts input 5 or 6 to 6/9 respectively
+            print(Fore.WHITE + f'Multiplying word score by {multiplier}...\n')
+            word_score = word_score * multiplier
             break
         else:
             print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n')
