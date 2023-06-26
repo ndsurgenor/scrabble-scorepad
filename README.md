@@ -95,7 +95,20 @@ The following tests have been run on each part of the program to ensure that it 
 |-|-|-|-|-|-|
 | Wordlist Menu | Menu displays showing wordlist options and numbers alongside input request from user | Run program | Options display alongside input request | ![2-1](assets/images/2-1.png) | Pass |
 | Wordlist Selection<br/><span style='color:lightgreen'>[valid input]</span> | Selecting a valid option displays a specific confirmation message and moves to next section | Valid inputs:<br/>1, 2 | Program continues to next section with correct display message | ![2-2](assets/images/2-2.png)<br/>![2-3](assets/images/2-3.png) | Pass |
-| Wordlist Selection<br/><span style='color:tomato'>[invalid input]</span> | Selecting an invalid option displays an error message and repeats the valid options | Invalid inputs:<br/>< 1, > 2, String | Program continues to next section with correct display message | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
+| Wordlist Selection<br/><span style='color:tomato'>[invalid input]</span> | Selecting an invalid option displays an error message and repeats the valid options | Invalid inputs:<br/><1, >2, String | Program continues to next section with correct display message | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
+
+`Word & Modifier Input`
+| Feature | Expected | Test(s) | Result | Display | Pass/Fail |
+|-|-|-|-|-|-|
+| Word Input<br/><span style='color:lightgreen'>[letters only]</span> | ??? | ??? | ??? | ![3-1](assets/images/3-1.png) | Pass |
+| Word Input<br/><span style='color:lightgreen'>[letters with valid modifiers]</span> | ??? | ??? | ??? | ![3-2](assets/images/3-2.png) | Pass |
+| Word Input<br/><span style='color:tomato'>[invalid characters]</span> | ??? | ??? | ??? | ![3-3](assets/images/3-3.png) | Pass |
+| Word Input<br/><span style='color:tomato'>[<2 characters]</span> | ??? | ??? | ??? | ![3-4](assets/images/3-4.png) | Pass |
+| Word Input<br/><span style='color:tomato'>[opening valid modifier]</span> | ??? | ??? | ??? | ![3-5](assets/images/3-5.png) | Pass |
+| Word Input<br/><span style='color:tomato'>[> valid modifier per letter]</span> | ??? | ??? | ??? | ![3-5](assets/images/3-5.png) | Pass |
+| Word Validator<br/><span style='color:lightgreen'>[valid word entered]</span> | ??? | No modifiers, with modifiers | ??? | ![3-5](assets/images/3-6.png) | Pass |
+| Word Validator<br/><span style='color:tomato'>[invalid word entered]</span> | ??? | No modifiers, with modifiers | ??? | ![3-5](assets/images/3-6.png) | Pass |
+
 
 ### Validator Testing 
 
@@ -121,9 +134,9 @@ The following tests have been run on each part of the program to ensure that it 
 
 A live link to the site can be found here: https://dashboard.heroku.com/apps/scrabble-scorepad 
 
-### GitHub Pages
+### Heroku App Deployment
 
-- This site was deployed to GitHub pages. Steps for deployment are as follows: 
+- This site was deployed to Heroku as an app. Steps for deployment are as follows: 
   - In the GitHub repository, navigate to the Settings tab (top right)
   - From the options in the lefthand side menu, select Pages
   - From the Branch section drop-down menus, select 'main' and '/root' then click 'Save'
