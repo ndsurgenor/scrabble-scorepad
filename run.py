@@ -339,7 +339,7 @@ def main(wordlist):
 print(Fore.CYAN + Style.BRIGHT + '-----------------------------')
 print(Fore.CYAN + Style.BRIGHT + 'Welcome To Scrabble ScorePAD!')
 print(Fore.CYAN + Style.BRIGHT + '-----------------------------')
-print('When presented with options simply type the number of your choice and hit Enter.\n')
+print('When presented with options simply type the number of your choice and hit Enter\n')
 
 wordlist_file = 'notset'
 main(wordlist_file)

@@ -83,23 +83,26 @@ The following are ideas which can be implemented into the site at a later time (
 
 ## Testing
 
-### Gameplay & Banner Testing
+The following tests have been run on each part of the program to ensure that it is operating as expected:
 
-- The setupGame() function has been tested by previously including a console.log() in the code which displayed the number of 1s present in the starting grid. This made it easier to see that between 7 to 14 number 1s were being created at setup, as is intended. The game was loaded in the browser multiple times to obtain multiple setup states and view this log. In each case the correct banner message of 'Click any 1 to begin' was also displayed.
-- The banner messages and responses of the grid were tested by trying to play the game 'incorrectly' on multiple occasions; for example, clicking 1234 out of sequence, attempting to select greyed-out cells, attempting to click numbers higher than 4. In the early stages of the game's development these error states were feedback using alert() messages, later replaced by the info banner text which is now in game.
-- The display of GAME OVER and recording of current/new high scores was tested by playing the game multiple times within one session of the browser window. Again console.log() messages were originally used, this time to record the value of the val, bloc, req and endCheck variables within the console. Originally an alert() message was invoked to indicate the end of game which then became a banner message and finally the dialog which is now in-game.
-- All of these features have been tested by both loading a new game into the browser and initiating a new game using the button below the grid in order to ensure that particular variables were being reset as necessary.
+### Initial Startup
 
-### Button Testing
+| Feature | Expected Outcome | Test Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Welcome message | Displays at start to show program is running | Load page in browser | Program loads starting with welcome message | Pass |
+| How to play button | Displays the modal with the instructions on how to play the game | Clicked on button | Modal with instructions on how to play opens | Pass |
+| Modal close button | Closes the modal | Clicked on close button | Modal closed | Pass |
 
-- The 'New Game' button has been tested during multiple game states (setup, mid-game, game over) to ensure that the confirmation dialog appears as intended and indeed that it does not appear when a game has reached its conclusion. This confirmation has also been extensively checked to ensure that it either begins a new game correctly ('Yes' selected) or returns the user to their current game ('No' selected) without any other change of variable.
-- The 'Rules' button has been tested to ensure it displays correctly over the grid and other buttons, without the repositioning of other elements, and that the 'OK - Got it!' button within the rules dialog closes the window correctly so that the user can continue their game, again without changing any other variables.
-- The 'View Grid' and 'New Game' buttons appearing within the GAME OVER dialog have been tested to ensure that they hide the dialog/unfade the grid and start a new game without the need for confirmation, respectively.
+`Game Page - Difficulty Selection`
 
-### Link & Redirect Testing
-
-- The 'CLICK HERE' link within the 404.html page has been tested to ensure it directs within the same window to the index.html page.
-- The meta tag within the 404.html head has also been tested to ensure that the page automatically redirects the user within the same window to index.html after 7 seconds if they decide not to use the aforementioned link.
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| The Sites title | Link directs the user back to the home page | Clicked title | Directed back to home page | Pass |
+| All buttons - hover effect | All buttons with a black background & white text should change when hovered over to a background colour of white with black text. | Hover over each button on the page | Each button displayed the correct styling when hovered over | Pass |
+| 🍺 Cursor | The 🍺 should display when a user moves the mouse over a button | Moved the mouse over each button to check the cursor changed upon entering the button | The cursor changed from the arrow cursor to the 🍺 cursor | Pass |
+| Easy Button | Calls the easy quiz URL for the API | By console logging the data called from the API I was able to check the difficulty level of the questions corresponded with the level called | ![data-console.log-easy](testing/data-consolelog-easy.png) | Pass |
+| Medium Button | Calls the medium quiz URL for the API | By console logging the data called from the API I was able to check the difficulty level of the questions corresponded with the level called | ![data-console.log-medium](testing/data-consolelog-medium.png) | Pass |
+| Hard Button | Calls the hard quiz URL for the API | By console logging the data called from the API I was able to check the difficulty level of the questions corresponded with the level called | ![data-console.log-hard](testing/data-consolelog-hard.png) | Pass |
 
 ### Validator Testing 
 
