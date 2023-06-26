@@ -85,42 +85,33 @@ The following are ideas which can be implemented into the site at a later time (
 
 The following tests have been run on each part of the program to ensure that it is operating as expected:
 
-### Initial Startup
+`Initial Startup`
+| Feature | Expected | Test(s) | Result | Display | Pass/Fail |
+|-|-|-|-|-|-|
+| Welcome Message | Displays at start to show program is running | Run program | Program loads starting with welcome message | ![1-1](assets/images/1-1.png) | Pass |
 
-| Feature | Expected Outcome | Test Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Welcome message | Displays at start to show program is running | Load page in browser | Program loads starting with welcome message | Pass |
-| How to play button | Displays the modal with the instructions on how to play the game | Clicked on button | Modal with instructions on how to play opens | Pass |
-| Modal close button | Closes the modal | Clicked on close button | Modal closed | Pass |
-
-`Game Page - Difficulty Selection`
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| The Sites title | Link directs the user back to the home page | Clicked title | Directed back to home page | Pass |
-| All buttons - hover effect | All buttons with a black background & white text should change when hovered over to a background colour of white with black text. | Hover over each button on the page | Each button displayed the correct styling when hovered over | Pass |
-| 🍺 Cursor | The 🍺 should display when a user moves the mouse over a button | Moved the mouse over each button to check the cursor changed upon entering the button | The cursor changed from the arrow cursor to the 🍺 cursor | Pass |
-| Easy Button | Calls the easy quiz URL for the API | By console logging the data called from the API I was able to check the difficulty level of the questions corresponded with the level called | ![data-console.log-easy](testing/data-consolelog-easy.png) | Pass |
-| Medium Button | Calls the medium quiz URL for the API | By console logging the data called from the API I was able to check the difficulty level of the questions corresponded with the level called | ![data-console.log-medium](testing/data-consolelog-medium.png) | Pass |
-| Hard Button | Calls the hard quiz URL for the API | By console logging the data called from the API I was able to check the difficulty level of the questions corresponded with the level called | ![data-console.log-hard](testing/data-consolelog-hard.png) | Pass |
+`Wordlist Selection`
+| Feature | Expected | Test(s) | Result | Display | Pass/Fail |
+|-|-|-|-|-|-|
+| Wordlist Menu | Menu displays showing wordlist options and numbers alongside input request from user | Run program | Options display alongside input request | ![2-1](assets/images/2-1.png) | Pass |
+| Wordlist Selection<br/><span style='color:lightgreen'>[valid input]</span> | Selecting a valid option displays a specific confirmation message and moves to next section | Valid inputs:<br/>1, 2 | Program continues to next section with correct display message | ![2-2](assets/images/2-2.png)<br/>![2-3](assets/images/2-3.png) | Pass |
+| Wordlist Selection<br/><span style='color:tomato'>[invalid input]</span> | Selecting an invalid option displays an error message and repeats the valid options | Invalid inputs:<br/>< 1, > 2, String | Program continues to next section with correct display message | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
 
 ### Validator Testing 
 
 - HTML: No errors were returned when passing each HTML page through the official W3C HTML validator
   - [index.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2Findex.html)
   - [404.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2F404.html)
-- CSS: No errors were found when passing 'style.css' through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-- JS: No errors were found when passing 'script.js' through the [JSHint Validator](https://jshint.com/)
 - Accessibility & Performance: A perfect accessibility score was confirmed using Lighthouse in Chrome Developer Tools for both mobile and desktop sites. Performance scored 92/100 for Mobile and a perfect 100 on Desktop.
 
   ![Lighthouse Report](assets/images/readme_file/lighthouse.png)
 
 ### Fixed Bugs
 
-- On certain mobile devices the font-family 'Museo Moderno' was not displaying correctly. This was resolved by setting the import link in the CSS file to weight: 600 and specifying this same weight under the h1 styling header within the same CSS file.
+<!-- - On certain mobile devices the font-family 'Museo Moderno' was not displaying correctly. This was resolved by setting the import link in the CSS file to weight: 600 and specifying this same weight under the h1 styling header within the same CSS file.
 - Certain messages displayed above the grid were causing formatting issues as they proved to contain too many characters. This has been resolved by restricting any messages in the info banner to 30 characters and making note of such in the JS file.
 - Without specific code to determine how many 1s appear during game setup, unwinnable game states were appearing in a small number of situations. There was also a small chance that the grid could be almost be entirely filled at setup, presenting a less engaging challenge for the user. Both of these were resolved by placing the setup code within a 'do-while' loop ensuring that the number of 1s in any starting grid fall within the range 7-14 inclusive.
-- On occasion, unavailable cells were not displaying their correct style i.e. being greyed-out. This was resolved by altering the code within the cellStyle function from that of an 'if-else' loop to instead placing the relevant code at the end of the function so that it would overwrite any previous styling.
+- On occasion, unavailable cells were not displaying their correct style i.e. being greyed-out. This was resolved by altering the code within the cellStyle function from that of an 'if-else' loop to instead placing the relevant code at the end of the function so that it would overwrite any previous styling. -->
 
 ### Unfixed Bugs
 
