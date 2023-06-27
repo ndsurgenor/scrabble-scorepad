@@ -109,6 +109,22 @@ The following tests have been run on each part of the program to ensure that it 
 | Word Validator | <span style='color:lightgreen'>Valid word entered</span> | colorise [EU wordlist],</br>colorize [US wordlist] | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-5](assets/images/3-6.png) | Pass |
 | Word Validator | <span style='color:tomato'>Invalid word entered</span> | colorize [EU wordlist],</br>colorise [US wordlist] | Error message showing word (capitilised) as invalid for particular list | Error message displyed as expected | ![3-5](assets/images/3-6.png) | Pass |
 
+`Double/Triple Score Indication`
+| Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
+|-|-|-|-|-|-|-|
+
+`Bonus Score Indication`
+| Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
+|-|-|-|-|-|-|-|
+
+`Final Word Score Breakdown`
+| Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
+|-|-|-|-|-|-|-|
+
+`Next Stage Selection`
+| Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
+|-|-|-|-|-|-|-|
+
 
 ### Validator Testing 
 
