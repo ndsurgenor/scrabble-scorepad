@@ -125,16 +125,23 @@ The following tests have been run on each part of the program to ensure that it 
 |-|-|-|-|-|-|-|
 | Bonus Score Menu | Word <7 letters length | object | Menu does not display as word contains <7 letters | Menu is skipped as expected (Final word score displayed immediately) | ![5-1](assets/images/5-1.png) | Pass |
 | Bonus Score Menu | Word > or =7 letters length | rainbow | Menu showing options '1 - Yes, 2 - No' awaiting input from user | Menu and input request displayed as expected | ![5-2](assets/images/5-1.png) | Pass |
-| Bonus Selection | <span style='color:lightgreen'>Valid input</span> | 1, 2 | Confirmation message showing bonus applied/not applied as appropraite | Confirmation displayed as expected | ![5-3](assets/images/5-3.png)![5-4](assets/images/5-4.png) | Pass |
+| Bonus Selection | <span style='color:lightgreen'>Valid inputs</span> | 1, 2 | Confirmation message showing bonus applied/not applied as appropraite | Confirmation displayed as expected | ![5-3](assets/images/5-3.png)![5-4](assets/images/5-4.png) | Pass |
 | Bonus Selection | <span style='color:tomato'>Invalid inputs:</br><1, >2, String</span> | 0, 3, 6y75er | Error message confirming input is not a valid option | Error message displayed as expected | ![5-5](assets/images/5-5.png)![5-6](assets/images/5-6.png)![5-7](assets/images/5-7.png) | Pass |
 
 `Final Word Score Breakdown`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
+| Final Score Message | <span style='color:lightgreen'>Valid inputs</span> | r2ain*bow3 (no other score),</br>col3orise (double x2),</br>objects (triple and bonus) | Final word score showing breakdown of letter score (including modifiers) and any multipliers/bonuses | Final word score breakdown displayed as expected | ![6-1](assets/images/6-1.png) | Pass |
 
-`Next Stage Selection`
+`Next Steps Selection`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
+| Next Steps Menu | Run program | <span style='color:gray'>n/a</span> | Menu showing options '1 - Score another word, 2 - Change wordlist, 3 - Total score statistics, 4 - Close Program' awaiting input from user | Menu and input request displayed as expected | ![7-1](assets/images/7-1.png) | Pass |
+| Next Selection | <span style='color:lightgreen'>Valid input</span> | 1 | Program returns to Word Validation message and input line | Message and input request displayed as expected | ![7-2](assets/images/7-2.png) | Pass |
+| Next Selection | <span style='color:lightgreen'>Valid input</span> | 2 | Program returns to Wordlist menu and input line | Menu and input request displayed as expected | ![7-3](assets/images/7-3.png) | Pass |
+| Next Selection | <span style='color:lightgreen'>Valid input</span> | 3 | Program returns a list showing all words scored and their scoring types, alongside individual scores and an overall total | Words and scores displayed as expected | ![7-4](assets/images/7-4.png) | Pass |
+| Next Selection | <span style='color:lightgreen'>Valid input</span> | 4 | Program exits safely displaying a farewell message and no further options | Program stops and farewell message displayed as expected | ![7-5](assets/images/7-5.png) | Pass |
+| Next Selection | <span style='color:tomato'>Invalid inputs:</br><1, >4, String</span> | 0, 5, 6y75er | Error message confirming input is not a valid option | Error message displayed as expected | ![7-6](assets/images/7-6.png)![7-7](assets/images/7-7.png)![7-8](assets/images/7-8.png) | Pass |
 
 
 ### Validator Testing 
