@@ -107,8 +107,8 @@ The following tests have been run on each part of the program to ensure that it 
 | Word Input | <span style='color:tomato'><2 characters</span> | a | Error message explaining words must be at least 2 letters long | Error message displyed as expected | ![3-5](assets/images/3-5.png) | Pass |
 | Word Input | <span style='color:tomato'>Opening modifier</span> | 2rainbow | Error message explaining input must begin with a letter | Error message displyed as expected | ![3-6](assets/images/3-6.png) | Pass |
 | Word Input | <span style='color:tomato'>>2 modifiers on one letter</span> | rain*3bow | Error message explaining only one modifier per letter is allowed | Error message displyed as expected | ![3-7](assets/images/3-7.png) | Pass |
-| Word Validator | <span style='color:lightgreen'>Valid word entered</span> | colorise [EU wordlist],</br>colorize [US wordlist] | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-8](assets/images/3-8.png) | Pass |
-| Word Validator | <span style='color:tomato'>Invalid word entered</span> | colorize [EU wordlist],</br>colorise [US wordlist] | Error message showing word (capitilised) as invalid for particular list | Error message displyed as expected | ![3-9](assets/images/3-9.png) | Pass |
+| Word Validator | <span style='color:lightgreen'>Valid word entered</span> | colorise [EU wordlist] | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-8](assets/images/3-8.png) | Pass |
+| Word Validator | <span style='color:tomato'>Invalid word entered</span> | colorise [US wordlist] | Error message showing word (capitilised) as invalid for particular list | Error message displyed as expected | ![3-9](assets/images/3-9.png) | Pass |
 
 `Double/Triple Score Indication`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
