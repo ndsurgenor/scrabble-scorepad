@@ -93,21 +93,22 @@ The following tests have been run on each part of the program to ensure that it 
 `Wordlist Selection`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Wordlist Menu | Run program | <span style='color:gray'>n/a</span> | Menu shows wordlist options and numbers alongside input request from user | Options and input request displayed as expected | ![2-1](assets/images/2-1.png) | Pass |
+| Wordlist Menu | Run program | <span style='color:gray'>n/a</span> | Menu showing wordlist options and numbers alongside input request from user | Options and input request displayed as expected | ![2-1](assets/images/2-1.png) | Pass |
 | Wordlist Selection | <span style='color:lightgreen'>Valid input</span> | 1, 2 | Selecting a valid option displays a specific confirmation message and moves to next section |  Program continues to next section with correct display message | ![2-2](assets/images/2-2.png)<br/>![2-3](assets/images/2-3.png) | Pass |
-| Wordlist Selection | <span style='color:tomato'>Invalid input</br>[<1, >2, String]</span> | 0, 3, 6y75er | Selecting an invalid option displays an error message and repeats the valid options | Error message displays followed by valid wordlist options | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
+| Wordlist Selection | <span style='color:tomato'>Invalid inputs:</br><1, >2, String</span> | 0, 3, 6y75er | Selecting an invalid option displays an error message and repeats the valid options | Error message displays followed by valid wordlist options | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
 
 `Word & Modifier Input`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Word Input | <span style='color:lightgreen'>Letters only</span> | rainbow | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-1](assets/images/3-1.png) | Pass |
-| Word Input | <span style='color:lightgreen'>Letters with valid modifiers</span> | r2ain*bow3 | Confirmation message showing word without modifiers (capitilised) as valid | Confirmation message displayed as expected | ![3-2](assets/images/3-2.png) | Pass |
-| Word Input | <span style='color:tomato'>Invalid characters</span> | rai4nbow | Error message showing string (capitilised) as invalid | Error message displyed as expected | ![3-3](assets/images/3-3.png) | Pass |
-| Word Input | <span style='color:tomato'><2 characters</span> | a | Error message explaining words must be at least 2 letters long | Error message displyed as expected | ![3-4](assets/images/3-4.png) | Pass |
-| Word Input | <span style='color:tomato'>Opening modifier</span> | 2rainbow | Error message explaining input must begin with a letter | Error message displyed as expected | ![3-5](assets/images/3-5.png) | Pass |
-| Word Input | <span style='color:tomato'>>2 modifiers on one letter</span> | rain*3bow | Error message explaining only one modifier per letter is allowed | Error message displyed as expected | ![3-5](assets/images/3-5.png) | Pass |
-| Word Validator | <span style='color:lightgreen'>Valid word entered</span> | colorise [EU wordlist],</br>colorize [US wordlist] | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-5](assets/images/3-6.png) | Pass |
-| Word Validator | <span style='color:tomato'>Invalid word entered</span> | colorize [EU wordlist],</br>colorise [US wordlist] | Error message showing word (capitilised) as invalid for particular list | Error message displyed as expected | ![3-5](assets/images/3-6.png) | Pass |
+| Word Validation Instruction | Run program | <span style='color:gray'>n/a</span> | Message showing input instructions and input request from user | Message and input request displayed as expected | ![3-1](assets/images/3-1.png) | Pass |
+| Word Input | <span style='color:lightgreen'>Letters only</span> | rainbow | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-2](assets/images/3-2.png) | Pass |
+| Word Input | <span style='color:lightgreen'>Letters with valid modifiers</span> | r2ain*bow3 | Confirmation message showing word without modifiers (capitilised) as valid | Confirmation message displayed as expected | ![3-3](assets/images/3-3.png) | Pass |
+| Word Input | <span style='color:tomato'>Invalid characters</span> | rai4nbow | Error message giving detail of invalid characters and a reminder of what is allowed | Error message displyed as expected | ![3-4](assets/images/3-4.png) | Pass |
+| Word Input | <span style='color:tomato'><2 characters</span> | a | Error message explaining words must be at least 2 letters long | Error message displyed as expected | ![3-5](assets/images/3-5.png) | Pass |
+| Word Input | <span style='color:tomato'>Opening modifier</span> | 2rainbow | Error message explaining input must begin with a letter | Error message displyed as expected | ![3-6](assets/images/3-6.png) | Pass |
+| Word Input | <span style='color:tomato'>>2 modifiers on one letter</span> | rain*3bow | Error message explaining only one modifier per letter is allowed | Error message displyed as expected | ![3-7](assets/images/3-7.png) | Pass |
+| Word Validator | <span style='color:lightgreen'>Valid word entered</span> | colorise [EU wordlist],</br>colorize [US wordlist] | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-8](assets/images/3-8.png) | Pass |
+| Word Validator | <span style='color:tomato'>Invalid word entered</span> | colorize [EU wordlist],</br>colorise [US wordlist] | Error message showing word (capitilised) as invalid for particular list | Error message displyed as expected | ![3-9](assets/images/3-9.png) | Pass |
 
 `Double/Triple Score Indication`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |

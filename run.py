@@ -63,8 +63,8 @@ def check_length(specified_string):
     Checks that the string is at least two characters long.
     """
     if len(specified_string) < 2:
-        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long\n')
-        print('Valid words in Scrabble must be 2 to 15 letters in length.')
+        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long')
+        print('Valid words in Scrabble must be 2 to 15 letters in length.\n')
         string_valid = False     
     else:
         string_valid = True
