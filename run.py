@@ -64,6 +64,7 @@ def check_length(specified_string):
     """
     if len(specified_string) < 2:
         print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long\n')
+        print('Valid words in Scrabble must be 2 to 15 letters in length.')
         string_valid = False     
     else:
         string_valid = True
@@ -143,7 +144,10 @@ def word_validator(wordlist_file, specified_word):
     if specified_word in wordlist_txtlist:
         print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
     else:
-        print(Fore.RED + Style.BRIGHT + f'Sorry, {specified_word.upper()} is not a valid word on this list.\n')
+        print(Fore.RED + Style.BRIGHT + f'Sorry, {specified_word.upper()} is not a valid word on this list.')
+        if len(specified_word) < 2 or len(specified_word) > 15:
+            print('Valid words in Scrabble must be 2 to 15 letters in length.')
+        print('')
         specified_word = 0  #tells the next function that no score is to be evaluted
     
     wordlist_txt.close()
