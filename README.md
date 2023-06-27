@@ -49,24 +49,6 @@ As development of the program progressed various new checks and functions were a
 
 ![Title & Info](assets/images/readme_file/title_and_info.png)
 
-<!-- - __Info Banner__
-
-  - Messages displayed within the banner are restricted to 30 characters so as to avoid formatting issues and ensure the info provide is succinct.
-  - At the outset of the game, the banner instructs the user saying 'Click any 1 to begin' [Fig A].
-  - During normal game play, the banner will show which number must be selected next alongside the current upper limit [Fig B].
-  - Clicking an unavailable block (empty or greyed-out) will display the message 'Block unavailable. Select a {required number}' [Fig C].
-  - Clicking an incorrect number will display the message 'Next number must be {required number}' [Fig D].
-  - When no more moves are possible i.e. the required number is not available, the text displays 'Required {required number} is unavailable' [Fig E].
-  - If the user tries to select a block when the game is over, the message 'Click New Game to start over' appears as a reminder [Fig F].
-  - Messages are formatted consistently with colours and styles of blocks/buttons in the game area (see following).
-
-![Info Banner A](assets/images/readme_file/info_banner_a.png)
-![Info Banner B](assets/images/readme_file/info_banner_b.png)
-![Info Banner C](assets/images/readme_file/info_banner_c.png)
-![Info Banner D](assets/images/readme_file/info_banner_d.png)
-![Info Banner E](assets/images/readme_file/info_banner_e.png)
-![Info Banner F](assets/images/readme_file/info_banner_f.png) -->
-
 - __404 Page__
 
   - A stylised 404 page is presented to the user if they enter an incorrect web address
@@ -75,9 +57,11 @@ As development of the program progressed various new checks and functions were a
 
 ![404 Page](assets/images/readme_file/404.png)
 
-<!-- ### Features to Implement
+### Features to Implement
 
-The following are ideas which can be implemented into the site at a later time (when skillset allows):
+! TO BE ADDED !
+
+<!-- The following are ideas which can be implemented into the site at a later time (when skillset allows):
 - Add the ability to save high-scores and usernames to a back-end server allowing users to compare their scores with all visitors to the site.
 - Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar. -->
 
@@ -149,16 +133,14 @@ The following tests have been run on each part of the program to ensure that it 
 - HTML: No errors were returned when passing each HTML page through the official W3C HTML validator
   - [index.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2Findex.html)
   - [404.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2F404.html)
+- PEP8: No errors were returned when passing the program through the PEP8 validator
 - Accessibility & Performance: A perfect accessibility score was confirmed using Lighthouse in Chrome Developer Tools for both mobile and desktop sites. Performance scored 92/100 for Mobile and a perfect 100 on Desktop.
 
-  ![Lighthouse Report](assets/images/readme_file/lighthouse.png)
+  ![Lighthouse Report](assets/images/lighthouse.png)
 
 ### Fixed Bugs
 
-<!-- - On certain mobile devices the font-family 'Museo Moderno' was not displaying correctly. This was resolved by setting the import link in the CSS file to weight: 600 and specifying this same weight under the h1 styling header within the same CSS file.
-- Certain messages displayed above the grid were causing formatting issues as they proved to contain too many characters. This has been resolved by restricting any messages in the info banner to 30 characters and making note of such in the JS file.
-- Without specific code to determine how many 1s appear during game setup, unwinnable game states were appearing in a small number of situations. There was also a small chance that the grid could be almost be entirely filled at setup, presenting a less engaging challenge for the user. Both of these were resolved by placing the setup code within a 'do-while' loop ensuring that the number of 1s in any starting grid fall within the range 7-14 inclusive.
-- On occasion, unavailable cells were not displaying their correct style i.e. being greyed-out. This was resolved by altering the code within the cellStyle function from that of an 'if-else' loop to instead placing the relevant code at the end of the function so that it would overwrite any previous styling. -->
+! TO BE ADDED !
 
 ### Unfixed Bugs
 
