@@ -88,19 +88,19 @@ The following tests have been run on each part of the program to ensure that it 
 `Initial Startup`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Welcome Message | Run program | <span style='color:gray'>n/a</span> | Displays at start to show program is running | Welcome message displayed as expected | ![1-1](assets/images/1-1.png) | Pass |
+| Welcome Message | Run program | <span style='color:gray'>n/a</span> | Welcome message displayed to show program is running | Welcome message displayed as expected | ![1-1](assets/images/1-1.png) | Pass |
 
 `Wordlist Selection`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Wordlist Menu | Run program | <span style='color:gray'>n/a</span> | Menu showing wordlist options and numbers alongside input request from user | Options and input request displayed as expected | ![2-1](assets/images/2-1.png) | Pass |
+| Wordlist Menu | Run program | <span style='color:gray'>n/a</span> | Menu showing options '1 - EU/Word (SOWPODS), 2 - US/Canada (TWL06)' awaiting input from user | Options and input request displayed as expected | ![2-1](assets/images/2-1.png) | Pass |
 | Wordlist Selection | <span style='color:lightgreen'>Valid input</span> | 1, 2 | Selecting a valid option displays a specific confirmation message and moves to next section |  Program continues to next section with correct display message | ![2-2](assets/images/2-2.png)<br/>![2-3](assets/images/2-3.png) | Pass |
 | Wordlist Selection | <span style='color:tomato'>Invalid inputs:</br><1, >2, String</span> | 0, 3, 6y75er | Selecting an invalid option displays an error message and repeats the valid options | Error message displays followed by valid wordlist options | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
 
 `Word & Modifier Input`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Word Validation Instruction | Run program | <span style='color:gray'>n/a</span> | Message showing input instructions and input request from user | Message and input request displayed as expected | ![3-1](assets/images/3-1.png) | Pass |
+| Word Validation Instruction | Run program | <span style='color:gray'>n/a</span> | Message showing input instructions, awaiting input from user | Message and input request displayed as expected | ![3-1](assets/images/3-1.png) | Pass |
 | Word Input | <span style='color:lightgreen'>Letters only</span> | rainbow | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-2](assets/images/3-2.png) | Pass |
 | Word Input | <span style='color:lightgreen'>Letters with valid modifiers</span> | r2ain*bow3 | Confirmation message showing word without modifiers (capitilised) as valid | Confirmation message displayed as expected | ![3-3](assets/images/3-3.png) | Pass |
 | Word Input | <span style='color:tomato'>Invalid characters</span> | rai4nbow | Error message giving detail of invalid characters and a reminder of what is allowed | Error message displyed as expected | ![3-4](assets/images/3-4.png) | Pass |
@@ -113,10 +113,20 @@ The following tests have been run on each part of the program to ensure that it 
 `Double/Triple Score Indication`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
+| Double/Triple Score Menu | Word <7 letters length | object | Menu showing options '1 - None, 2 - Double, 3 - Triple' awaiting input from user | Specified options and input request displayed as expected | ![4-1](assets/images/4-1.png) | Pass |
+| Double/Triple Score Menu | Word 7 letters length | objects | Menu showing all options above plus '4 - Double x2' along with input request from user | Specified options and input request displayed as expected | ![4-2](assets/images/4-2.png) | Pass |
+| Double/Triple Score Menu | Word 8-14 letters length | objectify | Menu showing all options above plus '5 - Triple x2' along with input request from user | Specified options and input request displayed as expected | ![4-3](assets/images/4-3.png) | Pass |
+| Double/Triple Score Menu | Word 15 letters length | objectification | Menu showing all options above plus '6 - Triple x3' along with input request from user | Specified options and input request displayed as expected | ![4-4](assets/images/4-4.png) | Pass |
+| Multiplier Selection | <span style='color:lightgreen'>Valid input</span> | 1, 2, 3, 4, 5, 6 | Confirmation message showing multiplication factor specific to chosen option | Confirmation displayed as expected | ![4-6](assets/images/4-6.png)![4-7](assets/images/4-7.png)![4-8](assets/images/4-8.png)![4-9](assets/images/4-9.png)![4-10](assets/images/4-10.png)![4-11](assets/images/4-11.png) | Pass |
+| Multiplier Selection | <span style='color:tomato'>Invalid inputs:</br><1, >max, String</span> | 0, 4, 6y75er | Error message confirming input is not a valid option | Error message displayed as expected | ![4-12](assets/images/4-12.png)![4-13](assets/images/4-13.png)![4-14](assets/images/4-14.png) | Pass |
 
 `Bonus Score Indication`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
+| Bonus Score Menu | Word <7 letters length | object | Menu does not display as word contains <7 letters | Menu is skipped as expected (Final word score displayed immediately) | ![5-1](assets/images/5-1.png) | Pass |
+| Bonus Score Menu | Word > or =7 letters length | rainbow | Menu showing options '1 - Yes, 2 - No' awaiting input from user | Menu and input request displayed as expected | ![5-2](assets/images/5-1.png) | Pass |
+| Bonus Selection | <span style='color:lightgreen'>Valid input</span> | 1, 2 | Confirmation message showing bonus applied/not applied as appropraite | Confirmation displayed as expected | ![5-3](assets/images/5-3.png)![5-4](assets/images/5-4.png) | Pass |
+| Bonus Selection | <span style='color:tomato'>Invalid inputs:</br><1, >2, String</span> | 0, 3, 6y75er | Error message confirming input is not a valid option | Error message displayed as expected | ![5-5](assets/images/5-5.png)![5-6](assets/images/5-6.png)![5-7](assets/images/5-7.png) | Pass |
 
 `Final Word Score Breakdown`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
