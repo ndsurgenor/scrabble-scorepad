@@ -3,6 +3,7 @@
 from data import LETTER_VALUES, scored_words, scores_only
 from classes import CheckedString
 from colorama import init, Fore, Style
+from styles import cyan
 init(autoreset = True)
 
 
@@ -340,9 +341,9 @@ def main(wordlist):
 
 # PROGRAM EXECUTION
 
-print(Fore.CYAN + Style.BRIGHT + '-----------------------------')
-print(Fore.CYAN + Style.BRIGHT + 'Welcome To Scrabble ScorePAD!')
-print(Fore.CYAN + Style.BRIGHT + '-----------------------------')
+print(cyan + '-----------------------------')
+print(cyan + 'Welcome To Scrabble ScorePAD!')
+print(cyan + '-----------------------------')
 print('When presented with options simply type the number of your choice and hit Enter\n')
 
 wordlist_file = 'notset'
