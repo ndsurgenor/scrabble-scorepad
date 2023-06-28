@@ -28,7 +28,7 @@ def wordlist_selector():
             break
         else:
             print(red + f'{wordlist_value.upper()} is not a valid option\n')
- 
+
     return wordlist_file
 
 
@@ -48,40 +48,41 @@ def string_validator():
     print('and a triple score on D.\n')
 
     while True:
-        specified_string = (input(green + 'Please enter the word (including modifiers) to be checked and scored:\n')).lower()
+        specified_str = (input(
+            green + 'Enter word (+modifiers) to be checked/scored:\n')).lower()
 
-        if check_length(specified_string):
-            if check_characters(specified_string):
-                if check_start(specified_string) and check_mods(specified_string): 
+        if check_length(specified_str):
+            if check_characters(specified_str):
+                if check_start(specified_str) and check_mods(specified_str):
                     break
                 else:
                     print('')
-    
-    return specified_string
+
+    return specified_str
 
 
-def check_length(specified_string):
+def check_length(specified_str):
     """
     Checks that the string is at least two characters long.
     """
-    if len(specified_string) < 2:
+    if len(specified_str) < 2:
         print(red + f'Input must be at least 2 characters long')
         print('Valid words in Scrabble must be 2 to 15 letters in length.\n')
-        string_valid = False     
+        string_valid = False
     else:
         string_valid = True
-    
+
     return string_valid
 
 
-def check_characters(specified_string):
+def check_characters(specified_str):
     """
     Checks that the string only contains letters and valid modifiers.
     """
-    for character in specified_string:
+    for character in specified_str:
         try:
             LETTER_VALUES[character]
-        except:
+        except ValueError:
             print(red + f'Input contains invalid character(s)')
             print('Only letters and the characters *, 2, or 3 are allowed.\n')
             string_valid = False
@@ -89,29 +90,29 @@ def check_characters(specified_string):
         else:
             string_valid = True
             continue
-    
+
     return string_valid
 
 
-def check_start(specified_string):
+def check_start(specified_str):
     """
     Checks that the string starts with a letter.
     """
-    if LETTER_VALUES[specified_string[0]] < 1:                  
+    if LETTER_VALUES[specified_str[0]] < 1:
         print(red + f'Input must begin with a letter')
         print('Modifiers are to be placed AFTER the letter they refer to.')
-        string_valid = False 
+        string_valid = False
     else:
         string_valid = True
-    
+
     return string_valid
 
 
-def check_mods(specified_string):
+def check_mods(specified_str):
     """
     Checks that the string contains max one modifier after each letter.
     """
-    for character, next_character in zip(specified_string, specified_string[1:]):
+    for character, next_character in zip(specified_str, specified_str[1:]):
         if LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1:
             print(red + 'Max ONE modifier per letter allowed')
             print('If * and 2/3 are applicable, simply enter *.')
@@ -119,17 +120,17 @@ def check_mods(specified_string):
             break
         else:
             string_valid = True
-    
-    return string_valid
-   
 
-def word_extractor(specified_string):
+    return string_valid
+
+
+def word_extractor(specified_str):
     """
     Removes modifiers from input string to read the specified word
     """
     specified_word = ''
-    
-    for character in specified_string:
+
+    for character in specified_str:
         if LETTER_VALUES[character] > 0:
             specified_word = str(specified_word + character)
 
@@ -146,48 +147,50 @@ def word_validator(wordlist_file, specified_word):
     if specified_word in wordlist_txtlist:
         print(white + f'The word {specified_word.upper()} is valid!\n')
     else:
-        print(red + f'Sorry, {specified_word.upper()} is not a valid word on this list.')
+        print(
+            red + f'{specified_word.upper()} is not a valid word on this list')
         if len(specified_word) < 2 or len(specified_word) > 15:
             print('Valid words in Scrabble must be 2 to 15 letters in length.')
         print('')
         specified_word = 0  # tells the next function to not evaluate a score
-    
+
     wordlist_txt.close()
     return specified_word
 
 
-def evaluate_word(specified_string, specified_word):
+def evaluate_word(specified_str, specified_word):
     """
     Returns the final score breakdown of the specified string and adds it to
     the scored_words[] list. If the word is not valid, the program will
     continue to the end_menu() function
     """
     if specified_word != 0:
-        this_word = CheckedString(specified_string, specified_word)
+        this_word = CheckedString(specified_str, specified_word)
 
-        this_word.basic = evaluate_letters(specified_string)
-        this_word.multiplied = evaluate_multiplier(specified_word, this_word.basic)
+        this_word.basic = evaluate_letters(specified_str)
+        this_word.multiplied = evaluate_multiplier(
+            specified_word, this_word.basic)
         if len(specified_word) < 7:
             this_word.final = this_word.multiplied
         else:
             this_word.final = evaluate_bonus(this_word.multiplied)
             if this_word.final > this_word.multiplied:
                 this_word.bonus = 'Yes'
-            
+
         this_word.score_breakdown()
         this_word.list_append()
 
 
-def evaluate_letters(specified_string):
+def evaluate_letters(specified_str):
     """
     Calculates the letter score taking modifiers into account.
     NB: The '!' added to the string in the first step is essential
     to ensuring the final character of the input is evaluated correctly
     """
-    specified_string = specified_string + '!'
+    specified_str = specified_str + '!'
     word_score = 0
 
-    for character, next_character in zip(specified_string, specified_string[1:]):
+    for character, next_character in zip(specified_str, specified_str[1:]):
         if next_character == '*':
             individual_value = 0
         elif next_character == '2' or next_character == '3':
@@ -196,7 +199,7 @@ def evaluate_letters(specified_string):
             individual_value = LETTER_VALUES[character]
 
         word_score = word_score + individual_value
-            
+
     return word_score
 
 
@@ -205,7 +208,7 @@ def evaluate_multiplier(specified_word, word_score):
     Multiplies the word score, if appropriate.
     """
     upper_limit = 4
-    
+
     while True:
         print(yellow + 'Any Double or Triple word score?')
         print(yellow + '1 - None')
@@ -226,13 +229,13 @@ def evaluate_multiplier(specified_word, word_score):
 
         try:
             int(multiplier)
-        except:
+        except ValueError:
             print(red + f'{multiplier.upper()} is not a valid option.\n')
         else:
             if int(multiplier) in range(1, upper_limit):
                 break
             else:
-                print(red + f'{multiplier.upper()} is not a valid option.\n') 
+                print(red + f'{multiplier.upper()} is not a valid option.\n')
 
     if int(multiplier) == 1:
         print(white + 'No multiplier to be applied\n')
@@ -262,7 +265,7 @@ def evaluate_bonus(word_score):
 
         if bonus == '1' or bonus == 'yes' or bonus == 'y':
             print(white + 'Adding bonus...\n')
-            word_score = word_score + 50         
+            word_score = word_score + 50
             break
         elif bonus == '2' or bonus == 'no' or bonus == 'n':
             print(white + 'No bonus to be applied\n')
@@ -310,23 +313,23 @@ def end_menu(wordlist_file):
 
 def score_stats():
     """
-    Displays the individual and total score 
+    Displays the individual and total score
     of all valid words input by the user
     """
     print('D/T = double/triple')
     print('B = bonus\n')
     print(cyan + '--- SCORED WORDS ---')
-    
-    num = 0    
+
+    num = 0
     for item in scored_words:
         num = num + 1
         print(white + bright + f'{num}. {item}')
 
-    total = 0    
+    total = 0
     for item in scores_only:
         total = total + item
 
-    print('')    
+    print('')
     print(cyan + f'TOTAL SCORE = {total}\n')
 
 
@@ -342,14 +345,14 @@ def main(wordlist):
     valid_word = word_validator(wordlist, word)
     evaluate_word(string, valid_word)
     end_menu(wordlist)
-    
+
 
 # PROGRAM EXECUTION
 
 print(cyan + '-----------------------------')
 print(cyan + 'Welcome To Scrabble ScorePAD!')
 print(cyan + '-----------------------------')
-print('When options appear simply type the number of your choice and hit Enter\n')
+print('When options appear type the number of your choice and hit Enter\n')
 
 wordlist_file = 'notset'
 main(wordlist_file)
