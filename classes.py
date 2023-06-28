@@ -45,6 +45,8 @@ class CheckedString:
         word_multiplier = self.multiplied/self.basic
         wrd = self.word.upper()
         stg = self.string.lower()
+        mul = ''
+        bon - ''
 
         if word_multiplier == 1 and self.bonus == 'No':
             scored_words.append(f'{wrd} [{stg}] = {self.final}')
@@ -56,7 +58,5 @@ class CheckedString:
 
             if self.bonus == 'Yes':
                 bon = 'B'
-            else:
-                bon = ''
 
             scored_words.append(f'{wrd} [{stg} {mul}{bon}] = {self.final}')
