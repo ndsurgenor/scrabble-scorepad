@@ -1,8 +1,7 @@
 # IMPORTS
 
 from data import scored_words, scores_only
-from colorama import init, Fore, Style
-from styles import bright, cyan
+from styles import cyan, bright
 
 
 # CLASSES

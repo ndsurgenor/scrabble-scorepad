@@ -29,7 +29,7 @@ LETTER_VALUES = {
     'x': 8,
     'y': 4,
     'z': 10,
-    # Modifier values must be kept at 0 for checks and scores to function correctly!
+    # Mod values must be kept at 0 for checks and scores to function correctly!
     '*': 0,
     '2': 0,
     '3': 0,
