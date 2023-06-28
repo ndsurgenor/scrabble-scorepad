@@ -49,14 +49,6 @@ As development of the program progressed various new checks and functions were a
 
 ![Title & Info](assets/images/readme_file/title_and_info.png)
 
-- __404 Page__
-
-  - A stylised 404 page is presented to the user if they enter an incorrect web address
-  - A link allows the user to immediately navigate to the correct page and play the game.
-  - If the user does not use the link, the page will automatically redirect to the main page after a short number of seconds.
-
-![404 Page](assets/images/readme_file/404.png)
-
 ### Features to Implement
 
 ! TO BE ADDED !
