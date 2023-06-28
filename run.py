@@ -49,7 +49,8 @@ def string_validator():
 
     while True:
         specified_str = (input(
-            green + 'Enter word (+modifiers) to be checked/scored:\n')).lower()
+            green + 'Enter word (+ modifiers) to be checked/scored:\n'))
+        specified_str = specified_str.lower()
 
         if check_length(specified_str):
             if check_characters(specified_str):

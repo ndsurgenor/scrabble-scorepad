@@ -46,7 +46,7 @@ class CheckedString:
         wrd = self.word.upper()
         stg = self.string.lower()
         mul = ''
-        bon - ''
+        bon = ''
 
         if word_multiplier == 1 and self.bonus == 'No':
             scored_words.append(f'{wrd} [{stg}] = {self.final}')
