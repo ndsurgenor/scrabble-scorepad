@@ -115,7 +115,7 @@ The following tests have been run on each part of the program to ensure that it 
 `Final Word Score Breakdown`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Final Score Message | <span style='color:lightgreen'>Valid inputs</span> | r2ain*bow3 (no other score)</br>col3orise (double x2)</br>objects (triple and bonus) | Final word score showing breakdown of letter score (including modifiers) and any multipliers/bonuses | Final word score breakdown displayed as expected | ![6-1](assets/images/6-1.png)</br>![6-2](assets/images/6-2.png)</br>![6-3](assets/images/6-3.png) | Pass |
+| Final Score Message | <span style='color:lightgreen'>Valid inputs:</br>multiple mods only,</br>one mod word x2,</br>no mods word x3 bonus</span> | r2ain*bow3</br>col3orise</br>objects | Final word score showing breakdown of letter score (including modifiers) and any multipliers/bonuses | Final word score breakdown displayed as expected | ![6-1](assets/images/6-1.png)</br>![6-2](assets/images/6-2.png)</br>![6-3](assets/images/6-3.png) | Pass |
 
 `Next Steps Selection`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
