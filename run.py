@@ -41,10 +41,10 @@ def string_validator():
     allowing the function to run without exceptions bring raised!
     """
     print(yellow + 'Word Validation and Scoring')
-    print('Please include modifiers for blank tiles (*), double letter (2) or')
-    print('triple letter (3) scores AFTER their respective letters (max ONE')
-    print('modifier per letter; use * over 2/3 if both apply). For example,')
-    print('entering W*ORD3S would indicate a blank tile for W')
+    print('Please include modifiers for blank tiles (*), double letter (2)')
+    print('or triple letter (3) scores AFTER their respective letters (max')
+    print('ONE modifier per letter; use * over 2/3 if both apply).')
+    print('For example, entering W*ORD3S would indicate a blank tile for W')
     print('and a triple score on D.\n')
 
     while True:
@@ -82,7 +82,7 @@ def check_characters(specified_str):
     for character in specified_str:
         try:
             LETTER_VALUES[character]
-        except ValueError:
+        except Exception:
             print(red + f'Input contains invalid character(s)')
             print('Only letters and the characters *, 2, or 3 are allowed.\n')
             string_valid = False
@@ -229,7 +229,7 @@ def evaluate_multiplier(specified_word, word_score):
 
         try:
             int(multiplier)
-        except ValueError:
+        except Exception:
             print(red + f'{multiplier.upper()} is not a valid option.\n')
         else:
             if int(multiplier) in range(1, upper_limit):
