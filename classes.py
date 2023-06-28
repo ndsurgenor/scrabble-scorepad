@@ -1,7 +1,7 @@
 # IMPORTS
 
 from data import scored_words, scores_only
-from styles import cyan, bright
+from styles import bright, cyan
 
 
 # CLASSES

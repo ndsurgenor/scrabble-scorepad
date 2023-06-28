@@ -2,9 +2,7 @@
 
 from data import LETTER_VALUES, scored_words, scores_only
 from classes import CheckedString
-from colorama import init, Fore, Style
-from styles import cyan
-init(autoreset = True)
+from styles import yellow, green, white, red, bright, cyan
 
 
 # FUNCTIONS
@@ -14,44 +12,47 @@ def wordlist_selector():
     Sets the specific wordlist to be used for the purpose of word validation.
     """
     while True:
-        print(Fore.YELLOW + Style.BRIGHT + 'Available Wordlists')
-        print(Fore.YELLOW + Style.BRIGHT + '1 - EU/World (SWOPODS)')
-        print(Fore.YELLOW + Style.BRIGHT + '2 - USA/Canada (TWL06)\n')
+        print(yellow + 'Available Wordlists')
+        print(yellow + '1 - EU/World (SWOPODS)')
+        print(yellow + '2 - USA/Canada (TWL06)\n')
 
-        wordlist_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which wordlist you require:\n')
+        wordlist_value = input(green + 'Please select a wordlist:\n')
 
         if wordlist_value == '1':
-            print(Fore.WHITE + 'Loading EU/WORLD (SWOPODS) wordlist...\n')
+            print(white + 'Loading EU/WORLD (SWOPODS) wordlist...\n')
             wordlist_file = 'wl-eu-sowpods.txt'
             break
         elif wordlist_value == '2':
-            print(Fore.WHITE + 'Loading USA/CANADA (TWL06) wordlist...\n')
+            print(white + 'Loading USA/CANADA (TWL06) wordlist...\n')
             wordlist_file = 'wl-us-twl.txt'
             break
         else:
-            print(Fore.RED + Style.BRIGHT + f'Sorry, {wordlist_value.upper()} is not a valid option.\n')
-    
+            print(red + f'{wordlist_value.upper()} is not a valid option\n')
+ 
     return wordlist_file
 
 
 def string_validator():
     """
-    Checks firstly that the string is at least two characters long, then than the input contains only valid characters.
-    If both are true, further checks ensure that the input starts with a letter and only one modifier per letter has been indicated.
-    <! NB The specific order of these checks is crucial in allowing the function to run without exceptions bring raised !>
+    Checks firstly that the string is at least two characters long, then that
+    the input contains only valid characters. If both are true, further checks
+    ensure that the input starts with a letter and only one modifier per letter
+    has been indicated. NB: the specific order of these checks is crucial in
+    allowing the function to run without exceptions bring raised!
     """
-    print(Fore.YELLOW + Style.BRIGHT + 'Word Validation and Scoring')
-    print('Please include modifiers for blank tiles (*), double letter (2) or triple ')
-    print('letter (3) scores AFTER their respective letters (max ONE modifier per letter; ')
-    print('use * over 2 or 3 if both apply). For example, entering W*ORD3S would indicate ')
-    print('a blank tile for W and triple letter score on D.\n')
+    print(yellow + 'Word Validation and Scoring')
+    print('Please include modifiers for blank tiles (*), double letter (2) or')
+    print('triple letter (3) scores AFTER their respective letters (max ONE')
+    print('modifier per letter; use * over 2/3 if both apply). For example,')
+    print('entering W*ORD3S would indicate a blank tile for W')
+    print('and a triple score on D.\n')
 
     while True:
-        specified_string = (input(Fore.GREEN + Style.BRIGHT + 'Please enter the word (including modifiers) to be checked and scored:\n')).lower()
+        specified_string = (input(green + 'Please enter the word (including modifiers) to be checked and scored:\n')).lower()
 
-        if check_length(specified_string) == True:
-            if check_characters(specified_string) == True:
-                if check_start(specified_string) == check_mods(specified_string) == True: 
+        if check_length(specified_string):
+            if check_characters(specified_string):
+                if check_start(specified_string) and check_mods(specified_string): 
                     break
                 else:
                     print('')
@@ -64,7 +65,7 @@ def check_length(specified_string):
     Checks that the string is at least two characters long.
     """
     if len(specified_string) < 2:
-        print(Fore.RED + Style.BRIGHT + f'Input must be at least 2 characters long')
+        print(red + f'Input must be at least 2 characters long')
         print('Valid words in Scrabble must be 2 to 15 letters in length.\n')
         string_valid = False     
     else:
@@ -81,7 +82,7 @@ def check_characters(specified_string):
         try:
             LETTER_VALUES[character]
         except:
-            print(Fore.RED + Style.BRIGHT + f'Input contains invalid character(s)')
+            print(red + f'Input contains invalid character(s)')
             print('Only letters and the characters *, 2, or 3 are allowed.\n')
             string_valid = False
             break
@@ -97,7 +98,7 @@ def check_start(specified_string):
     Checks that the string starts with a letter.
     """
     if LETTER_VALUES[specified_string[0]] < 1:                  
-        print(Fore.RED + Style.BRIGHT + f'Input must begin with a letter')
+        print(red + f'Input must begin with a letter')
         print('Modifiers are to be placed AFTER the letter they refer to.')
         string_valid = False 
     else:
@@ -112,7 +113,7 @@ def check_mods(specified_string):
     """
     for character, next_character in zip(specified_string, specified_string[1:]):
         if LETTER_VALUES[character] + LETTER_VALUES[next_character] < 1:
-            print(Fore.RED + Style.BRIGHT + 'Max ONE modifier per letter allowed')
+            print(red + 'Max ONE modifier per letter allowed')
             print('If * and 2/3 are applicable, simply enter *.')
             string_valid = False
             break
@@ -124,7 +125,7 @@ def check_mods(specified_string):
 
 def word_extractor(specified_string):
     """
-    Removes modifiers from the input string in order to read the specified word.
+    Removes modifiers from input string to read the specified word
     """
     specified_word = ''
     
@@ -143,13 +144,13 @@ def word_validator(wordlist_file, specified_word):
     wordlist_txtlist = (wordlist_txt.read()).split('\n')
 
     if specified_word in wordlist_txtlist:
-        print(Fore.WHITE + f'The word {specified_word.upper()} is valid!\n')
+        print(white + f'The word {specified_word.upper()} is valid!\n')
     else:
-        print(Fore.RED + Style.BRIGHT + f'Sorry, {specified_word.upper()} is not a valid word on this list.')
+        print(red + f'Sorry, {specified_word.upper()} is not a valid word on this list.')
         if len(specified_word) < 2 or len(specified_word) > 15:
             print('Valid words in Scrabble must be 2 to 15 letters in length.')
         print('')
-        specified_word = 0  #tells the next function that no score is to be evaluted
+        specified_word = 0  # tells the next function to not evaluate a score
     
     wordlist_txt.close()
     return specified_word
@@ -157,8 +158,9 @@ def word_validator(wordlist_file, specified_word):
 
 def evaluate_word(specified_string, specified_word):
     """
-    Returns the final score breakdown of the specified string and adds it to the scored_words[] list.
-    If the word is not valid, the program will continue to the end_menu() function.
+    Returns the final score breakdown of the specified string and adds it to
+    the scored_words[] list. If the word is not valid, the program will
+    continue to the end_menu() function
     """
     if specified_word != 0:
         this_word = CheckedString(specified_string, specified_word)
@@ -179,8 +181,10 @@ def evaluate_word(specified_string, specified_word):
 def evaluate_letters(specified_string):
     """
     Calculates the letter score taking modifiers into account.
+    NB: The '!' added to the string in the first step is essential
+    to ensuring the final character of the input is evaluated correctly
     """
-    specified_string = specified_string + '!' #Ensures the final character of the original string is evaluated.
+    specified_string = specified_string + '!'
     word_score = 0
 
     for character, next_character in zip(specified_string, specified_string[1:]):
@@ -203,42 +207,42 @@ def evaluate_multiplier(specified_word, word_score):
     upper_limit = 4
     
     while True:
-        print(Fore.YELLOW + Style.BRIGHT + 'Any Double or Triple word score?')
-        print(Fore.YELLOW + Style.BRIGHT + '1 - None')
-        print(Fore.YELLOW + Style.BRIGHT + '2 - Double')
-        print(Fore.YELLOW + Style.BRIGHT + '3 - Triple')
+        print(yellow + 'Any Double or Triple word score?')
+        print(yellow + '1 - None')
+        print(yellow + '2 - Double')
+        print(yellow + '3 - Triple')
         if len(specified_word) > 6:
-            print(Fore.YELLOW + Style.BRIGHT + '4 - Double x2')
+            print(yellow + '4 - Double x2')
             upper_limit = 5
         if len(specified_word) > 7:
-            print(Fore.YELLOW + Style.BRIGHT + '5 - Triple x2')
+            print(yellow + '5 - Triple x2')
             upper_limit = 6
         if len(specified_word) == 15:
-            print(Fore.YELLOW + Style.BRIGHT + '6 - Triple x3')
+            print(yellow + '6 - Triple x3')
             upper_limit = 7
         print('')
 
-        multiplier = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n')
+        multiplier = input(green + 'Please select an option:\n')
 
         try:
             int(multiplier)
         except:
-            print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n')
+            print(red + f'{multiplier.upper()} is not a valid option.\n')
         else:
-            if int(multiplier) in range (1, upper_limit):
+            if int(multiplier) in range(1, upper_limit):
                 break
             else:
-                print(Fore.RED + Style.BRIGHT + f'Sorry, {multiplier.upper()} is not a valid option.\n') 
+                print(red + f'{multiplier.upper()} is not a valid option.\n') 
 
     if int(multiplier) == 1:
-        print(Fore.WHITE + 'No multiplier to be applied\n')
+        print(white + 'No multiplier to be applied\n')
     else:
         if int(multiplier) == 5:
             multiplier = 6
         elif int(multiplier) == 6:
             multiplier = 9
 
-        print(Fore.WHITE + f'Multiplying word score by {multiplier}...\n')
+        print(white + f'Multiplying word score by {multiplier}...\n')
         word_score = word_score * int(multiplier)
 
     return word_score
@@ -249,22 +253,22 @@ def evaluate_bonus(word_score):
     Adds a bonus to the final score, if appropriate.
     """
     while True:
-        print(Fore.YELLOW + Style.BRIGHT + 'All tiles played on this turn?')
+        print(yellow + 'All tiles played on this turn?')
         print("Only select 'Yes' once if scoring multiple words per turn\n")
-        print(Fore.YELLOW + Style.BRIGHT + '1 - Yes')
-        print(Fore.YELLOW + Style.BRIGHT + '2 - No\n')
+        print(yellow + '1 - Yes')
+        print(yellow + '2 - No\n')
 
-        bonus = input(Fore.GREEN + Style.BRIGHT + 'Please select an option:\n').lower()
+        bonus = input(green + 'Please select an option:\n').lower()
 
         if bonus == '1' or bonus == 'yes' or bonus == 'y':
-            print(Fore.WHITE + 'Adding bonus...\n')
+            print(white + 'Adding bonus...\n')
             word_score = word_score + 50         
             break
         elif bonus == '2' or bonus == 'no' or bonus == 'n':
-            print(Fore.WHITE + 'No bonus to be applied\n')
+            print(white + 'No bonus to be applied\n')
             break
         else:
-            print(Fore.RED + Style.BRIGHT + f'Sorry, {bonus.upper()} is not a valid option.\n')
+            print(red + f'Sorry, {bonus.upper()} is not a valid option.\n')
 
     return word_score
 
@@ -274,55 +278,56 @@ def end_menu(wordlist_file):
     Allows the user to either check another word or end the program.
     """
     while True:
-        print(Fore.YELLOW + Style.BRIGHT + 'Options:')
-        print(Fore.YELLOW + Style.BRIGHT + '1 - Score another word')
-        print(Fore.YELLOW + Style.BRIGHT + '2 - Change wordlist')
-        print(Fore.YELLOW + Style.BRIGHT + '3 - Total score statistics')
-        print(Fore.YELLOW + Style.BRIGHT + '4 - Close program\n')
+        print(yellow + 'Options:')
+        print(yellow + '1 - Score another word')
+        print(yellow + '2 - Change wordlist')
+        print(yellow + '3 - Total score statistics')
+        print(yellow + '4 - Close program\n')
 
-        option_value = input(Fore.GREEN + Style.BRIGHT + 'Please indicate which option you require:\n')
+        option_value = input(green + 'Please select an option:\n')
 
         if option_value == '1':
-            print(Fore.WHITE + 'Loading validator... \n')
+            print(white + 'Loading validator... \n')
             main(wordlist_file)
             break
         elif option_value == '2':
-            print(Fore.WHITE + 'Loading wordlists... \n')
+            print(white + 'Loading wordlists... \n')
             wordlist_file = 'notset'
             main(wordlist_file)
             break
         elif option_value == '3':
-            print(Fore.WHITE + 'Loading scores... \n')
+            print(white + 'Loading scores... \n')
             score_stats()
         elif option_value == '4':
-            print(Fore.WHITE + 'Closing program... \n')
-            print(Fore.CYAN + Style.BRIGHT + '--------------------------------------')
-            print(Fore.CYAN + Style.BRIGHT + 'Thank you for using Scrabble ScorePAD!')
-            print(Fore.CYAN + Style.BRIGHT + '--------------------------------------\n')
+            print(white + 'Closing program... \n')
+            print(cyan + '--------------------------------------')
+            print(cyan + 'Thank you for using Scrabble ScorePAD!')
+            print(cyan + '--------------------------------------\n')
             break
         else:
-            print(Fore.RED + Style.BRIGHT + f'Sorry, {option_value.upper()} is not a valid option.\n')
+            print(red + f'{option_value.upper()} is not a valid option.\n')
 
 
 def score_stats():
     """
-    Displays the individual and total score of all valid words input by the user.
+    Displays the individual and total score 
+    of all valid words input by the user
     """
-    print ('D/T = double/triple')
-    print ('B = bonus\n')
-    print(Fore.CYAN + Style.BRIGHT + '--- SCORED WORDS ---')
+    print('D/T = double/triple')
+    print('B = bonus\n')
+    print(cyan + '--- SCORED WORDS ---')
     
     num = 0    
     for item in scored_words:
         num = num + 1
-        print (Fore.WHITE + Style.BRIGHT + f'{num}. {item}')
+        print(white + bright + f'{num}. {item}')
 
     total = 0    
     for item in scores_only:
         total = total + item
 
     print('')    
-    print(Fore.CYAN + Style.BRIGHT + f'TOTAL SCORE = {total}\n')
+    print(cyan + f'TOTAL SCORE = {total}\n')
 
 
 def main(wordlist):
@@ -335,7 +340,7 @@ def main(wordlist):
     string = string_validator()
     word = word_extractor(string)
     valid_word = word_validator(wordlist, word)
-    score = evaluate_word(string, valid_word)
+    evaluate_word(string, valid_word)
     end_menu(wordlist)
     
 
@@ -344,7 +349,7 @@ def main(wordlist):
 print(cyan + '-----------------------------')
 print(cyan + 'Welcome To Scrabble ScorePAD!')
 print(cyan + '-----------------------------')
-print('When presented with options simply type the number of your choice and hit Enter\n')
+print('When options appear simply type the number of your choice and hit Enter\n')
 
 wordlist_file = 'notset'
 main(wordlist_file)
