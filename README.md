@@ -1,14 +1,14 @@
 # Scrabble ScorePAD
 
-Scrabble ScorePAD an application designed to help validate and score words during a game of Scrabble.
+Scrabble ScorePAD is an application designed to help validate and score words during a game of Scrabble.
 
 [LIVE LINK TO SITE](https://scrabble-scorepad.herokuapp.com/)
 
 The main aims of the application are as follows:
 - To provide a helpful and intuitive app for scoring Scrabble which runs in a basic python terminal inside a browser window
 - To allow the user to ensure that a word played is valid for the particular Scrabble wordlist they are using
-- To allow the user to easily indicate blank tiles, double/triple letter/word scores and 'bingo' bonuses as score each word
-- To keep track of all words played and providing a running total of their scores
+- To allow the user to easily indicate blank tiles, double/triple letter/word scores and 'bingo' bonuses as they score each word
+- To keep track of all words played and provide a running total of their scores
 
 ![Overview](assets/images/overview.png)
 
@@ -23,31 +23,51 @@ As development of the program progressed various new checks and functions were a
 
 ## How To Use The Program
 
-- When presented with a list of options simply type the relevant number and hint 'Enter' on the keyboard
-- Firstly, one of two initial offical Scrabble lists must be selected, then the user can enter the first word for scoring
-- The word to be checked should be entered along with any indication of blank tiles used and/or double/triple letter scores
+1. When presented with a list of options simply type the relevant number and hint 'Enter' on the keyboard
+2. Firstly, one of two initial offical Scrabble lists must be selected, then the user can enter the first word for scoring
+3. The word to be checked should be entered along with any indication of blank tiles used and/or double/triple letter scores:
   - Use '*' after a letter to indicate the tile is blank
   - Use '2' after a letter to indicate a double letter score
   - Use '3' after a letter to indicate a double letter score
   - If a blank tile and double/triple letter score appear togrther simply use '*'
-- The input will be checked to ensure it is valid and that the word appears on the previously selected wordlist
-- The user will then be offered the oppurtunity to indicate a double/triple word score and 'bingo' (all tiles used) bonus, if applicable
-- Once all scoring types have been indicated, the final score and breakdown is presented to the user
-- The user is then presented with the option of scoring another word, changing the wordlist, showing a full list of words scored or closing the program
-- The program will run and continue to score words/keep score until the user chooses to close the program 
+4. The input will be checked to ensure it is valid and that the word appears on the previously selected wordlist
+5. The user will then be offered the oppurtunity to indicate a double/triple word score and 'bingo' (all tiles used) bonus, if applicable
+6. Once all scoring types have been indicated, the final score and breakdown is presented to the user
+7. The user is then presented with the option of scoring another word, changing the wordlist, showing a full list of words scored or closing the program
+8. The program will run and continue to score words/keep score until the user chooses to close the program 
 
 ## Features 
 
 ### Existing Features
 
-- __Favicon & Title__
+__Page Layout & Styling__
 
-  - A favicon is included as part of the tab styling, taking the form of an 'S' tile found in Scrabble.
-  - The title is placed at the top of the page above the terminal to clearly indicate the program in use.
-  - Clicking the title will not refresh/redirect the page as this would interrupt the program.
-  - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of the terminal.
+- A favicon is included as part of the tab styling, taking the form of an 'S' tile found in Scrabble.
+- The title is placed at the top of the page above the terminal to clearly indicate the program in use.
+- Clicking the title will not refresh/redirect the page as this would interrupt the program.
+- No navigation bar is provided as this site has a one-page focus; interaction occurs through means of the terminal.
+- A background image of a Scrabble board empasises the theme of the program and helps with eye strain , preventing a dark terminal on a bright background
 
-![Title & Info](assets/images/readme_file/title_and_info.png)
+![Main Page](assets/images/mainpage.png)
+
+__Terminal Formatting__
+
+- Text within the terminal has been coloured to help with readibility and information perception:
+  - <span style='color:cyan'>Cyan</span> is used for main headings such as the welcome/closing messages.
+  - <span style='color:yellow'>Yellow</span> is used for menu headings and their options.
+  - <span style='color:lightgreen'>Green</span> is used for those times user input is required.
+  - <span style='color:red'>Red</span> is used for error messages.
+  - <span style='color:white'>White</span> is used for all other pieces of informational text.
+
+![Terminal](assets/images/terminal.png)
+
+__'Run Program' Button__
+
+- A button is placed below the terminal as a means of restarting the program after it ends or in the event of an error.
+- The button is styled with hover elements to provide feedback to the user.
+
+![Button](assets/images/button.png)
+
 
 ### Features to Implement
 
