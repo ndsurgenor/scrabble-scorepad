@@ -249,7 +249,7 @@ def evaluate_bonus(word_score):
     """
     while True:
         print(Fore.YELLOW + Style.BRIGHT + 'All tiles played on this turn?')
-        print(Fore.YELLOW + Style.BRIGHT + "NB: Only select 'Yes' once if scoring multiple words per turn")
+        print("NB: Only select 'Yes' once if scoring multiple words per turn\n")
         print(Fore.YELLOW + Style.BRIGHT + '1 - Yes')
         print(Fore.YELLOW + Style.BRIGHT + '2 - No\n')
 
