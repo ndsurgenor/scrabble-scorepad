@@ -72,14 +72,14 @@ The following tests have been run on each part of the program to ensure that it 
 `Initial Startup`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Welcome Message | Run program | <span style='color:gray'>n/a</span> | Welcome message displayed to show program is running | Welcome message displayed as expected | ![1-1](assets/images/1-1.png) | Pass |
+| Welcome Message | Run program | <span style='color:gray'>n/a</span> | Welcome message showing program is running | Welcome message displayed as expected | ![1-1](assets/images/1-1.png) | Pass |
 
 `Wordlist Selection`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
 | Wordlist Menu | Run program | <span style='color:gray'>n/a</span> | Menu showing options '1 - EU/Word (SOWPODS), 2 - US/Canada (TWL06)' awaiting input from user | Options and input request displayed as expected | ![2-1](assets/images/2-1.png) | Pass |
-| Wordlist Selection | <span style='color:lightgreen'>Valid input</span> | 1, 2 | Selecting a valid option displays a specific confirmation message and moves to next section |  Program continues to next section with correct display message | ![2-2](assets/images/2-2.png)<br/>![2-3](assets/images/2-3.png) | Pass |
-| Wordlist Selection | <span style='color:tomato'>Invalid inputs:</br><1, >2, String</span> | 0, 3, 6y75er | Selecting an invalid option displays an error message and repeats the valid options | Error message displays followed by valid wordlist options | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
+| Wordlist Selection | <span style='color:lightgreen'>Valid input</span> | 1</br>2 | Confirmation message referencing chosen wordlist |  Confirmation message displayed as expected | ![2-2](assets/images/2-2.png)<br/>![2-3](assets/images/2-3.png) | Pass |
+| Wordlist Selection | <span style='color:tomato'>Invalid inputs:</br><1</br>>2</br>String</span> | 0</br>3</br>6y75er | Error message referencing entered string and redisplaying of valid options | Error message and repeat of options menu displayed as expected | ![2-4](assets/images/2-4.png)<br/>![2-5](assets/images/2-5.png)<br/>![2-6](assets/images/2-6.png) | Pass |
 
 `Word & Modifier Input`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
@@ -101,8 +101,8 @@ The following tests have been run on each part of the program to ensure that it 
 | Double/Triple Score Menu | Word 7 letters length | objects | Menu showing all options above plus '4 - Double x2' along with input request from user | Specified options and input request displayed as expected | ![4-2](assets/images/4-2.png) | Pass |
 | Double/Triple Score Menu | Word 8-14 letters length | objectify | Menu showing all options above plus '5 - Triple x2' along with input request from user | Specified options and input request displayed as expected | ![4-3](assets/images/4-3.png) | Pass |
 | Double/Triple Score Menu | Word 15 letters length | objectification | Menu showing all options above plus '6 - Triple x3' along with input request from user | Specified options and input request displayed as expected | ![4-4](assets/images/4-4.png) | Pass |
-| Multiplier Selection | <span style='color:lightgreen'>Valid input</span> | 1, 2, 3, 4, 5, 6 | Confirmation message showing multiplication factor specific to chosen option | Confirmation displayed as expected | ![4-6](assets/images/4-6.png)![4-7](assets/images/4-7.png)![4-8](assets/images/4-8.png)![4-9](assets/images/4-9.png)![4-10](assets/images/4-10.png)![4-11](assets/images/4-11.png) | Pass |
-| Multiplier Selection | <span style='color:tomato'>Invalid inputs:</br><1, >max, String</span> | 0, 4, 6y75er | Error message confirming input is not a valid option | Error message displayed as expected | ![4-12](assets/images/4-12.png)![4-13](assets/images/4-13.png)![4-14](assets/images/4-14.png) | Pass |
+| Multiplier Selection | <span style='color:lightgreen'>Valid inputs</span> | 1</br>2</br>3</br>4</br>5</br>6 | Confirmation message showing multiplication factor specific to chosen option | Confirmation and correct multiplication factor displayed as expected | ![4-5](assets/images/4-5.png)</br>![4-6](assets/images/4-6.png)</br>![4-7](assets/images/4-7.png)</br>![4-8](assets/images/4-8.png)</br>![4-9](assets/images/4-9.png)</br>![4-10](assets/images/4-10.png) | Pass |
+| Multiplier Selection | <span style='color:tomato'>Invalid inputs:</br><1</br>>max</br>String</span> | 0</br>4</br>6y75er | Error message referencing entered string and redisplaying of valid options | Error message and repeat of options menu displayed as expected | ![4-11](assets/images/4-11.png)</br>![4-12](assets/images/4-12.png)</br>![4-13](assets/images/4-13.png) | Pass |
 
 `Bonus Score Indication`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
@@ -110,12 +110,12 @@ The following tests have been run on each part of the program to ensure that it 
 | Bonus Score Menu | Word <7 letters length | object | Menu does not display as word contains <7 letters | Menu is skipped as expected (Final word score displayed immediately) | ![5-1](assets/images/5-1.png) | Pass |
 | Bonus Score Menu | Word > or =7 letters length | rainbow | Menu showing options '1 - Yes, 2 - No' awaiting input from user | Menu and input request displayed as expected | ![5-2](assets/images/5-1.png) | Pass |
 | Bonus Selection | <span style='color:lightgreen'>Valid inputs</span> | 1, 2 | Confirmation message showing bonus applied/not applied as appropraite | Confirmation displayed as expected | ![5-3](assets/images/5-3.png)![5-4](assets/images/5-4.png) | Pass |
-| Bonus Selection | <span style='color:tomato'>Invalid inputs:</br><1, >2, String</span> | 0, 3, 6y75er | Error message confirming input is not a valid option | Error message displayed as expected | ![5-5](assets/images/5-5.png)![5-6](assets/images/5-6.png)![5-7](assets/images/5-7.png) | Pass |
+| Bonus Selection | <span style='color:tomato'>Invalid inputs:</br><1, >2, String</span> | 0, 3, 6y75er | Error message referencing entered string and redisplaying of valid options | Error message and repeat of options menu displayed as expected | ![5-5](assets/images/5-5.png)</br>![5-6](assets/images/5-6.png)</br>![5-7](assets/images/5-7.png) | Pass |
 
 `Final Word Score Breakdown`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
-| Final Score Message | <span style='color:lightgreen'>Valid inputs</span> | r2ain*bow3 (no other score),</br>col3orise (double x2),</br>objects (triple and bonus) | Final word score showing breakdown of letter score (including modifiers) and any multipliers/bonuses | Final word score breakdown displayed as expected | ![6-1](assets/images/6-1.png) | Pass |
+| Final Score Message | <span style='color:lightgreen'>Valid inputs</span> | r2ain*bow3 (no other score),</br>col3orise (double x2),</br>objects (triple and bonus) | Final word score showing breakdown of letter score (including modifiers) and any multipliers/bonuses | Final word score breakdown displayed as expected | ![6-1](assets/images/6-1.png)</br>![6-2](assets/images/6-2.png)</br>![6-3](assets/images/6-3.png) | Pass |
 
 `Next Steps Selection`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
@@ -125,7 +125,7 @@ The following tests have been run on each part of the program to ensure that it 
 | Next Selection | <span style='color:lightgreen'>Valid input</span> | 2 | Program returns to Wordlist menu and input line | Menu and input request displayed as expected | ![7-3](assets/images/7-3.png) | Pass |
 | Next Selection | <span style='color:lightgreen'>Valid input</span> | 3 | Program returns a list showing all words scored and their scoring types, alongside individual scores and an overall total | Words and scores displayed as expected | ![7-4](assets/images/7-4.png) | Pass |
 | Next Selection | <span style='color:lightgreen'>Valid input</span> | 4 | Program exits safely displaying a farewell message and no further options | Program stops and farewell message displayed as expected | ![7-5](assets/images/7-5.png) | Pass |
-| Next Selection | <span style='color:tomato'>Invalid inputs:</br><1, >4, String</span> | 0, 5, 6y75er | Error message confirming input is not a valid option | Error message displayed as expected | ![7-6](assets/images/7-6.png)![7-7](assets/images/7-7.png)![7-8](assets/images/7-8.png) | Pass |
+| Next Selection | <span style='color:tomato'>Invalid inputs:</br><1, >4, String</span> | 0, 5, 6y75er | Error message referencing entered string and redisplaying of valid options | Error message and repeat of options menu displayed as expected | ![7-6](assets/images/7-6.png)</br>![7-7](assets/images/7-7.png)</br>![7-8](assets/images/7-8.png) | Pass |
 
 
 ### Validator Testing 
