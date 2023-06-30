@@ -38,9 +38,9 @@ As development of the program progressed various new checks and functions were a
 
 ## Features 
 
-### Existing Features
+### Page Layout & Styling
 
-__Page Layout & Styling__
+__Tab, Title & Background__
 
 - A favicon is included as part of the tab styling, taking the form of an 'S' tile found in Scrabble.
 - The title is placed at the top of the page above the terminal to clearly indicate the program in use.
@@ -68,6 +68,38 @@ __'Run Program' Button__
 
 ![Button](assets/images/button.png)
 
+### Program Features
+
+__Wordlist Selection__
+- One of two official Scrabble wordlists
+
+__Modifier Input__
+- Allows letters to be specified as blanks, double or triple
+- Program will check for any invalid input
+
+__Word Validation__
+- Checks that the word appears on the relevant list
+- Safely closes the accessed text file after validation to prevent overwrites
+
+__Multiplier menu__
+- Allows for double/tripling of word scores, multiple if required
+- Certain options only appear depending on word length as per official Scrabble board
+
+__Bonus Menu__
+- Allows for scoring of ‘bingo’
+- Only appears as an option if word is seven letters or longer
+
+__End Of Program Menu__
+- Various options to benefit the user experience
+- User can immediately score a new word without the need to change wordlist
+- User can change wordlist before scoring again
+- User can view all words scored so far, including their individual scores and total
+- User can safely exit the program when finished
+
+__Total Score Screen__
+- Shows all words scored up to that point
+- Displays the word, string entered, any extra scoring and the final score for each word
+- Also shows the total score of all words up to that point
 
 ### Features to Implement
 
