@@ -2,8 +2,8 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 
 bright = Style.BRIGHT
-cyan = Fore.CYAN + Style.BRIGHT  # 'h1' type headings
-yellow = Fore.YELLOW + Style.BRIGHT  # 'h2' type headings
+cyan = Fore.CYAN + Style.BRIGHT  # main headings
+yellow = Fore.YELLOW + Style.BRIGHT  # menu headings/options
 green = Fore.GREEN + Style.BRIGHT  # user input
 red = Fore.RED + Style.BRIGHT  # errors
-white = Fore.WHITE  # 'p' type text
+white = Fore.WHITE  # info/other text
