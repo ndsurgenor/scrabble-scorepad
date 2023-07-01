@@ -215,7 +215,9 @@ The following tests have been run on each part of the program to ensure that it 
 
 ### Fixed Bugs
 
-! TO BE ADDED !
+- The `string_validator()` function was running into problems with regard to some very particular string inputs which while unlikely to be enterd by the user were very much possible and could crash the program. This was resolved by ensuring that the error checking is performed in a very particular order and will not proceed to the next stage of an error is found.
+- The `word_validator()` function was running into an error after running for a second time i.e. when the user tried to score a second word, specifically with the name of the particular `.txt` file not being carried over correctly from one iteration to the next. This was resolved by storing only the name of the particluar file as a variable (`wordlist_file`) and not the entire filepath each time.
+- The function `evaluate_letters()` was not claculating the word score correctly, choosing to leave off the final letter each time if was not followed by a modifiers. This was resolved by adding a 'dummy' character of `!` at the start of the function.
 
 ### Unfixed Bugs
 
