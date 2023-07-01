@@ -14,8 +14,7 @@ The main aims of the application are as follows:
 
 ## Initial Development
 
-- With these aims in mind, the following was drawn up as blueprint for writing the program, breaking down the various stages of input, decision, logic and function
-- The diagram was created using the chart design site [Lucid](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1533%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
+With these aims in mind, the following flowchart was drawn up as blueprint for writing the program, breaking down the various stages of input, decision, logic and function. The diagram was created using the chart design site [Lucid](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1533%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
 
 ![Flowchart](assets/images/flowchart.png)
 
@@ -26,10 +25,10 @@ As development of the program progressed various new checks and functions were a
 1. When presented with a list of options simply type the relevant number and hint 'Enter' on the keyboard
 2. Firstly, one of two initial offical Scrabble lists must be selected, then the user can enter the first word for scoring
 3. The word to be checked should be entered along with any indication of blank tiles used and/or double/triple letter scores:
-  - Use '*' after a letter to indicate the tile is blank
-  - Use '2' after a letter to indicate a double letter score
-  - Use '3' after a letter to indicate a double letter score
-  - If a blank tile and double/triple letter score appear togrther simply use '*'
+- Use '*' after a letter to indicate the tile is blank
+- Use '2' after a letter to indicate a double letter score
+- Use '3' after a letter to indicate a double letter score
+- If a blank tile and double/triple letter score appear togrther simply use '*'
 4. The input will be checked to ensure it is valid and that the word appears on the previously selected wordlist
 5. The user will then be offered the oppurtunity to indicate a double/triple word score and 'bingo' (all tiles used) bonus, if applicable
 6. Once all scoring types have been indicated, the final score and breakdown is presented to the user
@@ -71,11 +70,24 @@ __'Run Program' Button__
 ### Program Features
 
 __Wordlist Selection__
-- One of two official Scrabble wordlists
+- The user has the option of selecting one of two official Scrabble wordlists
+- This allows casual/tournament players and those from different regions to make use of the program
+- Any invalid data entry is noted by the program and notice is given to the user
 
-__Modifier Input__
-- Allows letters to be specified as blanks, double or triple
-- Program will check for any invalid input
+![Wordlist Selection]()
+
+__Word & Modifier Input__
+- After selecting the relevant wordlist, the word to be checked/scored is entered
+- At this point the user can also indicate blank tiles and/or double/triple letter scores
+- Asking for input of letters and modifiers together keeps data entry
+- Any invalid data entry is noted by the program and notice is given to the user
+- Specifically, the following errors will be caught and require correction before proceeding:
+  - Data entry less than two chracters long (no one-letter words exist on Scrabble lists)
+  - Data entry that contains invalid charcters (only letters and *,2,3 permitted)
+  - More than one modifier indicated beside a letter (blank takes precedence over double/triple)
+  - Data entry that begins with a modifier (modifiers are to be placed after letters)
+
+![Input]()
 
 __Word Validation__
 - Checks that the word appears on the relevant list
