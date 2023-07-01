@@ -23,14 +23,14 @@ As development of the program progressed various new checks and functions were a
 ## How To Use The Program
 
 1. When presented with a list of options simply type the relevant number and hint 'Enter' on the keyboard
-2. Firstly, one of two initial offical Scrabble lists must be selected, then the user can enter the first word for scoring
+2. Firstly, one of two initial official Scrabble lists must be selected, then the user can enter the first word for scoring
 3. The word to be checked should be entered along with any indication of blank tiles used and/or double/triple letter scores:
 - Use '*' after a letter to indicate the tile is blank
 - Use '2' after a letter to indicate a double letter score
 - Use '3' after a letter to indicate a double letter score
-- If a blank tile and double/triple letter score appear togrther simply use '*'
+- If a blank tile and double/triple letter score appear together simply use '*'
 4. The input will be checked to ensure it is valid and that the word appears on the previously selected wordlist
-5. The user will then be offered the oppurtunity to indicate a double/triple word score and 'bingo' (all tiles used) bonus, if applicable
+5. The user will then be offered the opportunity to indicate a double/triple word score and 'bingo' (all tiles used) bonus, if applicable
 6. Once all scoring types have been indicated, the final score and breakdown is presented to the user
 7. The user is then presented with the option of scoring another word, changing the wordlist, showing a full list of words scored or closing the program
 8. The program will run and continue to score words/keep score until the user chooses to close the program 
@@ -45,13 +45,13 @@ __Tab, Title & Background__
 - The title is placed at the top of the page above the terminal to clearly indicate the program in use.
 - Clicking the title will not refresh/redirect the page as this would interrupt the program.
 - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of the terminal.
-- A background image of a Scrabble board empasises the theme of the program and helps with eye strain , preventing a dark terminal on a bright background
+- A background image of a Scrabble board emphasises the theme of the program and helps with eye strain , preventing a dark terminal on a bright background
 
 ![Main Page](assets/images/mainpage.png)
 
 __Terminal Formatting__
 
-- Text within the terminal has been coloured to help with readibility and information perception:
+- Text within the terminal has been coloured to help with readability and information perception:
   - <span style='color:cyan'>Cyan</span> is used for main headings such as the welcome/closing messages.
   - <span style='color:yellow'>Yellow</span> is used for menu headings and their options.
   - <span style='color:lightgreen'>Green</span> is used for those times user input is required.
@@ -82,8 +82,8 @@ __Word & Modifier Input__
 - Asking for input of letters and modifiers together keeps data-string entry to a minimum
 - Any invalid data entry is noted by the program and notice is given to the user
 - Specifically, the following errors will be caught and require correction before proceeding:
-  - Data entry less than two chracters long (no one-letter words exist on Scrabble lists)
-  - Data entry that contains invalid charcters (only letters and *,2,3 permitted)
+  - Data entry less than two characters long (no one-letter words exist on Scrabble lists)
+  - Data entry that contains invalid characters (only letters and *,2,3 permitted)
   - More than one modifier indicated beside a letter (blank takes precedence over double/triple)
   - Data entry that begins with a modifier (modifiers are to be placed after letters)
 - Valid inputs have their letter values taken from an in-built dictionary and are ignored/doubled/tripled where appropriate
@@ -91,7 +91,7 @@ __Word & Modifier Input__
 ![Input](assets/images/3-1.png)
 
 __Word Validation__
-- Any modifiers entered in the previous step are ommitted by the proram so the word can be read correctly
+- Any modifiers entered in the previous step are omitted by the program so the word can be read correctly
 - The program checks to see if the word entered appears on the previously selected wordlist
 - If an invalid word is entered the user is notified and the end program menu is presented
 - A valid word causes the program to proceed to the final checks before scoring
@@ -106,7 +106,7 @@ __Multiplier menu__
   - Words of 7+ letters also have a double x2 option
   - Words of 8+ letters also have a triple x2 option
   - Words of 15 letters have a triple x3 option
-- Any double/triple score selected is apllied to the base value of the word from the previous step
+- Any double/triple score selected is applied to the base value of the word from the previous step
 - Any invalid data entry is noted by the program and notice is given to the user
 
 ![Multipliers](assets/images/4-4.png)
@@ -132,14 +132,14 @@ __End Of Program Menu__
   2. The user can change wordlist before scoring again
   3. The user can view all words scored so far, including their individual scores and total
   4. The user can safely exit the program when finished
-- This allows the program to be used in a continous manner without the need to reset the terminal
+- This allows the program to be used in a continuous manner without the need to reset the terminal
 - Any invalid selection is noted by the program and notice is given to the user
 
 ![End](assets/images/7-1.png)
 
 __Total Score Screen__
 - Selecting the third option from above displays a full list of scored words
-- Each entry also shows the entered string, multiplier/bonus scores and inidividual score for each word
+- Each entry also shows the entered string, multiplier/bonus scores and individual score for each word
 - A total score for all words entered is also displayed allowing the program to be used a scoring tool in a real game of Scrabble
 - Immediately following this, the previous options are displayed to the user once again
 - Any invalid selection at this point is noted by the program and notice is given to the user
@@ -166,14 +166,14 @@ The following tests have been run on each part of the program to ensure that it 
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
 |-|-|-|-|-|-|-|
 | Word Validation Instruction | Run program | <span style='color:gray'>n/a</span> | Message showing input instructions, awaiting input from user | Message and input request displayed as expected | ![3-1](assets/images/3-1.png) | Pass |
-| Word Input | <span style='color:lightgreen'>Letters only</span> | rainbow | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-2](assets/images/3-2.png) | Pass |
-| Word Input | <span style='color:lightgreen'>Letters with valid modifiers</span> | r2ain*bow3 | Confirmation message showing word without modifiers (capitilised) as valid | Confirmation message displayed as expected | ![3-3](assets/images/3-3.png) | Pass |
-| Word Input | <span style='color:tomato'>Invalid characters</span> | rai4nbow | Error message giving detail of invalid characters and a reminder of what is allowed | Error message displyed as expected | ![3-4](assets/images/3-4.png) | Pass |
-| Word Input | <span style='color:tomato'><2 characters</span> | a | Error message explaining words must be at least 2 letters long | Error message displyed as expected | ![3-5](assets/images/3-5.png) | Pass |
-| Word Input | <span style='color:tomato'>Opening modifier</span> | 2rainbow | Error message explaining input must begin with a letter | Error message displyed as expected | ![3-6](assets/images/3-6.png) | Pass |
-| Word Input | <span style='color:tomato'>>2 modifiers on one letter</span> | rain*3bow | Error message explaining only one modifier per letter is allowed | Error message displyed as expected | ![3-7](assets/images/3-7.png) | Pass |
-| Word Validator | <span style='color:lightgreen'>Valid word entered</span> | colorise [EU wordlist] | Confirmation message showing word (capitilised) as valid | Confirmation message displayed as expected | ![3-8](assets/images/3-8.png) | Pass |
-| Word Validator | <span style='color:tomato'>Invalid word entered</span> | colorise [US wordlist] | Error message showing word (capitilised) as invalid for particular list | Error message displyed as expected | ![3-9](assets/images/3-9.png) | Pass |
+| Word Input | <span style='color:lightgreen'>Letters only</span> | rainbow | Confirmation message showing word (capitalised) as valid | Confirmation message displayed as expected | ![3-2](assets/images/3-2.png) | Pass |
+| Word Input | <span style='color:lightgreen'>Letters with valid modifiers</span> | r2ain*bow3 | Confirmation message showing word without modifiers (capitalised) as valid | Confirmation message displayed as expected | ![3-3](assets/images/3-3.png) | Pass |
+| Word Input | <span style='color:tomato'>Invalid characters</span> | rai4nbow | Error message giving detail of invalid characters and a reminder of what is allowed | Error message displayed as expected | ![3-4](assets/images/3-4.png) | Pass |
+| Word Input | <span style='color:tomato'><2 characters</span> | a | Error message explaining words must be at least 2 letters long | Error message displayed as expected | ![3-5](assets/images/3-5.png) | Pass |
+| Word Input | <span style='color:tomato'>Opening modifier</span> | 2rainbow | Error message explaining input must begin with a letter | Error message displayed as expected | ![3-6](assets/images/3-6.png) | Pass |
+| Word Input | <span style='color:tomato'>>2 modifiers on one letter</span> | rain*3bow | Error message explaining only one modifier per letter is allowed | Error message displayed as expected | ![3-7](assets/images/3-7.png) | Pass |
+| Word Validator | <span style='color:lightgreen'>Valid word entered</span> | colorise [EU wordlist] | Confirmation message showing word (capitalised) as valid | Confirmation message displayed as expected | ![3-8](assets/images/3-8.png) | Pass |
+| Word Validator | <span style='color:tomato'>Invalid word entered</span> | colorise [US wordlist] | Error message showing word (capitalised) as invalid for particular list | Error message displayed as expected | ![3-9](assets/images/3-9.png) | Pass |
 
 `Double/Triple Score Indication`
 | Feature | Test | Input(s) | Expected | Result | Display | Pass/Fail |
@@ -215,9 +215,9 @@ The following tests have been run on each part of the program to ensure that it 
 
 ### Fixed Bugs
 
-- The `string_validator()` function was running into problems with regard to some very particular string inputs which while unlikely to be enterd by the user were very much possible and could crash the program. This was resolved by ensuring that the error checking is performed in a very particular order and will not proceed to the next stage of an error is found.
-- The `word_validator()` function was running into an error after running for a second time i.e. when the user tried to score a second word, specifically with the name of the particular `.txt` file not being carried over correctly from one iteration to the next. This was resolved by storing only the name of the particluar file as a variable (`wordlist_file`) and not the entire filepath each time.
-- The function `evaluate_letters()` was not claculating the word score correctly, choosing to leave off the final letter each time if was not followed by a modifiers. This was resolved by adding a 'dummy' character of `!` at the start of the function.
+- The `string_validator()` function was running into problems with regard to some very particular string inputs which while unlikely to be entered by the user were very much possible and could crash the program. This was resolved by ensuring that the error checking is performed in a very particular order and will not proceed to the next stage of an error is found.
+- The `word_validator()` function was running into an error after running for a second time i.e. when the user tried to score a second word, specifically with the name of the particular `.txt` file not being carried over correctly from one iteration to the next. This was resolved by storing only the name of the particular file as a variable (`wordlist_file`) and not the entire filepath each time.
+- The function `evaluate_letters()` was not calculating the word score correctly, choosing to leave off the final letter each time if was not followed by a modifiers. This was resolved by adding a 'dummy' character of `!` at the start of the function.
 
 ### Unfixed Bugs
 
