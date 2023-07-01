@@ -74,28 +74,41 @@ __Wordlist Selection__
 - This allows casual/tournament players and those from different regions to make use of the program
 - Any invalid data entry is noted by the program and notice is given to the user
 
-![Wordlist Selection]()
+![Wordlist Selection](assets/images/2-1.png)
 
 __Word & Modifier Input__
 - After selecting the relevant wordlist, the word to be checked/scored is entered
-- At this point the user can also indicate blank tiles and/or double/triple letter scores
-- Asking for input of letters and modifiers together keeps data entry
+- At this point the user also indicates blank tiles and/or double/triple letter scores
+- Asking for input of letters and modifiers together keeps data-string entry to a minimum
 - Any invalid data entry is noted by the program and notice is given to the user
 - Specifically, the following errors will be caught and require correction before proceeding:
   - Data entry less than two chracters long (no one-letter words exist on Scrabble lists)
   - Data entry that contains invalid charcters (only letters and *,2,3 permitted)
   - More than one modifier indicated beside a letter (blank takes precedence over double/triple)
   - Data entry that begins with a modifier (modifiers are to be placed after letters)
+- Valid inputs have their letter values taken from an in-built dictionary and are ignored/doubled/tripled where appropriate
 
-![Input]()
+![Input](assets/images/3-1.png)
 
 __Word Validation__
-- Checks that the word appears on the relevant list
-- Safely closes the accessed text file after validation to prevent overwrites
+- Any modifiers entered in the previous step are ommitted by the proram so the word can be read correctly
+- The program checks to see if the word entered appears on the previously selected wordlist
+- If an invalid word is entered the user is notified and the end program menu is presented
+- A valid word causes the program to proceed to the final checks before scoring
+
+![Invalid](assets/images/3-9.png)
+![Valid](assets/images/3-8.png)
 
 __Multiplier menu__
-- Allows for double/tripling of word scores, multiple if required
-- Certain options only appear depending on word length as per official Scrabble board
+- If a valid word is entered, options for double/triple word scores are presented
+- Certain options will only appear depending on word length given the layout of an official Scrabble board
+  - Words < 7 letters can only have a single double/triple word score
+  - Words of 7+ letters also have a double x2 option
+  - Words of 8+ letters also have a triple x2 option
+  - Words of 15 letters have a triple x3 option
+- Any double/triple score selected is apllied to the base value of the word from the previous step
+
+![Multipliers](assets/images/4-4.png)
 
 __Bonus Menu__
 - Allows for scoring of ‘bingo’
