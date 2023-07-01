@@ -211,13 +211,7 @@ The following tests have been run on each part of the program to ensure that it 
 
 ### Validator Testing 
 
-- HTML: No errors were returned when passing each HTML page through the official W3C HTML validator
-  - [index.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2Findex.html)
-  - [404.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2F404.html)
 - PEP8: No errors were returned when passing the program through the [PEP8 Validator](https://pep8ci.herokuapp.com/)
-- Accessibility & Performance: A perfect accessibility score was confirmed using Lighthouse in Chrome Developer Tools for both mobile and desktop sites. Performance scored 92/100 for Mobile and a perfect 100 on Desktop.
-
-  ![Lighthouse Report](assets/images/lighthouse.png)
 
 ### Fixed Bugs
 
@@ -233,18 +227,18 @@ A live link to the site can be found here: https://dashboard.heroku.com/apps/scr
 
 ### Heroku App Deployment
 
-- This site was deployed to Heroku as an app. Steps for deployment are as follows: 
-  - In the GitHub repository, navigate to the Settings tab (top right)
-  - From the options in the lefthand side menu, select Pages
-  - From the Branch section drop-down menus, select 'main' and '/root' then click 'Save'
-  - The page will be automatically refreshed (after a short period) to indicate the successful deployment.
+This site was deployed to Heroku as an app. Steps for deployment are as follows (NB to do this yourself, you will first need to fork the GitHub repository as outlined below): 
+  1. In Heroku, create a new app with a unique name of your choice
+  2. When prompted or under settings, set the buildpacks to Python and Node JS, in that order
+  3. Under the same tab, create a Config Var with Key: 'PORT' and Value: '8000'
+  4. Link the Heroku app to the repository and click on Deploy
 
 ### Forking the GitHub Repository
 
-- Forking the repository allows for a copy to be made without affecting the original. Steps for forking are as follows:
-  - Log in to GitHub (requires an account) and locate the [GitHub Repository for Scrabble ScorePAD](https://github.com/ndsurgenor/scrabble-scorepad)
-  - Locate and click the 'Fork' button near the very top right of the repository page.
-  - This will create a copy of the original Scrabble ScorePAD repository in your own GitHub account.
+Forking the repository allows for a copy to be made without affecting the original. Steps for forking are as follows:
+  1. Log in to GitHub (requires an account) and locate the [GitHub Repository for Scrabble ScorePAD](https://github.com/ndsurgenor/scrabble-scorepad)
+  2. Locate and click the 'Fork' button near the very top right of the repository page.
+  3. This will create a copy of the original Scrabble ScorePAD repository in your own GitHub account.
 
 ## Credits 
 
