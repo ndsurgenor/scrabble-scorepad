@@ -107,32 +107,44 @@ __Multiplier menu__
   - Words of 8+ letters also have a triple x2 option
   - Words of 15 letters have a triple x3 option
 - Any double/triple score selected is apllied to the base value of the word from the previous step
+- Any invalid data entry is noted by the program and notice is given to the user
 
 ![Multipliers](assets/images/4-4.png)
 
 __Bonus Menu__
-- Allows for scoring of ‘bingo’
-- Only appears as an option if word is seven letters or longer
+- If a word is 7+ letters the option to include a bonus score is presented
+- If this option is confirmed as 'Yes', 50 points are added to the word score
+- Any invalid data entry is noted by the program and notice is given to the user
+
+![Bonus](assets/images/5-1.png)
+
+__Word Score__
+- After all of these steps have been completed the final word score is displayed
+- This screen gives a base score, multiplied score, bonus score and final total
+- The word scored is also presented alongside the original string that was entered by the user
+- This breakdown allows the user to see exactly how they have scored the total given
+
+![Score](assets/images/6-2.png)
 
 __End Of Program Menu__
-- Various options to benefit the user experience
-- User can immediately score a new word without the need to change wordlist
-- User can change wordlist before scoring again
-- User can view all words scored so far, including their individual scores and total
-- User can safely exit the program when finished
+- Immediately after the score is shown, various options appear on screen to benefit the user experience
+  1. The user can immediately score a new word without the need to change wordlist
+  2. The user can change wordlist before scoring again
+  3. The user can view all words scored so far, including their individual scores and total
+  4. The user can safely exit the program when finished
+- This allows the program to be used in a continous manner without the need to reset the terminal
+- Any invalid selection is noted by the program and notice is given to the user
+
+![End](assets/images/7-1.png)
 
 __Total Score Screen__
-- Shows all words scored up to that point
-- Displays the word, string entered, any extra scoring and the final score for each word
-- Also shows the total score of all words up to that point
+- Selecting the third option from above displays a full list of scored words
+- Each entry also shows the entered string, multiplier/bonus scores and inidividual score for each word
+- A total score for all words entered is also displayed allowing the program to be used a scoring tool in a real game of Scrabble
+- Immediately following this, the previous options are displayed to the user once again
+- Any invalid selection at this point is noted by the program and notice is given to the user
 
-### Features to Implement
-
-! TO BE ADDED !
-
-<!-- The following are ideas which can be implemented into the site at a later time (when skillset allows):
-- Add the ability to save high-scores and usernames to a back-end server allowing users to compare their scores with all visitors to the site.
-- Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar. -->
+![End](assets/images/7-4.png)
 
 ## Testing
 
