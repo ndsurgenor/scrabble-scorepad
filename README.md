@@ -57,7 +57,7 @@ __Tab, Title & Background__
 
 __Terminal Formatting__
 
-- Text within the terminal has been coloured to help with readability and information perception:
+- Text within the terminal has been coloured using the [Colorama](https://pypi.org/project/colorama/) library to help with readability and information perception:
   - <span style='color:cyan'>Cyan</span> is used for main headings such as the welcome/closing messages.
   - <span style='color:yellow'>Yellow</span> is used for menu headings and their options.
   - <span style='color:lightgreen'>Green</span> is used for those times user input is required.
@@ -259,4 +259,5 @@ Forking the repository allows for a copy to be made without affecting the origin
 - Flowchart designed using [Lucid Charts](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1660%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
 - Favicon created with [favicon.io](https://favicon.io/)
 - Background image attributed to 'Barrow Boy' used under Creative Commons licence via [Wikipedia Commons](https://upload.wikimedia.org/wikipedia/commons/5/5d/Scrabble_game_in_progress.jpg)
+- Terminal colours added using [Colorama](https://pypi.org/project/colorama/)
 - README.md file adapted from the [Code Institute 'ULTIMATE Battleships'](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware) example
