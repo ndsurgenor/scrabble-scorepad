@@ -1,24 +1,32 @@
 # Scrabble ScorePAD
 
-Scrabble ScorePAD is an application designed to help validate and score words during a game of Scrabble. The following user stories were created to aid its development:
+Scrabble ScorePAD is an application designed to help validate and score words during a game of Scrabble.
+
+[LIVE LINK TO SITE](https://scrabble-scorepad.herokuapp.com/)
+
+![Overview](assets/images/overview.png)
+
+## Initial Development
+
+### User Stories
+
+The following user stories were created to aid the development of this application:
 
 - As a casual Scrabble player, I want to check words I'm playing so I know they are valid
 - As casual player, I want an easy way to calculate my word score quickly so I can get on with playing the game and avoid making mistakes when scoring
 - As an average player, I want an easy way to score each word I play and keep overall track of my score
-- As a more seasoned player, I want the option to score only words on Scrabble's tournament list (TWL06) so I can ready myself for official competition 
+- As a more seasoned player, I want the option to score only words on Scrabble's tournament list (TWL06) so I can ready myself for official competition
 
-[LIVE LINK TO SITE](https://scrabble-scorepad.herokuapp.com/)
+### Application Goals
 
-Drawing on the user stories, the main aims of the application are as follows:
+Drawing on the above user stories, the main aims of the application are as follows:
 - To provide a helpful and intuitive app for scoring Scrabble which runs in a basic python terminal inside a browser window
 - To allow the user to choose between Scrabble's two official wordlists (SWOPODS and TWL06)
 - To allow the user to ensure that a word played is valid for the particular Scrabble wordlist they are using
 - To allow the user to easily indicate blank tiles, double/triple letter/word scores and 'bingo' bonuses as they score each word
 - To keep track of all words played and provide a running total of their scores
 
-![Overview](assets/images/overview.png)
-
-## Initial Development
+### Program Blueprint
 
 With these aims in mind, the following flowchart was drawn up as blueprint for writing the program, breaking down the various stages of input, decision, logic and function. The diagram was created using the chart design site [Lucid](https://lucid.app/lucidchart/db42b587-b151-4fc3-8d91-86050208ea20/edit?viewport_loc=-227%2C56%2C2938%2C1533%2C0_0&invitationId=inv_cbd12e3b-9927-4e6d-a169-3cadd1183444)
 
