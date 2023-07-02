@@ -41,7 +41,7 @@ As development of the program progressed various new checks and functions were a
 3. The word to be checked should be entered along with any indication of blank tiles used and/or double/triple letter scores:
 - Use '*' after a letter to indicate the tile is blank
 - Use '2' after a letter to indicate a double letter score
-- Use '3' after a letter to indicate a double letter score
+- Use '3' after a letter to indicate a triple letter score
 - If a blank tile and double/triple letter score appear together simply use '*'
 4. The input will be checked to ensure it is valid and that the word appears on the previously selected wordlist
 5. The user will then be offered the opportunity to indicate a double/triple word score and 'bingo' (all tiles used) bonus, if applicable
@@ -59,7 +59,7 @@ __Tab, Title & Background__
 - The title is placed at the top of the page above the terminal to clearly indicate the program in use.
 - Clicking the title will not refresh/redirect the page as this would interrupt the program.
 - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of the terminal.
-- A background image of a Scrabble board emphasises the theme of the program and helps with eye strain , preventing a dark terminal on a bright background
+- A background image of a Scrabble board emphasises the theme of the program and helps with eye strain , preventing a dark terminal on a white background
 
 ![Main Page](assets/images/mainpage.png)
 
@@ -76,7 +76,7 @@ __Terminal Formatting__
 
 __'Run Program' Button__
 
-- A button is placed below the terminal as a means of restarting the program after it ends or in the event of an error.
+- A button is placed below the terminal as a means of restarting the program after it ends or as desired.
 - The button is styled with hover elements to provide feedback to the user.
 
 ![Button](assets/images/button.png)
@@ -134,7 +134,7 @@ __Bonus Menu__
 
 __Word Score__
 - After all of these steps have been completed the final word score is displayed
-- This screen gives a base score, multiplied score, bonus score and final total
+- This screen gives a letter score, multiplied score, bonus score and final total
 - The word scored is also presented alongside the original string that was entered by the user
 - This breakdown allows the user to see exactly how they have scored the total given
 
@@ -142,10 +142,10 @@ __Word Score__
 
 __End Of Program Menu__
 - Immediately after the score is shown, various options appear on screen to benefit the user experience
-  1. The user can immediately score a new word without the need to change wordlist
-  2. The user can change wordlist before scoring again
-  3. The user can view all words scored so far, including their individual scores and total
-  4. The user can safely exit the program when finished
+ 1. The user can immediately score a new word without the need to change wordlist
+ 2. The user can change wordlist before scoring again
+ 3. The user can view all words scored so far, including their individual scores and total
+ 4. The user can safely exit the program when finished
 - This allows the program to be used in a continuous manner without the need to reset the terminal
 - Any invalid selection is noted by the program and notice is given to the user
 
@@ -244,7 +244,7 @@ The following tests have been run on each part of the program to ensure that it 
 
 ## Deployment
 
-A live link to the site can be found here: https://dashboard.heroku.com/apps/scrabble-scorepad 
+A live link to the site can be found here: https://scrabble-scorepad.herokuapp.com
 
 ### Heroku App Deployment
 
