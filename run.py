@@ -26,6 +26,8 @@ def wordlist_selector():
             print(white + 'Loading USA/CANADA (TWL06) wordlist...\n')
             wordlist_file = 'wl-us-twl.txt'
             break
+        elif wordlist_value == '':
+            print(red + 'You must select an option above to continue\n')
         else:
             print(red + f'{wordlist_value.upper()} is not a valid option\n')
 
@@ -231,7 +233,10 @@ def evaluate_multiplier(specified_word, word_score):
         try:
             int(multiplier)
         except Exception:
-            print(red + f'{multiplier.upper()} is not a valid option.\n')
+            if multiplier == '':
+                print(red + 'You must select an option above to continue\n')
+            else:
+                print(red + f'{multiplier.upper()} is not a valid option.\n')
         else:
             if int(multiplier) in range(1, upper_limit):
                 break
@@ -271,6 +276,8 @@ def evaluate_bonus(word_score):
         elif bonus == '2' or bonus == 'no' or bonus == 'n':
             print(white + 'No bonus to be applied\n')
             break
+        elif bonus == '':
+            print(red + 'You must select an option above to continue\n')
         else:
             print(red + f'Sorry, {bonus.upper()} is not a valid option.\n')
 
@@ -308,6 +315,8 @@ def end_menu(wordlist_file):
             print(cyan + 'Thank you for using Scrabble ScorePAD!')
             print(cyan + '--------------------------------------\n')
             break
+        elif option_value == '':
+            print(red + 'You must select an option above to continue\n')
         else:
             print(red + f'{option_value.upper()} is not a valid option.\n')
 
