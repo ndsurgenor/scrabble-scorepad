@@ -1,8 +1,11 @@
 # IMPORTS
-
+import os
+from flask import Flask, render_template, request, redirect, url_for
 from data import LETTER_VALUES, scored_words, scores_only
 from classes import CheckedString
 from styles import yellow, green, white, red, bright, cyan
+
+app = Flask(__name__)
 
 
 # FUNCTIONS
@@ -343,26 +346,11 @@ def score_stats():
     print(cyan + f'TOTAL SCORE = {total}\n')
 
 
-def main(wordlist):
-    """
-    Runs all top level functions within the program.
-    """
-    if wordlist == 'notset':
-        wordlist = wordlist_selector()
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    string = string_validator()
-    word = word_extractor(string)
-    valid_word = word_validator(wordlist, word)
-    evaluate_word(string, valid_word)
-    end_menu(wordlist)
-
-
-# PROGRAM EXECUTION
-
-print(cyan + '-----------------------------')
-print(cyan + 'Welcome To Scrabble ScorePAD!')
-print(cyan + '-----------------------------')
-print('When options appear type the number of your choice and hit Enter\n')
-
-wordlist_file = 'notset'
-main(wordlist_file)
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP', '0.0.0.0'),
+            port=int(os.environ.get('PORT', 8080)),
+            debug=True)
