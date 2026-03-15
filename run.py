@@ -96,8 +96,10 @@ def word_validator(wordlist_file, specified_word):
     """
     Checks that the word is contained within the selected wordlist.
     """
-    wordlist_txt = open('assets/wordlists/' + wordlist_file, 'r')
-    wordlist_txtlist = (wordlist_txt.read()).split('\n')
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(base_dir, 'assets', 'wordlists', wordlist_file)
+    with open(file_path, 'r') as wordlist_txt:
+        wordlist_txtlist = wordlist_txt.read().splitlines()
 
     if specified_word in wordlist_txtlist:
         return None
