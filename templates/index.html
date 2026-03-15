@@ -7,10 +7,56 @@
 </head>
 <body>
     <h1>Scrabble ScorePAD</h1>
+
+    {% if errors %}
+        <div style="color: red;">
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
     <form action="/score" method="post">
-        <label for="word">Word:</label>
-        <input type="text" id="word" name="word">
+        <div>
+            <label for="wordlist">Wordlist:</label>
+            <select name="wordlist" id="wordlist">
+                <option value="wl-eu-sowpods.txt">EU/World (SOWPODS)</option>
+                <option value="wl-us-twl.txt">USA/Canada (TWL)</option>
+            </select>
+        </div>
+        <div>
+            <label for="word">Word (+ modifiers):</label>
+            <input type="text" id="word" name="word" required>
+            <span>(e.g. W*ORD3S)</span>
+        </div>
+        <div>
+            <p>Word score multiplier:</p>
+            <input type="radio" id="mult1" name="multiplier" value="1" checked>
+            <label for="mult1">None</label>
+            <input type="radio" id="mult2" name="multiplier" value="2">
+            <label for="mult2">Double</label>
+            <input type="radio" id="mult3" name="multiplier" value="3">
+            <label for="mult3">Triple</label>
+        </div>
+        <div>
+            <input type="checkbox" id="bonus" name="bonus" value="50">
+            <label for="bonus">All tiles played bonus (50 points)</label>
+        </div>
+
         <button type="submit">Score Word</button>
     </form>
+
+    <hr>
+
+    <h2>Scored Words</h2>
+    <ul>
+        {% for score in scores %}
+            <li>{{ score }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Total Score: {{ total_score }}</h3>
+
 </body>
 </html>
